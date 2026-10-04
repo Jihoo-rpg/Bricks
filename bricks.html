@@ -243,6 +243,35 @@ body.h-lobby .hhud,body.h-lobby #hDot,body.h-lobby .hbtns,body.h-lobby #hPrompt{
 #hScare{position:fixed;inset:0;z-index:40;background:#000;display:grid;place-items:center}#hScareC{width:100%;height:100%;filter:contrast(1.6)}#hScare.go{animation:scare 1.7s steps(18) forwards}
 @keyframes scare{0%{transform:scale(.6);opacity:0}6%{transform:scale(1.15) translate(8px,-6px);opacity:1}12%{transform:scale(1.2) translate(-10px,8px)}20%{transform:scale(1.25) translate(6px,4px)}40%{transform:scale(1.3) translate(-4px,-8px);filter:invert(0)}44%{filter:invert(1)}48%{filter:invert(0)}100%{transform:scale(1.4);opacity:1}}
 .hbtns{display:none}body.touch .hbtns{display:grid;position:absolute;right:14px;bottom:24px;grid-template-columns:repeat(2,74px);gap:8px;pointer-events:auto}.hbtns button{height:60px;border-radius:14px;border:1px solid rgba(255,255,255,.5);background:rgba(0,0,0,.45);color:#eee;font:inherit;font-weight:700}
+
+/* ===== 모바일 정리 ===== */
+#chatTg{display:none}
+body.touch:not(.inhub) #exitBtn{left:10px!important;top:max(10px,env(safe-area-inset-top,0px))!important;bottom:auto!important;right:auto!important;transform:none!important;width:36px;height:36px;padding:0;border-radius:50%;font-size:0;opacity:.85;z-index:6}
+body.touch:not(.inhub) #exitBtn::before{content:'✕';font-size:16px;font-weight:900}
+body.touch:not(.inhub) #chatTg:not([hidden]){display:grid;place-items:center;position:absolute;left:52px;top:max(10px,env(safe-area-inset-top,0px));width:36px;height:36px;border-radius:50%;border:2px solid var(--ink);background:var(--panel);font-size:16px;z-index:6;padding:0;opacity:.85}
+#chatTg i{position:absolute;right:-2px;top:-2px;width:10px;height:10px;border-radius:50%;background:#e8453c}
+body.touch #chat{display:none}body.touch.chat-open #chat{display:block;left:10px!important;right:10px!important;top:54px!important;bottom:auto!important;width:auto!important;background:rgba(20,24,32,.75);border-radius:12px;padding:8px;z-index:5}
+body.touch.chat-open #chatLog{max-height:110px}
+body.touch #joy{width:112px;height:112px;left:14px;bottom:max(14px,env(safe-area-inset-bottom,0px))}body.touch #knob{width:44px;height:44px;margin:-22px 0 0 -22px}
+body.touch .tag b,body.touch .mtag b{font-size:10px}body.touch .tag i{width:40px;height:4px}
+body.touch #feed{right:10px;top:54px;max-width:60vw}body.touch #feed div{font-size:11px;padding:2px 7px}body.touch #feed div:nth-child(n+3){display:none}
+/* 전장 */
+body.touch #stat{left:auto;right:10px;top:10px;width:150px;padding:6px 8px;border-width:2px}body.touch #stat .name{font-size:13px}body.touch #stat .name small{font-size:10px}body.touch .bar{height:8px;margin-top:5px}body.touch #mtrTxt{display:none}body.touch .xprow{display:none}
+body.touch #board{display:none!important}body.touch #combo{display:none}
+body.touch #bar{grid-template-columns:repeat(3,54px)!important;gap:6px!important;right:10px!important;bottom:max(12px,env(safe-area-inset-bottom,0px))!important}
+body.touch .slot{width:54px!important;height:54px!important;padding:3px!important;border-width:2px;display:grid;place-items:center;text-align:center}body.touch .slot b{font-size:15px}body.touch .slot span{display:none}body.touch .slot .t{font-size:12px;right:3px;top:1px}
+body.touch #center{font-size:30px}body.touch #lvUp{font-size:28px}
+/* 점프맵/머더/모노크롬 */
+body.touch .ohud,body.touch .mhud{top:10px;left:auto;right:10px;transform:none;padding:5px 10px;gap:8px;font-size:12px}body.touch .ohud b,body.touch .mhud b{font-size:15px}body.touch .ohud small,body.touch .mhud small{display:none}
+body.touch .mbadge{top:48px;left:auto;right:10px;transform:none;font-size:11px}body.touch .mcd{top:72px;left:auto;right:10px;transform:none;width:90px}
+body.m-lobby .mbtns{display:none!important}body.touch .mbtns{grid-template-columns:repeat(2,64px)!important;gap:6px!important;bottom:max(14px,env(safe-area-inset-bottom,0px))!important}body.touch .mbtns button{height:54px!important;font-size:13px}
+body.touch .ojump{width:78px!important;height:78px!important;right:16px!important;bottom:max(20px,env(safe-area-inset-bottom,0px))!important}
+body.touch .hhud{left:auto;right:12px;top:12px;width:120px}body.touch .hhud b{font-size:13px}body.touch .hb span{display:none}
+body.touch .hbtns{grid-template-columns:repeat(2,58px)!important;gap:6px!important;bottom:max(14px,env(safe-area-inset-bottom,0px))!important}body.touch .hbtns button{height:48px!important;font-size:12px}
+body.touch #hLobby b{font-size:18px}body.touch #hLobby span{font-size:12px}body.touch #hMsg b{font-size:22px}body.touch #hMsg span{font-size:12px}
+body.touch .mrole{padding:14px 18px}body.touch .mrole b{font-size:26px}body.touch .mrole span{font-size:12px}body.touch #mBan b,body.touch #oBan{font-size:26px}
+/* 허브 */
+@media (max-width:760px){.hello{font-size:21px;margin-bottom:10px}#logoutBtn{display:none}#hub #gchatBtn{font-size:0;padding:6px 10px}#hub #gchatBtn::before{content:'💬';font-size:16px}#hub #gchatBtn i{font-size:11px}.rowhead{margin:16px 0 8px}.rowhead h3{font-size:16px}.htop{height:56px}.mechip{padding:2px}}
 #mTags{position:absolute;inset:0;pointer-events:none}.mtag{position:absolute;left:0;top:0;text-align:center;white-space:nowrap;color:#fff;font-size:12px;font-weight:700;text-shadow:0 1px 3px #000}
 .mtag em{display:block;max-width:180px;margin:0 auto 4px;white-space:normal;background:#fff;color:#111;border-radius:10px;padding:4px 9px;font-style:normal;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,.3)}
 body.g-murder #g3hud{display:block}
@@ -518,6 +547,7 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
           <p class="lbl">피부 색</p><div class="sw" id="swSkin"></div>
           <p class="lbl">하의 색</p><div class="sw" id="swPants"></div>
           <p class="muted small" id="avSaveNote">바꾸면 바로 저장되고, 게임 안 캐릭터에 그대로 적용돼요.</p>
+          <button class="ghost" id="logoutBtn2" style="margin-top:14px">로그아웃</button>
         </div>
       </div>
     </section>
@@ -557,11 +587,12 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
       
     </div>
     <p class="amsg" id="aMsg" role="alert"></p>
-    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 15</p>
+    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 16</p>
     <button class="alink" id="offlineBtn">로그인 없이 봇이랑 해보기</button>
   </div>
 </div>
 <button id="exitBtn" hidden>← bricks로 나가기</button>
+<button id="chatTg" hidden aria-label="채팅">💬<i id="chatDot" hidden></i></button>
 <div id="loadErr">3D 엔진을 불러오지 못했습니다. 페이지를 새로고침하세요.</div>
 </div>
 <script>
@@ -1942,7 +1973,7 @@ const Murder=(()=>{
     for(const [x,z,w,d] of [[0,LOBZ-15,44,1],[0,LOBZ+15,44,1],[-22,LOBZ,1,30],[22,LOBZ,1,30]]){const m=new THREE.Mesh(new THREE.BoxGeometry(w,4.2,d),new THREE.MeshLambertMaterial({color:'#2a2530'}));m.position.set(x,6.1,z);lobG.add(m);}})();
   function padSign(p,i){const txt=`${MAPS[p.k].n}`;const sub=`${votes[i]}표`;const key=txt+sub+(PH==='lobby'?Math.ceil(tL):'');if(p.last===key)return;p.last=key;const g=p.cv.getContext('2d');g.clearRect(0,0,512,200);g.fillStyle='rgba(0,0,0,.65)';g.fillRect(0,0,512,200);g.fillStyle='#fff';g.textAlign='center';g.font='bold 76px "Black Han Sans",sans-serif';g.fillText(txt,256,96);g.font='bold 44px "Noto Sans KR",sans-serif';g.fillStyle='#ffd34d';g.fillText(sub,256,166);p.tex.needsUpdate=true;}
   function padOf(x,z){for(let i=0;i<pads.length;i++)if(Math.hypot(x-pads[i].x,z-pads[i].z)<3.4)return i;return -1;}
-  function lobbyMove(dt){if(!LPm){const rig=makeRig({skin:avatar.sk,color:avatar.col,pc:avatar.pc,acc:okAcc(avatar)},lobG);LPm={rig,x:rr(-6,6),z:LOBZ+8,face:-Math.PI/2,walk:0,mv:0};cam.yaw=-Math.PI/2;}
+  function lobbyMove(dt){if(!LPm){const rig=makeRig({skin:avatar.sk,color:avatar.col,pc:avatar.pc,acc:okAcc(avatar)},lobG);LPm={rig,x:rr(-6,6),z:LOBZ+4,face:-Math.PI/2,walk:0,mv:0};cam.yaw=-Math.PI/2;}
     let fwd=(keys.w||keys.arrowup?1:0)-(keys.s||keys.arrowdown?1:0),rt=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0);fwd-=jv.y;rt+=jv.x;const fx=Math.cos(cam.yaw),fz=Math.sin(cam.yaw);let mx=fx*fwd-fz*rt,mz=fz*fwd+fx*rt;const m=Math.hypot(mx,mz);if(m>1){mx/=m;mz/=m;}
     LPm.x=Math.max(-21,Math.min(21,LPm.x+mx*7*dt));LPm.z=Math.max(LOBZ-14,Math.min(LOBZ+14,LPm.z+mz*7*dt));LPm.mv=Math.min(1,m);if(m>.15){const tg=Math.atan2(mz,mx),df=Math.atan2(Math.sin(tg-LPm.face),Math.cos(tg-LPm.face));LPm.face+=df*Math.min(1,dt*14);}}
   function humansNow(){const arr=[[myId,{n:myName,col:avatar.col,sk:avatar.sk,pc:avatar.pc,h:avatar.hat,f:avatar.face,b:avatar.back,lx:LPm?LPm.x:0,lz:LPm?LPm.z:LOBZ}]];const now=Date.now();for(const [id,v] of pres)if(id!==myId&&now-v.at<7000)arr.push([id,v]);return arr;}
@@ -1961,7 +1992,7 @@ const Murder=(()=>{
       PV.set(o.x,3.8,o.z).project(camera);if(PV.z>1||PH!=='lobby'){o.tag.style.display='none';}else{o.tag.style.display='';o.tag.style.transform=`translate(${(PV.x+1)/2*W}px,${(1-PV.y)/2*H}px) translate(-50%,-100%)`;}}
     for(const [id,o] of lobR)if(!pres.has(id)){lobG.remove(o.rig.g);o.tag.remove();lobR.delete(id);}
     pads.forEach((p,i)=>{padSign(p,i);p.pad.material.emissiveIntensity=.2+.15*Math.sin(clock*3+i)+(padOf(LPm.x,LPm.z)===i?.4:0);});
-    const fx=Math.cos(cam.yaw),fz=Math.sin(cam.yaw);const hd=10*Math.cos(cam.pitch);camera.position.set(LPm.x-fx*hd,2.6+10*Math.sin(cam.pitch),LPm.z-fz*hd);camera.lookAt(LPm.x,2.6,LPm.z);renderer.render(MS,camera);}
+    const fx=Math.cos(cam.yaw),fz=Math.sin(cam.yaw);const hd=8*Math.cos(cam.pitch);const camX=Math.max(-20.5,Math.min(20.5,LPm.x-fx*hd)),camZ=Math.max(LOBZ-14.3,Math.min(LOBZ+14.3,LPm.z-fz*hd));camera.position.set(camX,Math.min(7.6,2.6+8*Math.sin(cam.pitch)),camZ);camera.lookAt(LPm.x,2.6,LPm.z);renderer.render(MS,camera);}
 
   /* ---------- state ---------- */
   let NET=null,isHost=true,myId='me',active=false,state='idle',tLeft=0,tState=0,round=0,res=null,myRole='innocent',myCoins=0,wins=0,roster={},spec=null,specT=0,mapName='',lastSnapT=0,endInfo=null;
@@ -2880,6 +2911,13 @@ $('pLeave').addEventListener('click',()=>{leaveParty();$('fHubMsg').textContent=
 $('pStart').addEventListener('click',()=>{if(Party.ref&&Party.host===me.uid)Party.ref.update({state:'playing',seed:Math.floor(Math.random()*1e9)+1}).catch(()=>{});});
 function listenInvites(){bref('invites/'+me.uid).on('child_added',s_=>{const v=s_.val()||{};s_.ref.remove().catch(()=>{});const age=Date.now()+serverOffset-(+v.at||0);if(age>10*60*1000||!keyOk(v.from)||typeof v.code!=='string')return;
   const gm=v.game==='murder'?'murder':'forest';notify('파티 초대',`${v.from}님이 '${gm==='murder'?'머더 미스터리':'99일 숲에서 살아남아라'}' 파티에 초대했어요`,null,[['참가',()=>{if(!$('hub').hidden||!running){openGame('murder');joinParty(v.code);}},'y'],['나중에',()=>{}]]);});}
+
+/* ---------- 모바일 채팅 토글 ---------- */
+$('chatTg').addEventListener('click',()=>{document.body.classList.toggle('chat-open');$('chatDot').hidden=true;if(document.body.classList.contains('chat-open'))setTimeout(()=>$('chatIn').focus(),50);});
+new MutationObserver(()=>{if(TOUCH&&!document.body.classList.contains('chat-open')&&!document.body.classList.contains('inhub'))$('chatDot').hidden=false;}).observe(document.getElementById('chatLog'),{childList:true});
+$('chatIn').addEventListener('blur',()=>{if(TOUCH)setTimeout(()=>document.body.classList.remove('chat-open'),150);});
+$('logoutBtn2').addEventListener('click',()=>$('logoutBtn').click());
+setInterval(()=>{const inGame=!document.body.classList.contains('inhub');$('chatTg').hidden=!(TOUCH&&inGame);document.body.classList.toggle('m-lobby',GAME==='murder'&&inGame&&!!document.querySelector('#mMap')&&$('mMap').textContent==='맵 투표');},400);
 
 /* ---------- hub global chat ---------- */
 let gcUnread=0;
