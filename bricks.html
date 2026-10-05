@@ -598,7 +598,7 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
       
     </div>
     <p class="amsg" id="aMsg" role="alert"></p>
-    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 17</p>
+    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 18</p>
     <button class="alink" id="offlineBtn">로그인 없이 봇이랑 해보기</button>
   </div>
 </div>
@@ -2317,7 +2317,7 @@ const Horror=(()=>{
   const losE=(a,b)=>losF(a.x,a.z,b.x,b.z);
   function collide(e,r){r=r||.38;const i=ci(e.x),j=cj(e.z);for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const i2=i+a,j2=j+b;if(i2<0||j2<0||i2>=N||j2>=N)continue;for(const w of bucket[i2*N+j2]){const hx=w.w/2+r,hz=w.d/2+r;const dx=e.x-w.x,dz=e.z-w.z;if(Math.abs(dx)<hx&&Math.abs(dz)<hz){const ox=hx-Math.abs(dx),oz=hz-Math.abs(dz);if(ox<oz)e.x+=Math.sign(dx)*ox;else e.z+=Math.sign(dz)*oz;}}}
     const lim=N*CS/2-.7;e.x=Math.max(-lim,Math.min(lim,e.x));e.z=Math.max(-lim,Math.min(lim,e.z));}
-  const ghostMat=new THREE.MeshPhongMaterial({color:'#f2f2f2',emissive:'#3a3a3a',shininess:20}),hairMat=new THREE.MeshPhongMaterial({color:'#050505',shininess:30}),voidMat=new THREE.MeshBasicMaterial({color:'#000000'});
+  const ghostMat=new THREE.MeshPhongMaterial({color:'#f2f2f2',emissive:'#555555',shininess:20,fog:true}),hairMat=new THREE.MeshPhongMaterial({color:'#050505',shininess:30}),voidMat=new THREE.MeshBasicMaterial({color:'#000000'});
   function ghostM(sc){const g=new THREE.Group();const dress=new THREE.Mesh(new THREE.CylinderGeometry(.35,.75,3.2,10,1,true),ghostMat);dress.position.y=1.7;g.add(dress);
     const torso=new THREE.Mesh(new THREE.CylinderGeometry(.28,.35,1,8),ghostMat);torso.position.y=3.6;g.add(torso);
     const neck=new THREE.Group();neck.position.y=4.15;g.add(neck);const head=new THREE.Mesh(new THREE.SphereGeometry(.34,12,10),ghostMat);head.scale.set(.9,1.15,.95);head.position.y=.32;neck.add(head);
@@ -2489,14 +2489,14 @@ const Horror=(()=>{
     else if(g.mode==='invest'||g.mode==='search'){if(g.mode==='search'){g.searchT-=dt;if(g.searchT<=0){g.mode='wander';g.sawHide=-1;}}
       if(g.think<=0&&g.last){g.think=2.2;const c=randNear(g.last.x,g.last.z,1);g.path=gridPath(g.x,g.z,c.x,c.z,true);}if(g.mode==='invest'&&!g.path.length){g.mode='search';g.searchT=7;}}
     else{if(g.think<=0||!g.path.length){g.think=rr(5,10);const t=ps.length?R_(ps):null;const c=t&&Math.random()<.65?randNear(t.x,t.z,3):{x:cx(Math.floor(Math.random()*N)),z:cz(Math.floor(Math.random()*N))};g.path=gridPath(g.x,g.z,c.x,c.z,true);}
-      if(g.tp<=0&&ps.length){g.tp=rr(22,38);const t=R_(ps);const c=randNear(t.x,t.z,4);if(Math.hypot(c.x-t.x,c.z-t.z)>7&&!ps.some(p=>losF(c.x,c.z,p.x,p.z))){g.x=c.x;g.z=c.z;g.path=[];}}}
+      if(g.tp<=0&&ps.length){g.tp=rr(45,70);const far=ps.every(p=>Math.hypot(p.x-g.x,p.z-g.z)>CS*9&&!losF(g.x,g.z,p.x,p.z));const t=R_(ps);const c=randNear(t.x,t.z,5);if(far&&Math.hypot(c.x-t.x,c.z-t.z)>CS*4&&!ps.some(p=>losF(c.x,c.z,p.x,p.z)||Math.hypot(c.x-p.x,c.z-p.z)<CS*3)){g.x=c.x;g.z=c.z;g.path=[];}}}
     stepPath(g,sp0,dt);
     const tp=seen||ps.find(p=>p.id===g.tgt);if(tp&&g.mode==='chase'&&tp.hidden<0&&losF(g.x,g.z,tp.x,tp.z)){const dd=Math.hypot(g.x-tp.x,g.z-tp.z);if(dd<3&&dd>.4){const ox=g.x,oz=g.z;g.x+=(tp.x-g.x)/dd*sp0*dt;g.z+=(tp.z-g.z)/dd*sp0*dt;if(isSafe(ci(g.x),cj(g.z))){g.x=ox;g.z=oz;}g.face=Math.atan2(tp.z-g.z,tp.x-g.x);}}
     for(const p of ps)if(p.hidden<0&&Math.hypot(g.x-p.x,g.z-p.z)<1.2&&!isSafe(ci(p.x),cj(p.z)))catchP(p.id,'그녀에게 잡혔다.');}
   function catchP(id,why){dead[id]=1;if(id===myId)jumpscare(why);else{const o=others.get(id);if(o)o.dead=true;}for(const g of ghosts){if(g.tgt===id){g.mode='wander';g.think=0;g.path=[];}}}
   function noteHide(id,idx){if(idx>=0){hideCnt[id]=(hideCnt[id]||0)+1;if(!hideTh[id])hideTh[id]=8+Math.floor(Math.random()*3);}}
   function scareEvent(){const r=Math.random();if(ghosts.some(g=>g.mode==='chase'))return;
-    if(r<.35&&!phantom){for(let t=0;t<12;t++){const a=cam.yaw+rr(-.2,.2),d=rr(6,11);const x=P.x+Math.cos(a)*d,z=P.z+Math.sin(a)*d;if(!losF(P.x,P.z,x,z)||isSafe(ci(x),cj(z)))continue;phantom={m:ghostM(),t:.9};phantom.m.g.position.set(x,0,z);phantom.m.g.rotation.y=Math.atan2(P.x-x,P.z-z);burst(.8,1800,4,.18,'bandpass');return;}}
+    if(r<.35){let n=0;const iv=setInterval(()=>{burst(.07,500,1,.06+n*.012);if(++n>6)clearInterval(iv);},420);return;}
     if(r<.6){whisper();return;}if(r<.8){burst(.9,300,2,.35);burst(.4,120,1,.4);return;}
     const L=lampsM.filter(l=>Math.hypot(l.position.x-P.x,l.position.z-P.z)<16);if(L.length){const l=R_(L);let n=0;const iv=setInterval(()=>{const on=n%2;l.material=W('#444',on?'#ffffff':'#000000');if(l.userData.L)l.userData.L.intensity=on?1.1:0;if(++n>11){clearInterval(iv);l.material=W('#444','#000000');if(l.userData.L)l.userData.L.intensity=0;}},80);tone(60,1.2,.08,'square');}}
   /* ---------- 네트워크 ---------- */
@@ -2546,10 +2546,10 @@ const Horror=(()=>{
     else if(chests.some(c=>!c.open&&Math.hypot(c.ex-P.x,c.ez-P.z)<1.4))pr=(TOUCH?'':'E  ')+'서랍 열기';else if(hides.some(h=>Math.hypot(h.ex-P.x,h.ez-P.z)<1.3))pr=(TOUCH?'':'E  ')+'숨기';
     const pe=$h('hPrompt');pe.hidden=!pr;pe.textContent=pr;}
   /* ---------- 렌더 ---------- */
-  const PV=new THREE.Vector3();
+  const PV=new THREE.Vector3();let fl_t=0;
   function render(dt){clock+=dt;if(mode==='lobby'){renderLobby(dt);grain(dt);return;}if(!P)return;
     for(const g of ghosts){if(!isHost&&g.tx!==undefined){const k=Math.min(1,dt*10);g.x+=(g.tx-g.x)*k;g.z+=(g.tz-g.z)*k;}
-      g.m.g.position.set(g.x+(g.mode==='chase'&&Math.random()<.08?rr(-.25,.25):0),0,g.z);g.m.g.rotation.y=Math.PI/2-g.face;g.m.g.visible=!(g.mode==='chase'&&Math.random()<.1);
+      g.m.g.position.set(g.x,0,g.z);g.m.g.rotation.y=Math.PI/2-g.face;g.m.g.visible=true;
       g.m.neck.rotation.z=Math.sin(clock*1.7+g.id)*.25+(g.mode==='chase'?Math.sin(clock*23)*.15:0);g.m.neck.rotation.x=g.mode==='chase'?.25:g.mode==='inspect'?.45:.05;g.m.arms.forEach((a,i)=>{a.rotation.x=g.mode==='chase'?-1.2+Math.sin(clock*9+i)*.25:Math.sin(clock*.8+i)*.08;});}
     for(const o of others.values()){const k=Math.min(1,dt*12);const px=o.x,pz=o.z;o.x+=(o.tx-o.x)*k;o.z+=(o.tz-o.z)*k;const sp=Math.hypot(o.x-px,o.z-pz)/Math.max(dt,.001);o.walk+=Math.min(1,sp/4)*dt*10;const sw=Math.sin(o.walk)*.8*Math.min(1,sp/4);
       const rg=o.rig;rg.g.visible=o.hid<0;rg.g.position.set(o.x,0,o.z);rg.g.rotation.y=Math.PI/2-o.yw;rg.b.rotation.x=o.dead?-Math.PI/2:0;rg.b.position.y=o.dead?.6:2.4;rg.aL.rotation.x=-sw;rg.aR.rotation.x=o.fl?-1.3:sw;rg.lL.rotation.x=sw;rg.lR.rotation.x=-sw;
@@ -2558,8 +2558,8 @@ const Horror=(()=>{
     if(P.hidden){const h=P.hidden;ex=h.x+Math.cos(h.face)*.15;ez=h.z+Math.sin(h.face)*.15;ey=1.9;}
     if(P.dead){const alive=[...others.values()].filter(o=>!o.dead);if(alive.length){if(!spec||spec.dead)spec=alive[0];ex=spec.x;ez=spec.z;ey=1.95;yaw=spec.yw;pitch=-.05;}else{ey-=.7;pitch=.3;}}
     camera.position.set(ex,ey,ez);const cp=Math.cos(pitch);camera.lookAt(ex+Math.cos(yaw)*cp,ey+Math.sin(pitch),ez+Math.sin(yaw)*cp);
-    let near=1e9;for(const g of ghosts)near=Math.min(near,Math.hypot(g.x-ex,g.z-ez));const flick=near<10&&Math.random()<.3;const myFlash=P.dead?(spec&&spec.fl):P.flash&&!P.hidden;
-    torch.intensity=myFlash?(flick?rr(0,1.2):2.6)*(!P.dead&&P.bat<15?(.4+.6*Math.random()):1):0;torch.position.set(ex+Math.cos(yaw)*.1,ey-.15,ez+Math.sin(yaw)*.1);torch.target.position.set(ex+Math.cos(yaw)*cp*5,ey+Math.sin(pitch)*5,ez+Math.sin(yaw)*cp*5);
+    let near=1e9;for(const g of ghosts)near=Math.min(near,Math.hypot(g.x-ex,g.z-ez));fl_t=(fl_t||0)-dt;if(near<9&&fl_t<=0&&Math.random()<dt*.6){fl_t=.35;}const flick=fl_t>0&&Math.sin(clock*60)>0;const myFlash=P.dead?(spec&&spec.fl):P.flash&&!P.hidden;
+    torch.intensity=myFlash?(flick?1.4:2.6)*(!P.dead&&P.bat<15?(.4+.6*Math.random()):1):0;torch.position.set(ex+Math.cos(yaw)*.1,ey-.15,ez+Math.sin(yaw)*.1);torch.target.position.set(ex+Math.cos(yaw)*cp*5,ey+Math.sin(pitch)*5,ez+Math.sin(yaw)*cp*5);
     aura.position.set(ex,ey,ez);aura.intensity=P.hidden?.04:.4;
     if(P.hidden){const h=P.hidden;$h('hSlit').style.opacity=1-Math.min(.7,(h.cur||0));}
     renderer.render(MS,camera);grain(dt);}
