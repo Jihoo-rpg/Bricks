@@ -620,7 +620,7 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
       
     </div>
     <p class="amsg" id="aMsg" role="alert"></p>
-    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 23</p>
+    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 24</p>
     <button class="alink" id="offlineBtn">로그인 없이 봇이랑 해보기</button>
   </div>
 </div>
@@ -2712,6 +2712,8 @@ const WordCafe=(()=>{
   const tableKey=i=>'t'+i;const SECS=12;
   function seatsOf(ti){const t=TABLES[ti];const arr=t.seats.map(()=>null);const ppl=[[myId,{n:myName,j:joinJ,st:seat,at:Date.now()}],...pres];
     ppl.sort((a,b)=>(+a[1].j||0)-(+b[1].j||0));for(const [id,v] of ppl){if(id!==myId&&Date.now()-v.at>8000)continue;const s=id===myId?seat:v.st;if(!s||s.t!==ti)continue;if(arr[s.s]===null)arr[s.s]={u:id,n:String(v.n||id).slice(0,12),j:+v.j||0};}return arr;}
+  function liveS(ti){return seatsOf(ti).some(Boolean)?TS_[ti]:null;}
+  function clearIfEmpty(ti){const rest=seatsOf(ti).filter(p=>p&&p.u!==myId);if(!rest.length){TS_[ti]=fresh(ti);if(NET)NET.ref.child('tables/'+tableKey(ti)).remove().catch(()=>{});}}
   function tableHost(ti){const st=TS_[ti];const occ=seatsOf(ti).filter(Boolean);if(!occ.length)return null;occ.sort((a,b)=>a.j-b.j||(a.u<b.u?-1:1));return occ[0].u;}
   /* ---------- 테이블 게임 (호스트) ---------- */
   function fresh(ti){const t=TABLES[ti];return{st:'wait',n:t.n,k:t.kind,ai:t.seats.map(()=>0),agree:{},lives:t.kind==='ffa'?[2,2,2,2]:[2,2],turn:-1,word:'',used:[],log:[],until:0,win:-1,mode:'',rd:0};}
@@ -2770,23 +2772,23 @@ const WordCafe=(()=>{
       for(const t of TABLES){const r=t.n===8?5.6:t.n===4?2.2:1.9;const dx=P.x-t.x,dz=P.z-t.z;if(t.n===8){if(Math.abs(dx)<4.6&&Math.abs(dz)<1.2){P.z=t.z+Math.sign(dz||1)*1.2;}}else{const d=Math.hypot(dx,dz);const rr2=t.n===2?1.3:1.6;if(d<rr2){P.x=t.x+dx/d*rr2;P.z=t.z+dz/d*rr2;}}}}
     else{const t=TABLES[seat.t],s=t.seats[seat.s];P.x=s.x;P.z=s.z;P.face=s.face;P.mv=0;}
     // host election per table & host tick
-    hostT-=dt;if(hostT<=0){hostT=.25;TABLES.forEach((t,i)=>{const h=tableHost(i)||(seat&&seat.t===i?myId:null);const was=hostOf[i];hostOf[i]=h;if(h===myId){if(was!==myId&&NET){NET.ref.child('tables/'+tableKey(i)).get().then(s_=>{if(!TS_[i]||TS_[i].st==='wait'){const v=s_.val();if(v)TS_[i]=v;}}).catch(()=>{});}
+    hostT-=dt;if(hostT<=0){hostT=.25;TABLES.forEach((t,i)=>{const h=tableHost(i)||(seat&&seat.t===i?myId:null);const was=hostOf[i];hostOf[i]=h;if(h===myId){if(was!==myId){const others_=seatsOf(i).filter(p=>p&&p.u!==myId);if(!others_.length||!TS_[i]){TS_[i]=fresh(i);pushTable(i);}}
         if(DICT&&hostTable(i,.25))pushTable(i);}});}
     if(NET){presT-=dt;if(presT<=0){presT=seat?.12:.1;NET.ref.child('players/'+myId).set({n:myName,col:avatar.col,sk:avatar.sk,pc:avatar.pc,a:{h:avatar.hat,f:avatar.face,b:avatar.back},j:joinJ,x:+P.x.toFixed(2),z:+P.z.toFixed(2),f:+P.face.toFixed(2),mv:+P.mv.toFixed(1),st:seat||null,ty:(seat&&document.getElementById('wIn')?document.getElementById('wIn').value.slice(0,15):''),at:TS()}).catch(()=>{});}}
     // bumped from seat?
     if(seat){const arr=seatsOf(seat.t);const occ=arr[seat.s];if(occ&&occ.u!==myId){seat=null;msg('그 자리는 이미 누가 앉았어요');}}
     hud();}
   function nearSeat(){let best=null,bd=2.2;TABLES.forEach((t,ti)=>t.seats.forEach((s,si)=>{const d=Math.hypot(s.x-P.x,s.z-P.z);if(d<bd){bd=d;best={t:ti,s:si};}}));return best;}
-  function sitToggle(){if(seat){seat=null;closePanel();return;}const ns=nearSeat();if(!ns)return;const arr=seatsOf(ns.t);if(arr[ns.s]&&arr[ns.s].u!==myId){msg('이미 누가 앉아 있어요');return;}const S=TS_[ns.t];if(S&&S.st!=='wait'&&!(S.ai&&S.ai[ns.s])){msg('게임이 진행 중이에요');return;}
+  function sitToggle(){if(seat){clearIfEmpty(seat.t);seat=null;closePanel();return;}const ns=nearSeat();if(!ns)return;const arr=seatsOf(ns.t);if(arr[ns.s]&&arr[ns.s].u!==myId){msg('이미 누가 앉아 있어요');return;}const S=liveS(ns.t);if(S&&S.st!=='wait'&&!(S.ai&&S.ai[ns.s])){msg('게임이 진행 중이에요');return;}if(!S){TS_[ns.t]=fresh(ns.t);}
     seat=ns;openPanel();if(!DICT)loadDict();}
-  function onKey(k){if(!active)return;if(k==='e')sitToggle();else if(k==='escape'&&seat){seat=null;closePanel();}}
+  function onKey(k){if(!active)return;if(k==='e')sitToggle();else if(k==='escape'&&seat){clearIfEmpty(seat.t);seat=null;closePanel();}}
   /* ---------- UI ---------- */
   function msg(t_){const b=$w('wToast');b.textContent=t_;b.hidden=false;clearTimeout(msg.t);msg.t=setTimeout(()=>b.hidden=true,2200);}
   function openPanel(){$w('wPanel').hidden=false;document.body.classList.add('w-seated');setTimeout(()=>{if(!TOUCH)$w('wIn').focus();},50);if(document.pointerLockElement)document.exitPointerLock();}
   function closePanel(){$w('wPanel').hidden=true;document.body.classList.remove('w-seated');}
   let lastLogKey='',lastErr=0;const endSeen={};
   function hud(){const ns=!seat&&nearSeat();const pr=$w('wPrompt');pr.hidden=!ns;pr.textContent=seat?(TOUCH?'':'E  ')+'일어나기':(TOUCH?'':'E  ')+'앉기';$w('wSit').textContent='앉기';$w('wSit').hidden=!ns;
-    TABLES.forEach((t,i)=>{const S=TS_[i];const arr=seatsOf(i);const cnt=arr.filter(Boolean).length+(S?S.ai.filter(Boolean).length:0);const label=t.kind==='ffa'?'4인':t.n===2?'1:1':'2:2';sign(t,label,S&&S.st==='play'?`게임 중 ${S.mode}`:`${cnt}/${t.n}`);});
+    TABLES.forEach((t,i)=>{const S=liveS(i);const arr=seatsOf(i);const cnt=arr.filter(Boolean).length+(S?S.ai.filter(Boolean).length:0);const label=t.kind==='ffa'?'4인':t.n===2?'1:1':'2:2';sign(t,label,S&&S.st==='play'?`게임 중 ${S.mode}`:`${cnt}/${t.n}`);});
     if(!seat){for(const b of Object.values(seatBub))b.style.display='none';return;}const ti=seat.t,t=TABLES[ti],S=TS_[ti]||fresh(ti),arr=seatsOf(ti);const now=Date.now()+serverOffset;const ffa=t.kind==='ffa';
     $w('wTitle').textContent=(ffa?'4인 개인전':t.n===2?'1:1':'2:2')+(S.st==='play'?` · ${S.mode}`:'');
     const hearts=k=>'♥'.repeat(Math.max(0,S.lives[k]||0))+'♡'.repeat(Math.max(0,2-(S.lives[k]||0)));const FC=['tA','tB','tG','tY'];
@@ -2823,7 +2825,7 @@ const WordCafe=(()=>{
       o.rig.g.position.set(o.x,st?.55:0,o.z);o.rig.g.rotation.y=Math.PI/2-tf;o.rig.lL.rotation.x=st?-1.5:s2;o.rig.lR.rotation.x=st?-1.5:-s2;o.rig.aL.rotation.x=st?-.9:-s2;o.rig.aR.rotation.x=st?-.9:s2;
       PV.set(o.x,3.9,o.z).project(camera);if(PV.z>1)o.tag.style.display='none';else{o.tag.style.display='';o.tag.style.transform=`translate(${(PV.x+1)/2*W}px,${(1-PV.y)/2*H}px) translate(-50%,-100%)`;}}
     // AI bots seated
-    TABLES.forEach((t,ti)=>{const S=TS_[ti];t.bots=t.bots||[];t.seats.forEach((s,si)=>{const want=S&&S.ai&&S.ai[si];let b=t.bots[si];if(want&&!b){const r=makeRig({skin:R_(['#f5cd57','#ffdbac','#e0ac69']),color:R_(['#8b4fd1','#2bb3b1','#c9a227','#5a6070']),pc:'#38414f',acc:{hat:R_(['cap','phones','tophat','none']),face:'smile'}},WS);r.g.position.set(s.x,.55,s.z);r.g.rotation.y=Math.PI/2-s.face;r.lL.rotation.x=r.lR.rotation.x=-1.5;r.aL.rotation.x=r.aR.rotation.x=-.9;t.bots[si]=r;}
+    TABLES.forEach((t,ti)=>{const S=liveS(ti);t.bots=t.bots||[];t.seats.forEach((s,si)=>{const want=S&&S.ai&&S.ai[si];let b=t.bots[si];if(want&&!b){const r=makeRig({skin:R_(['#f5cd57','#ffdbac','#e0ac69']),color:R_(['#8b4fd1','#2bb3b1','#c9a227','#5a6070']),pc:'#38414f',acc:{hat:R_(['cap','phones','tophat','none']),face:'smile'}},WS);r.g.position.set(s.x,.55,s.z);r.g.rotation.y=Math.PI/2-s.face;r.lL.rotation.x=r.lR.rotation.x=-1.5;r.aL.rotation.x=r.aR.rotation.x=-.9;t.bots[si]=r;}
       else if(!want&&b){WS.remove(b.g);t.bots[si]=null;}});});
     for(const b of bubs){b.t-=dt;PV.set(b.x,4.4,b.z).project(camera);if(PV.z>1||b.t<=0)b.d.style.display='none';else{b.d.style.display='';b.d.style.opacity=Math.min(1,b.t);b.d.style.transform=`translate(${(PV.x+1)/2*W}px,${(1-PV.y)/2*H}px) translate(-50%,-100%)`;}if(b.t<=0)b.d.remove();}bubs=bubs.filter(b=>b.t>0);
     // camera
@@ -2843,14 +2845,14 @@ const WordCafe=(()=>{
     let lastTry='';
     $w('wForm').addEventListener('submit',ev=>{ev.preventDefault();if(!seat)return;const w=$w('wIn').value.trim();if(!w)return;lastTry=w;$w('wIn').value='';$w('wAdd').hidden=true;act(seat.t,{a:'word',w});});
     $w('wStart').onclick=()=>{if(!DICT){msg('사전을 불러오는 중이에요');return;}act(seat.t,{a:'start'});};$w('wAI').onclick=()=>act(seat.t,{a:'ai'});$w('wAgree').onclick=()=>{act(seat.t,{a:'agree'});msg('2:1에 동의했어요');};
-    $w('wGive').onclick=()=>act(seat.t,{a:'giveup'});$w('wUp').onclick=()=>{seat=null;closePanel();};$w('wSit').addEventListener('pointerdown',ev=>{ev.preventDefault();sitToggle();});
+    $w('wGive').onclick=()=>act(seat.t,{a:'giveup'});$w('wUp').onclick=()=>{if(seat)clearIfEmpty(seat.t);seat=null;closePanel();};$w('wSit').addEventListener('pointerdown',ev=>{ev.preventDefault();sitToggle();});
     $w('wAdd').onclick=()=>{if(!lastTry)return;act(seat.t,{a:'addword',w:lastTry});$w('wAdd').hidden=true;msg(`'${lastTry}'를 사전에 추가했어요. 다시 내보세요`);};
     if(!P){const rig=makeRig({skin:avatar.sk,color:avatar.col,pc:avatar.pc,acc:okAcc(avatar)},WS);P={rig,x:0,z:14,face:-Math.PI/2,mv:0,walk:0};}P.x=rr(-3,3);P.z=11;seat=null;cam.yaw=-Math.PI/2;cam.pitch=.4;cam.dist=9;cam.tx=P.x;cam.tz=P.z;
     if(opt.srv&&me&&rtdb)connect(opt.srv);else{NET=null;myId='me';joinJ=0;}loadDict().then(ok=>{if(!ok)msg('사전을 불러오지 못했어요');});msg('빈 의자에 가서 E를 눌러 앉으세요');}
   function thumb(){if(!GL_OK)return'';try{const t=TABLES[4];const r1=makeRig({skin:'#ffdbac',color:'#e8453c',pc:'#38414f',acc:{hat:'cap'}},WS),r2=makeRig({skin:'#f1c27d',color:'#3d7dd8',pc:'#38414f',acc:{hat:'phones'}},WS);
       [[r1,0],[r2,2]].forEach(([r,i])=>{const s=t.seats[i];r.g.position.set(s.x,.55,s.z);r.g.rotation.y=Math.PI/2-s.face;r.lL.rotation.x=r.lR.rotation.x=-1.5;r.aL.rotation.x=r.aR.rotation.x=-.9;});
       sign(t,'2:2','게임 중 2:2');camera.position.set(t.x+5,6,t.z+6);camera.lookAt(t.x,1.5,t.z);renderer.render(WS,camera);const u=C.toDataURL('image/jpeg',.82);WS.remove(r1.g);WS.remove(r2.g);t.last='';return u;}catch(err){console.warn(err);return'';}}
-  function leave(){try{if(NET)NET.ref.child('players/'+myId).remove();}catch(err){}}
+  function leave(){try{if(seat)clearIfEmpty(seat.t);seat=null;if(NET)NET.ref.child('players/'+myId).remove();}catch(err){}}
   return{start,update,render,onKey,thumb,leave,padBusy:()=>!!seat&&document.activeElement===$w('wIn'),stop(){active=false;}};
 })();
 
