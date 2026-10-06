@@ -261,15 +261,21 @@ body.g-word #g3hud{display:block}
 #wToast{position:absolute;left:50%;top:18%;transform:translateX(-50%);background:rgba(20,16,12,.85);color:#fff;padding:8px 16px;border-radius:10px;font-weight:700;white-space:nowrap}
 #wPrompt{position:absolute;left:50%;bottom:22%;transform:translateX(-50%);color:#fff;font-weight:700;text-shadow:0 1px 4px #000}
 #wSit{display:none}body.touch #wSit:not([hidden]){display:block;position:absolute;right:18px;bottom:max(24px,env(safe-area-inset-bottom,0px));width:84px;height:60px;border-radius:14px;border:2px solid #fff;background:rgba(30,22,16,.7);color:#fff;font:inherit;font-weight:900;pointer-events:auto}
-#wPanel{position:absolute;right:14px;top:14px;bottom:14px;width:min(380px,calc(100% - 28px));background:rgba(28,22,18,.92);color:#f3ece0;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:8px;pointer-events:auto;box-shadow:0 10px 40px rgba(0,0,0,.4)}
-.wh{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.wh b{font-family:'Black Han Sans',sans-serif;font-weight:400;font-size:20px}#wLives{display:flex;gap:10px;font-weight:900;font-size:13px}
-.tA{color:#ff7a6e}.tB{color:#7fb8ff}.tG{color:#7ee06a}.tY{color:#ffd34d}#wSeats{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.ws{font-size:11px;font-weight:700;padding:4px;border-radius:6px;background:rgba(255,255,255,.07);text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;border:2px solid transparent}.ws.empty{opacity:.45}.ws.turn{border-color:#ffd34d}
-#wWord{text-align:center;font-family:'Black Han Sans',sans-serif;font-size:42px;letter-spacing:2px;min-height:56px}#wWord b{color:#ffd34d;font-weight:400}#wWord small{font-family:inherit;font-size:14px;opacity:.7}
-.wtm{height:6px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}.wtm i{display:block;height:100%;background:linear-gradient(90deg,#e8453c,#ffd34d);transition:width .25s linear}
-#wTurn{text-align:center;font-weight:900;min-height:20px}#wLog{flex:1;overflow:auto;font-size:14px;display:flex;flex-direction:column;gap:3px;min-height:60px}#wLog .sys{opacity:.65;font-size:12px}
-#wForm{display:flex;gap:6px}#wForm input{flex:1;min-width:0;font:inherit;font-size:18px;padding:10px 12px;border-radius:10px;border:2px solid #6b5a48;background:#1a1410;color:#fff}#wForm input:disabled{opacity:.5}#wForm button{border:0;border-radius:10px;background:#ffd34d;color:#1a1410;font:inherit;font-weight:900;padding:0 16px}
-.wbtns{display:flex;flex-wrap:wrap;gap:6px}.wbtns button{border:1px solid #6b5a48;background:#2a2018;color:#f3ece0;border-radius:8px;padding:7px 10px;font:inherit;font-size:13px;font-weight:700;cursor:pointer}#wStart{background:#1fa463!important;border-color:#1fa463!important;color:#fff!important}
-body.touch #wPanel{top:auto;bottom:0;right:0;left:0;width:auto;height:58%;border-radius:16px 16px 0 0}body.touch.w-seated #joy{display:none}body.touch #wWord{font-size:32px;min-height:42px}
+#wPanel{position:absolute;inset:0;pointer-events:none;color:#fff}#wPanel button,#wPanel input,#wPanel form{pointer-events:auto}
+#wTop{position:absolute;left:12px;top:56px;display:flex;flex-direction:column;gap:4px;max-width:46vw}#wTop b{font-family:'Black Han Sans',sans-serif;font-weight:400;font-size:18px;text-shadow:0 2px 4px #000}
+#wSeats{display:flex;flex-direction:column;gap:3px}.ws{font-size:12px;font-weight:900;padding:3px 9px;border-radius:999px;background:rgba(0,0,0,.45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:2px solid transparent;width:max-content;max-width:100%}.ws.empty{opacity:.4}.ws.turn{border-color:#ffd34d;background:rgba(0,0,0,.7)}
+.tA{color:#ff8a7e}.tB{color:#8fc4ff}.tG{color:#8eea7a}.tY{color:#ffd34d}
+#wLog{position:absolute;right:12px;top:56px;width:min(240px,40vw);display:flex;flex-direction:column;gap:3px;font-size:13px;font-weight:700;text-shadow:0 1px 3px #000}#wLog div{background:rgba(0,0,0,.35);padding:2px 8px;border-radius:8px;width:max-content;max-width:100%;margin-left:auto}#wLog .sys{opacity:.75;font-size:11px}
+#wBottom{position:absolute;left:50%;bottom:max(14px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);width:min(520px,94vw);display:flex;flex-direction:column;align-items:center;gap:7px}
+#wAsk{font-weight:900;font-size:17px;text-shadow:0 2px 4px #000,0 0 2px #000;white-space:nowrap}.wtm{width:70%;height:6px;border-radius:3px;background:rgba(0,0,0,.4);overflow:hidden}.wtm i{display:block;height:100%;background:linear-gradient(90deg,#e8453c,#ffd34d);transition:width .25s linear}
+#wX{display:flex;gap:10px}#wX i{width:46px;height:46px;border-radius:50%;background:rgba(80,80,80,.55);border:2px solid rgba(255,255,255,.35);position:relative}#wX i.on{background:rgba(120,30,30,.8)}#wX i.on::before,#wX i.on::after{content:'';position:absolute;left:50%;top:50%;width:30px;height:7px;border-radius:3px;background:#e8453c;transform:translate(-50%,-50%) rotate(45deg)}#wX i.on::after{transform:translate(-50%,-50%) rotate(-45deg)}
+#wX.shake{animation:wshake .35s}@keyframes wshake{25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-4px)}}
+#wForm{display:flex;gap:6px;width:100%}#wForm input{flex:1;min-width:0;font:inherit;font-size:20px;font-weight:900;text-align:center;padding:10px 12px;border-radius:12px;border:3px solid #111;background:#fff;color:#111}#wForm button{border:3px solid #111;border-radius:12px;background:#ffd34d;color:#111;font:inherit;font-weight:900;padding:0 16px}
+#wTurn{font-weight:900;font-size:14px;text-shadow:0 1px 3px #000}
+.wbtns{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}.wbtns button{border:2px solid #111;background:#fff;color:#111;border-radius:10px;padding:7px 11px;font:inherit;font-size:13px;font-weight:900;cursor:pointer}#wStart{background:#1fa463!important;color:#fff!important}
+.wsay{position:absolute;left:0;top:0;background:#fff;color:#111;border:3px solid #111;border-radius:16px;padding:6px 16px;font-family:'Black Han Sans',sans-serif;font-size:30px;line-height:1.15;white-space:nowrap;box-shadow:0 4px 0 rgba(0,0,0,.25);pointer-events:none;min-width:40px;text-align:center}
+.wsay.typing::after{content:'|';margin-left:2px;animation:wblink .8s steps(1) infinite;color:#888}@keyframes wblink{50%{opacity:0}}
+body.w-seated #chat{display:none!important}body.touch .wsay{font-size:22px;padding:4px 12px}body.touch #wX i{width:36px;height:36px}body.touch #wX i.on::before,body.touch #wX i.on::after{width:24px;height:6px}body.touch #wLog{display:none}body.touch #wTop{top:52px}body.touch.w-seated #joy{display:none}
 /* ===== 모바일 정리 ===== */
 #chatTg{display:none}
 body.touch:not(.inhub) #exitBtn{left:10px!important;top:max(10px,env(safe-area-inset-top,0px))!important;bottom:auto!important;right:auto!important;transform:none!important;width:36px;height:36px;padding:0;border-radius:50%;font-size:0;opacity:.85;z-index:6}
@@ -614,7 +620,7 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
       
     </div>
     <p class="amsg" id="aMsg" role="alert"></p>
-    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 22</p>
+    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 23</p>
     <button class="alink" id="offlineBtn">로그인 없이 봇이랑 해보기</button>
   </div>
 </div>
@@ -2717,8 +2723,8 @@ const WordCafe=(()=>{
       seats.forEach((p,i)=>{if(!p&&!S.ai[i]&&S.part&&S.part[i]){S.ai[i]=1;dirty=true;}});
       if(!seats.some(Boolean)){TS_[ti]=fresh(ti);return true;}
       if(now>S.until){failTurn(S,ti,'시간 초과');dirty=true;}
-      else if(S.ai[S.turn]&&!S.aiAt){S.aiAt=now+rr(1100,3600);}
-      if(S.ai[S.turn]&&S.aiAt&&now>S.aiAt){S.aiAt=0;const w=aiWord(S);if(w)submit(S,ti,S.turn,w);else failTurn(S,ti,'단어가 떠오르지 않음');dirty=true;}}
+      else if(S.ai[S.turn]&&!S.aiAt){const w=aiWord(S);S.aiW=w||'';S.aiT0=now+rr(600,1800);S.aiAt=S.aiT0+(w?w.length*260+500:2500);dirty=true;}
+      if(S.ai[S.turn]&&S.aiAt&&now>S.aiAt){S.aiAt=0;const w=S.aiW;if(w&&!check(S,w))submit(S,ti,S.turn,w);else failTurn(S,ti,'단어가 떠오르지 않음');dirty=true;}}
     else if(S.st==='end'){if(now>S.until){const ai=S.ai;TS_[ti]=fresh(ti);TS_[ti].ai=ai.map(()=>0);dirty=true;}}
     return dirty;}
   function seat2players(S,seats){return seats.map((p,i)=>p||(S.ai[i]?{ai:1}:null));}
@@ -2731,7 +2737,7 @@ const WordCafe=(()=>{
     else if(A!==B)return '인원이 맞지 않아요 (AI로 채우기)';
     S.part=part;S.mode=`${A}:${B}`;S.st='play';S.lives=[2,2];S.used=[];S.log=[];S.rd=1;S.ord=order(S);S.oi=0;S.turn=S.ord[0];newRound(S,'게임 시작');return null;}
   function newRound(S,why){let w='';for(let t=0;t<200;t++){const c=COMMON.length?R_(COMMON):R_(IDX.get(R_([...IDX.keys()])));if(c.length>=2&&c.length<=3&&conts(c[c.length-1])>30){w=c;break;}}S.word=w;S.used=[w];S.log.push({s:-1,w,why});if(S.log.length>8)S.log.shift();S.until=Date.now()+serverOffset+SECS*1000;S.aiAt=0;}
-  function nextTurn(S){for(let k=0;k<S.ord.length;k++){S.oi=(S.oi+1)%S.ord.length;S.turn=S.ord[S.oi];if(S.k!=='ffa'||S.lives[S.turn]>0)break;}const sec=Math.max(6,SECS-Math.floor(S.used.length/6));S.until=Date.now()+serverOffset+sec*1000;S.aiAt=0;}
+  function nextTurn(S){for(let k=0;k<S.ord.length;k++){S.oi=(S.oi+1)%S.ord.length;S.turn=S.ord[S.oi];if(S.k!=='ffa'||S.lives[S.turn]>0)break;}const sec=Math.max(6,SECS-Math.floor(S.used.length/6));S.until=Date.now()+serverOffset+sec*1000;S.aiAt=0;S.tries=0;S.aiW='';S.aiT0=0;}
   function check(S,w){if(!/^[가-힣]{2,15}$/.test(w))return '한글 두 글자 이상';const last=S.word[S.word.length-1];if(!starts(last).includes(w[0]))return `'${starts(last).join('/')}'(으)로 시작해야 해요`;if(S.used.includes(w))return '이미 나온 단어';if(!DICT.has(w))return '사전에 없는 단어';return null;}
   function submit(S,ti,si,w){const err=check(S,w);if(err)return err;S.word=w;S.used.push(w);S.log.push({s:si,w});if(S.log.length>8)S.log.shift();
     if(conts(w[w.length-1])===0){S.log.push({s:-1,w:'',why:`한방 단어! '${w[w.length-1]}'로 이을 단어가 없어요`});}nextTurn(S);if(conts(w[w.length-1])===0){S.until=Date.now()+serverOffset+2500;}return null;}
@@ -2745,7 +2751,7 @@ const WordCafe=(()=>{
   function hostAct(ti,a){const S=TS_[ti]||(TS_[ti]=fresh(ti));const seats=seatsOf(ti);const si=seats.findIndex(p=>p&&p.u===a.u);
     if(a.a==='ai'){if(S.st!=='wait')return;S.ai=seats.map((p,i)=>p?0:1);}else if(a.a==='noai'){if(S.st!=='wait')return;S.ai=S.ai.map(()=>0);}
     else if(a.a==='agree'){if(si>=0)S.agree[a.u]=1;}else if(a.a==='start'){if(S.st==='wait'){const e=startGame(ti);if(e)S.msg=e;}}
-    else if(a.a==='word'){if(S.st!=='play'||si<0||S.turn!==si)return;const w=String(a.w||'').trim();const e=submit(S,ti,si,w);if(e){S.err={u:a.u,e,at:Date.now()};}}
+    else if(a.a==='word'){if(S.st!=='play'||si<0||S.turn!==si)return;const w=String(a.w||'').trim();const e=submit(S,ti,si,w);if(e){S.tries=(S.tries||0)+1;S.err={u:a.u,e,w,at:Date.now()};if(S.tries>=5){failTurn(S,ti,'5번 틀림');}}}
     else if(a.a==='giveup'){if(S.st==='play'&&S.turn===si)failTurn(S,ti,'포기');}
     else if(a.a==='addword'){const w=String(a.w||'');if(/^[가-힣]{2,15}$/.test(w)){addWord(w);if(NET)bref('wdict/'+w).set(1).catch(()=>{});}}
     pushTable(ti);}
@@ -2766,7 +2772,7 @@ const WordCafe=(()=>{
     // host election per table & host tick
     hostT-=dt;if(hostT<=0){hostT=.25;TABLES.forEach((t,i)=>{const h=tableHost(i)||(seat&&seat.t===i?myId:null);const was=hostOf[i];hostOf[i]=h;if(h===myId){if(was!==myId&&NET){NET.ref.child('tables/'+tableKey(i)).get().then(s_=>{if(!TS_[i]||TS_[i].st==='wait'){const v=s_.val();if(v)TS_[i]=v;}}).catch(()=>{});}
         if(DICT&&hostTable(i,.25))pushTable(i);}});}
-    if(NET){presT-=dt;if(presT<=0){presT=.1;NET.ref.child('players/'+myId).set({n:myName,col:avatar.col,sk:avatar.sk,pc:avatar.pc,a:{h:avatar.hat,f:avatar.face,b:avatar.back},j:joinJ,x:+P.x.toFixed(2),z:+P.z.toFixed(2),f:+P.face.toFixed(2),mv:+P.mv.toFixed(1),st:seat||null,at:TS()}).catch(()=>{});}}
+    if(NET){presT-=dt;if(presT<=0){presT=seat?.12:.1;NET.ref.child('players/'+myId).set({n:myName,col:avatar.col,sk:avatar.sk,pc:avatar.pc,a:{h:avatar.hat,f:avatar.face,b:avatar.back},j:joinJ,x:+P.x.toFixed(2),z:+P.z.toFixed(2),f:+P.face.toFixed(2),mv:+P.mv.toFixed(1),st:seat||null,ty:(seat&&document.getElementById('wIn')?document.getElementById('wIn').value.slice(0,15):''),at:TS()}).catch(()=>{});}}
     // bumped from seat?
     if(seat){const arr=seatsOf(seat.t);const occ=arr[seat.s];if(occ&&occ.u!==myId){seat=null;msg('그 자리는 이미 누가 앉았어요');}}
     hud();}
@@ -2779,27 +2785,39 @@ const WordCafe=(()=>{
   function openPanel(){$w('wPanel').hidden=false;document.body.classList.add('w-seated');setTimeout(()=>{if(!TOUCH)$w('wIn').focus();},50);if(document.pointerLockElement)document.exitPointerLock();}
   function closePanel(){$w('wPanel').hidden=true;document.body.classList.remove('w-seated');}
   let lastLogKey='',lastErr=0;const endSeen={};
-  function hud(){const ns=!seat&&nearSeat();const pr=$w('wPrompt');pr.hidden=!(ns||seat);pr.textContent=seat?(TOUCH?'':'E  ')+'일어나기':(TOUCH?'':'E  ')+'앉기';$w('wSit').textContent=seat?'일어나기':'앉기';$w('wSit').hidden=!(ns||seat);
+  function hud(){const ns=!seat&&nearSeat();const pr=$w('wPrompt');pr.hidden=!ns;pr.textContent=seat?(TOUCH?'':'E  ')+'일어나기':(TOUCH?'':'E  ')+'앉기';$w('wSit').textContent='앉기';$w('wSit').hidden=!ns;
     TABLES.forEach((t,i)=>{const S=TS_[i];const arr=seatsOf(i);const cnt=arr.filter(Boolean).length+(S?S.ai.filter(Boolean).length:0);const label=t.kind==='ffa'?'4인':t.n===2?'1:1':'2:2';sign(t,label,S&&S.st==='play'?`게임 중 ${S.mode}`:`${cnt}/${t.n}`);});
-    if(!seat)return;const ti=seat.t,t=TABLES[ti],S=TS_[ti]||fresh(ti),arr=seatsOf(ti);const now=Date.now()+serverOffset;
-    const ffa=t.kind==='ffa';$w('wTitle').textContent=(ffa?'4인 개인전':t.n===2?'1:1':'2:2')+' 테이블'+(S.st==='play'?`  (${S.mode})`:'');
-    const hearts=k=>'♥'.repeat(Math.max(0,S.lives[k]||0))+'♡'.repeat(Math.max(0,2-(S.lives[k]||0)));$w('wLives').innerHTML='';if(!ffa){const la=document.createElement('span');la.className='tA';la.textContent='빨강 '+hearts(0);const lb=document.createElement('span');lb.className='tB';lb.textContent=hearts(1)+' 파랑';$w('wLives').append(la,lb);}
-    const FC=['tA','tB','tG','tY'];const sl=$w('wSeats');sl.replaceChildren();t.seats.forEach((s,i)=>{const d=document.createElement('div');d.className='ws '+(ffa?FC[i]:TEAMS[t.n][i]?'tB':'tA')+(S.st==='play'&&S.turn===i?' turn':'');const p=arr[i];d.textContent=(p?p.n:S.ai[i]?AINAMES[i%AINAMES.length]:'빈 자리')+(ffa&&S.st!=='wait'&&S.part&&S.part[i]?' '+(S.lives[i]>0?hearts(i):'탈락'):'');if(!p&&!S.ai[i])d.classList.add('empty');sl.appendChild(d);});
-    const W_=$w('wWord');if(S.st==='play'||S.st==='end'){const w=S.word||'';W_.replaceChildren();const a=document.createElement('span');a.textContent=w.slice(0,-1);const b=document.createElement('b');b.textContent=w.slice(-1);W_.append(a,b);const st=starts(w.slice(-1));if(st.length>1){const c=document.createElement('small');c.textContent=` (${st[1]}도 가능)`;W_.appendChild(c);}}else W_.textContent=DICT?'준비 중':'사전 불러오는 중…';
-    const left=Math.max(0,(S.until-now)/1000);$w('wTimer').style.width=S.st==='play'?Math.min(100,left/SECS*100)+'%':'0%';
-    const myTurn=S.st==='play'&&S.turn===seat.s&&arr[seat.s]&&arr[seat.s].u===myId;$w('wIn').disabled=!myTurn;$w('wIn').placeholder=myTurn?`'${(S.word||'').slice(-1)}'(으)로 시작하는 단어`:(S.st==='play'?'상대 차례':'시작을 기다리는 중');$w('wTurn').textContent=myTurn?`내 차례! ${Math.ceil(left)}초`:S.st==='play'?`${(arr[S.turn]&&arr[S.turn].n)||AINAMES[S.turn%AINAMES.length]} 차례 ${Math.ceil(left)}초`:'';
-    const lk=JSON.stringify(S.log);if(lk!==lastLogKey){lastLogKey=lk;const L=$w('wLog');L.replaceChildren();for(const e of (S.log||[])){const d=document.createElement('div');if(e.s<0){d.className='sys';d.textContent=e.why+(e.w?` → ${e.w}`:'');}else{const nm=(arr[e.s]&&arr[e.s].n)||AINAMES[e.s%AINAMES.length];d.className=ffa?FC[e.s]:TEAMS[t.n][e.s]?'tB':'tA';d.textContent=e.w?`${nm}: ${e.w}`:`${nm}: ${e.why}`;if(e.w)bubble(e.s,ti,e.w);}L.appendChild(d);}L.scrollTop=L.scrollHeight;}
-    if(S.err&&S.err.u===myId&&S.err.at!==lastErr){lastErr=S.err.at;msg(S.err.e);if(S.err.e==='사전에 없는 단어')$w('wAdd').hidden=false;}
-    const wait=S.st==='wait';$w('wStart').hidden=!wait;$w('wAI').hidden=!wait;$w('wAgree').hidden=!(wait&&t.n===4&&arr.filter(Boolean).length+S.ai.filter(Boolean).length===3);$w('wGive').hidden=!myTurn;
-    if(S.msg&&wait){$w('wTurn').textContent=S.msg;}
-    if(S.st==='end'&&S.win>=0&&endSeen[ti]!==S.until){endSeen[ti]=S.until;const mine=ffa?seat.s:TEAMS[t.n][seat.s];msg(S.win===mine?'승리!':'패배…');if(S.win===mine){gainXP(20,'끝말잇기 승리');wins++;onRecord('word',wins);}}}
+    if(!seat){for(const b of Object.values(seatBub))b.style.display='none';return;}const ti=seat.t,t=TABLES[ti],S=TS_[ti]||fresh(ti),arr=seatsOf(ti);const now=Date.now()+serverOffset;const ffa=t.kind==='ffa';
+    $w('wTitle').textContent=(ffa?'4인 개인전':t.n===2?'1:1':'2:2')+(S.st==='play'?` · ${S.mode}`:'');
+    const hearts=k=>'♥'.repeat(Math.max(0,S.lives[k]||0))+'♡'.repeat(Math.max(0,2-(S.lives[k]||0)));const FC=['tA','tB','tG','tY'];
+    const sl=$w('wSeats');sl.replaceChildren();t.seats.forEach((st,i)=>{const p=arr[i];const on=p||S.ai[i];const d=document.createElement('div');d.className='ws '+(ffa?FC[i]:TEAMS[t.n][i]?'tB':'tA')+(S.st==='play'&&S.turn===i?' turn':'')+(on?'':' empty');
+      const lv=S.st!=='wait'&&S.part&&S.part[i]?(ffa?hearts(i):hearts(TEAMS[t.n][i])):'';d.textContent=(p?p.n:S.ai[i]?AINAMES[i%AINAMES.length]:'빈 자리')+(lv?'  '+(ffa&&S.lives[i]<=0?'탈락':lv):'');sl.appendChild(d);});
+    const playing=S.st==='play';const w=S.word||'';const last=w.slice(-1);const st=starts(last);
+    $w('wAsk').textContent=playing?`'${st.join("' / '")}' 로 시작하는 단어`:S.st==='end'?(S.win>=0?'게임 끝':'게임 끝'):DICT?(S.msg||'시작을 누르세요'):'사전 불러오는 중…';
+    const left=Math.max(0,(S.until-now)/1000);$w('wTimer').style.width=playing?Math.min(100,left/SECS*100)+'%':'0%';
+    const myTurn=playing&&S.turn===seat.s&&arr[seat.s]&&arr[seat.s].u===myId;const inp=$w('wIn');inp.disabled=!myTurn;inp.placeholder=myTurn?`'${last}'(으)로 시작`:'';$w('wForm').style.visibility=myTurn?'visible':'hidden';
+    const tn=playing?((arr[S.turn]&&arr[S.turn].n)||AINAMES[S.turn%AINAMES.length]):'';$w('wTurn').textContent=playing?(myTurn?`내 차례  ${Math.ceil(left)}`:`${tn} 차례  ${Math.ceil(left)}`):'';
+    const X=$w('wX');const tries=playing?(S.tries||0):0;if(X.childElementCount!==5){X.replaceChildren();for(let k=0;k<5;k++){const c=document.createElement('i');X.appendChild(c);}}[...X.children].forEach((c,k)=>c.className=k<tries?'on':'');X.style.visibility=playing?'visible':'hidden';
+    const lk=JSON.stringify(S.log);if(lk!==lastLogKey){lastLogKey=lk;const L=$w('wLog');L.replaceChildren();for(const e of (S.log||[]).slice(-4)){const d=document.createElement('div');if(e.s<0){d.className='sys';d.textContent=e.why+(e.w?` → ${e.w}`:'');}else{const nm=(arr[e.s]&&arr[e.s].n)||AINAMES[e.s%AINAMES.length];d.className=ffa?FC[e.s]:TEAMS[t.n][e.s]?'tB':'tA';d.textContent=e.w?`${nm}: ${e.w}`:`${nm}: ${e.why}`;if(e.w){lastSaid[ti+':'+e.s]={w:e.w,at:Date.now()};}}L.appendChild(d);}}
+    if(S.err&&S.err.u===myId&&S.err.at!==lastErr){lastErr=S.err.at;msg(S.err.e);flashX();if(S.err.e==='사전에 없는 단어')$w('wAdd').hidden=false;}
+    const wait=S.st==='wait';$w('wStart').hidden=!wait;$w('wAI').hidden=!wait;$w('wAgree').hidden=!(wait&&t.n===4&&!ffa&&arr.filter(Boolean).length+S.ai.filter(Boolean).length===3);$w('wGive').hidden=!myTurn;
+    if(S.st==='end'&&S.win>=0&&endSeen[ti]!==S.until){endSeen[ti]=S.until;const mine=ffa?seat.s:TEAMS[t.n][seat.s];msg(S.win===mine?'승리!':'패배…');if(S.win===mine){gainXP(20,'끝말잇기 승리');wins++;onRecord('word',wins);}}
+    // speech bubbles over heads
+    t.seats.forEach((sp,i)=>{const k=ti+':'+i;let el=seatBub[k];if(!el){el=document.createElement('div');el.className='wsay';$w('wTags').appendChild(el);seatBub[k]=el;}
+      const p=arr[i];const on=p||S.ai[i];let txt='',typing=false;
+      if(playing&&S.turn===i){typing=true;if(p&&p.u===myId)txt=inp.value;else if(p){const v=pres.get(p.u);txt=v&&v.ty||'';}else if(S.ai[i]&&S.aiW&&now>S.aiT0){txt=S.aiW.slice(0,Math.min(S.aiW.length,Math.floor((now-S.aiT0)/260)+1));}}
+      else{const ls=lastSaid[k];if(ls&&Date.now()-ls.at<3500)txt=ls.w;}
+      if(!on||(!txt&&!typing)){el.style.display='none';return;}el.textContent=txt||' ';el.classList.toggle('typing',typing);
+      PV.set(sp.x,4.25,sp.z).project(camera);if(PV.z>1){el.style.display='none';return;}el.style.display='';el.style.transform=`translate(${(PV.x+1)/2*W}px,${(1-PV.y)/2*H}px) translate(-50%,-100%)`;});}
+  const seatBub={},lastSaid={};
+  function flashX(){const X=$w('wX');X.classList.remove('shake');void X.offsetWidth;X.classList.add('shake');}
   const PV=new THREE.Vector3();const bubT={};
   function bubble(si,ti,w){const k=ti+':'+si;if(bubT[k]===w)return;bubT[k]=w;const t=TABLES[ti],s=t.seats[si];const d=document.createElement('div');d.className='wbub';d.textContent=w;$w('wTags').appendChild(d);const b={d,x:s.x,z:s.z,t:2.6};bubs.push(b);}
   let bubs=[];
   /* ---------- 렌더 ---------- */
   function rigSit(rg,sit){rg.lL.rotation.x=sit?-1.45:rg.lL.rotation.x;rg.lR.rotation.x=sit?-1.45:rg.lR.rotation.x;}
   function render(dt){if(!P)return;clock+=dt;
-    const ry=seat?.55:0;P.rig.g.visible=!seat;TABLES.forEach((t,i)=>{if(t.sprite===undefined){t.sprite=null;}});P.walk+=P.mv*dt*11;const sw=Math.sin(P.walk)*.9*P.mv;const rg=P.rig;rg.g.position.set(P.x,ry,P.z);rg.g.rotation.y=Math.PI/2-P.face;rg.aL.rotation.x=seat?-.9:-sw;rg.aR.rotation.x=seat?-.9:sw;rg.lL.rotation.x=seat?-1.5:sw;rg.lR.rotation.x=seat?-1.5:-sw;
+    const ry=seat?.55:0;{const SS=seat&&TS_[seat.t];P.rig.g.visible=!seat||(SS&&SS.st==='play');}TABLES.forEach((t,i)=>{if(t.sprite===undefined){t.sprite=null;}});P.walk+=P.mv*dt*11;const sw=Math.sin(P.walk)*.9*P.mv;const rg=P.rig;rg.g.position.set(P.x,ry,P.z);rg.g.rotation.y=Math.PI/2-P.face;rg.aL.rotation.x=seat?-.9:-sw;rg.aR.rotation.x=seat?-.9:sw;rg.lL.rotation.x=seat?-1.5:sw;rg.lR.rotation.x=seat?-1.5:-sw;
     const now=Date.now();for(const [id,v] of pres){if(now-v.at>8000)continue;let o=others.get(id);if(!o){const r=makeRig({skin:okCol(v.sk)?v.sk:'#f5cd57',color:okCol(v.col)?v.col:'#888',pc:okCol(v.pc)?v.pc:'#38414f',acc:remAcc(v.a)},WS);const tag=document.createElement('div');tag.className='mtag';const b=document.createElement('b');b.textContent=String(v.n||'').slice(0,12);tag.appendChild(b);$w('wTags').appendChild(tag);o={rig:r,tag,x:+v.x||0,z:+v.z||0,walk:0};others.set(id,o);}
       const st=v.st&&TABLES[v.st.t]&&TABLES[v.st.t].seats[v.st.s];const tx=st?st.x:+v.x||0,tz=st?st.z:+v.z||0,tf=st?st.face:+v.f||0;const k=Math.min(1,dt*12);o.x+=(tx-o.x)*k;o.z+=(tz-o.z)*k;o.walk+=(+v.mv||0)*dt*11;const s2=Math.sin(o.walk)*.9*(+v.mv||0);
       o.rig.g.position.set(o.x,st?.55:0,o.z);o.rig.g.rotation.y=Math.PI/2-tf;o.rig.lL.rotation.x=st?-1.5:s2;o.rig.lR.rotation.x=st?-1.5:-s2;o.rig.aL.rotation.x=st?-.9:-s2;o.rig.aR.rotation.x=st?-.9:s2;
@@ -2810,16 +2828,18 @@ const WordCafe=(()=>{
     for(const b of bubs){b.t-=dt;PV.set(b.x,4.4,b.z).project(camera);if(PV.z>1||b.t<=0)b.d.style.display='none';else{b.d.style.display='';b.d.style.opacity=Math.min(1,b.t);b.d.style.transform=`translate(${(PV.x+1)/2*W}px,${(1-PV.y)/2*H}px) translate(-50%,-100%)`;}if(b.t<=0)b.d.remove();}bubs=bubs.filter(b=>b.t>0);
     // camera
     TABLES.forEach((t,i)=>{t.cv&&(t.spr=t.spr||null);});
-    if(seat){const t=TABLES[seat.t],s=t.seats[seat.s];let dx=s.x-t.x,dz=s.z-t.z;const dl=Math.hypot(dx,dz)||1;dx/=dl;dz/=dl;const bx=s.x+dx*.9,bz=s.z+dz*.9;camera.position.lerp(new THREE.Vector3(bx,4.1,bz),Math.min(1,dt*6));camera.lookAt(t.x-dx*.8,1.9,t.z-dz*.8);}
+    const SS=seat&&TS_[seat.t];const focus=seat&&SS&&SS.st==='play'?SS.turn:-1;
+    if(seat&&focus>=0){const t=TABLES[seat.t],s=t.seats[focus];let dx=s.x-t.x,dz=s.z-t.z;const dl=Math.hypot(dx,dz)||1;dx/=dl;dz/=dl;const fx=t.x-dx*1.5,fz=t.z-dz*1.5;camera.position.lerp(new THREE.Vector3(fx,3.9,fz),Math.min(1,dt*4));camera.lookAt(s.x,3.45,s.z);}
+    else if(seat){const t=TABLES[seat.t],s=t.seats[seat.s];let dx=s.x-t.x,dz=s.z-t.z;const dl=Math.hypot(dx,dz)||1;dx/=dl;dz/=dl;const bx=s.x+dx*.9,bz=s.z+dz*.9;camera.position.lerp(new THREE.Vector3(bx,4.1,bz),Math.min(1,dt*6));camera.lookAt(t.x-dx*.8,1.9,t.z-dz*.8);}
     else{const k=Math.min(1,dt*10);cam.tx+=(P.x-cam.tx)*k;cam.tz+=(P.z-cam.tz)*k;const fx=Math.cos(cam.yaw),fz=Math.sin(cam.yaw);const hd=cam.dist*Math.cos(cam.pitch);camera.position.set(Math.max(-24.6,Math.min(24.6,cam.tx-fx*hd)),Math.min(6.6,2.6+cam.dist*Math.sin(cam.pitch)),Math.max(-19,Math.min(19,cam.tz-fz*hd)));camera.lookAt(cam.tx,2.6,cam.tz);}
-    TABLES.forEach((t,i)=>{t.spr.visible=!(seat&&seat.t===i);});
+    TABLES.forEach((t,i)=>{t.spr.visible=!seat;});
     renderer.render(WS,camera);}
   /* ---------- 시작 ---------- */
   let wins=0;
   function start(opt){opt=opt||{};active=true;wins=myRec('word');const h=document.getElementById('g3hud');h.innerHTML=`<div id="wTags"></div><div id="wToast" hidden></div><div id="wPrompt" hidden></div><button id="wSit" hidden>앉기</button>
-      <div id="wPanel" hidden><div class="wh"><b id="wTitle"></b><div id="wLives"></div></div><div id="wSeats"></div><div id="wWord"></div><div class="wtm"><i id="wTimer"></i></div><div id="wTurn"></div>
-      <div id="wLog"></div><form id="wForm"><input id="wIn" maxlength="15" autocomplete="off" placeholder=""><button>내기</button></form>
-      <div class="wbtns"><button id="wStart">시작</button><button id="wAI">빈 자리 AI로 채우기</button><button id="wAgree" hidden>2:1 동의</button><button id="wGive" hidden>포기</button><button id="wAdd" hidden>방금 단어 사전에 추가</button><button id="wUp">일어나기</button></div></div>`;
+      <div id="wPanel" hidden><div id="wTop"><b id="wTitle"></b><div id="wSeats"></div></div><div id="wLog"></div>
+      <div id="wBottom"><div id="wAsk"></div><div class="wtm"><i id="wTimer"></i></div><div id="wX"></div><form id="wForm"><input id="wIn" maxlength="15" autocomplete="off" placeholder=""><button>내기</button></form><div id="wTurn"></div>
+      <div class="wbtns"><button id="wStart">시작</button><button id="wAI">빈 자리 AI로 채우기</button><button id="wAgree" hidden>2:1 동의</button><button id="wGive" hidden>포기</button><button id="wAdd" hidden>방금 단어 사전에 추가</button><button id="wUp">일어나기</button></div></div></div>`;
     let lastTry='';
     $w('wForm').addEventListener('submit',ev=>{ev.preventDefault();if(!seat)return;const w=$w('wIn').value.trim();if(!w)return;lastTry=w;$w('wIn').value='';$w('wAdd').hidden=true;act(seat.t,{a:'word',w});});
     $w('wStart').onclick=()=>{if(!DICT){msg('사전을 불러오는 중이에요');return;}act(seat.t,{a:'start'});};$w('wAI').onclick=()=>act(seat.t,{a:'ai'});$w('wAgree').onclick=()=>{act(seat.t,{a:'agree'});msg('2:1에 동의했어요');};
