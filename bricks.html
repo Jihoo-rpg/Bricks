@@ -348,6 +348,17 @@ body.touch #qzTop{left:136px;transform:none;width:calc(100vw - 150px);padding:4p
 @media (max-width:760px){#updBanner{padding:16px;min-height:118px}#updBanner p{max-width:70%;font-size:12px}#updBanner h2{font-size:24px}.hside button.isnew::after{right:50%;margin-right:-24px;top:0}}
 #rgEmo{position:absolute;left:50%;bottom:max(14px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;flex-wrap:wrap;gap:4px;justify-content:center;max-width:94vw;pointer-events:auto}#rgEmo button{border:0;border-radius:999px;background:rgba(10,10,16,.6);color:#fff;font-size:18px;width:38px;height:38px;cursor:pointer}#rgEmo[hidden]{display:none}
 body.touch #rgEmo{bottom:96px;left:56%}body.touch #rgEmo button{width:32px;height:32px;font-size:15px}
+
+#walletBtn{display:flex;align-items:center;gap:6px;font-weight:900;padding:6px 12px}#walletBtn b{font-variant-numeric:tabular-nums;color:#e0a000}#walletBtn.flash{animation:wflash .9s infinite alternate}@keyframes wflash{to{box-shadow:0 0 0 3px #ffb02e}}
+.avwallet{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;background:var(--hp_);border:1px solid var(--hl);border-radius:12px;padding:8px 12px;margin-bottom:12px;font-size:13px}.avwallet .wb{font-weight:900;font-size:15px}.avwallet .wp{color:var(--hm)}.avwallet button{border:0;background:var(--go);color:#fff;border-radius:999px;padding:4px 12px;font-weight:900;cursor:pointer}.avwallet .wf{width:100%;font-weight:900;color:#e0552d}
+.acc button{position:relative}.acc .ptag{font-style:normal;font-size:11px;font-weight:900}.acc .ptag s{opacity:.55;margin-right:2px}.acc .ptag.own{color:var(--go)}.acc .sbadge{position:absolute;top:4px;left:4px;background:#e8453c;color:#fff;font-style:normal;font-size:10px;font-weight:900;border-radius:6px;padding:0 5px}.acc u{position:absolute;top:3px;right:5px;text-decoration:none;font-size:11px;opacity:.8}.acc button.prev{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc) inset}.acc .sk{opacity:.6;font-size:10px}
+.avbuy{position:sticky;bottom:0;margin-top:12px;background:var(--hp_);border:2px solid var(--acc);border-radius:14px;padding:12px;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;box-shadow:0 -6px 20px rgba(0,0,0,.15)}.avbuy[hidden]{display:none}.avbuy .bn{font-weight:900}.avbuy .bp s{opacity:.6}.avbuy .bp i{background:#e8453c;color:#fff;border-radius:6px;padding:0 6px;font-style:normal;font-weight:900;font-size:12px}.avbuy .buy{border:0;background:var(--go);color:#fff;border-radius:999px;padding:8px 18px;font-weight:900}.avbuy .buy:disabled{background:#9aa1ad;cursor:not-allowed}.avbuy .cn{border:1px solid var(--hl);background:transparent;border-radius:999px;padding:7px 14px;font-weight:700}.avbuy .small{width:100%;margin:0;color:var(--hm)}
+#brxPop{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:#1b1e24;color:#ffe27a;font-weight:900;padding:10px 20px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:.3s;z-index:90;white-space:nowrap}#brxPop.show{opacity:1;transform:translate(-50%,0)}
+#brxModal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:grid;place-items:center;z-index:95;padding:14px}#brxModal[hidden]{display:none}.bcard{background:#fff;color:#1b1e24;border-radius:16px;padding:18px;width:min(560px,100%);max-height:92vh;overflow:auto}.bcard .bh{display:flex;align-items:center;gap:12px}.bcard .bh b{font-size:20px}.bcard .bbal{margin-left:auto;font-weight:900;color:#e0552d}.bcard .bx{border:0;background:transparent;font-size:24px;cursor:pointer;color:inherit}.bcard .small{font-size:13px;line-height:1.5;margin:8px 0}.bcard .muted{color:#69707d}
+.packs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0}.pack{border:1px solid #d9dde3;border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}.pack b{font-size:18px}.pack i{font-style:normal;font-size:12px;font-weight:900;color:#e0552d;min-height:14px}.pack button{border:0;background:#1fa463;color:#fff;border-radius:999px;padding:7px 16px;font-weight:900;cursor:pointer}
+.bcode{display:flex;gap:8px;margin:8px 0}.bcode input,.badmin input{flex:1;min-width:0;padding:9px 10px;border-radius:8px;border:1px solid #ccd;background:#fff;color:inherit;font:inherit}.bcode button,.badmin button{border:0;background:#e0552d;color:#fff;border-radius:8px;padding:8px 14px;font-weight:900;cursor:pointer}.bnote{min-height:18px;color:#e0552d;font-weight:700}
+.badmin{border-top:2px dashed #ccd;margin-top:12px;padding-top:12px;display:flex;flex-direction:column;gap:8px}.brow{display:flex;gap:8px}.bout div{font-family:monospace;font-size:13px;display:flex;gap:8px;align-items:center;padding:3px 0}.bout button{padding:2px 8px;font-size:11px}
+@media (max-width:760px){#walletBtn{padding:4px 8px}#brxPop{bottom:110px}}
 /* ===== 모바일 정리 ===== */
 #chatTg{display:none}
 body.touch:not(.inhub) #exitBtn{left:10px!important;top:max(10px,env(safe-area-inset-top,0px))!important;bottom:auto!important;right:auto!important;transform:none!important;width:36px;height:36px;padding:0;border-radius:50%;font-size:0;opacity:.85;z-index:6}
@@ -519,6 +530,7 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
     <div class="logo" aria-label="bricks"><span class="lbrick" aria-hidden="true"><i></i><i></i><i></i><i></i></span>bricks</div>
     <input id="search" type="search" placeholder="게임 검색" autocomplete="off">
     <button class="mechip" data-go="avatar"><span class="mini" id="chipAva"></span><span id="chipName"></span><span class="lvb" id="chipLv">Lv.1</span></button>
+    <button class="ghost" id="walletBtn" aria-label="브록스"><span>🧱</span><b id="walletBal">0</b></button>
     <button class="ghost fsb" id="fsBtn" aria-label="전체 화면">⛶</button>
     <button class="ghost" id="gchatBtn">전체 채팅<i id="gcBadge" hidden></i></button>
     <button class="ghost" id="logoutBtn">로그아웃</button>
@@ -645,7 +657,7 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
       <div class="rowhead"><h3>아바타</h3><span class="muted" id="avName"></span></div>
       <div class="avwrap">
         <div class="avleft"><div class="avstage"><canvas id="avaCanvas" aria-label="아바타 미리보기"></canvas></div><div class="avemo" id="avEmotes"></div><div class="avbg" id="avBg"></div></div>
-        <div class="avopts"><div class="avtabs" id="avTabs"></div><div id="avPanel"></div><div class="avtools"><button class="ghost" id="avRand">🎲 랜덤으로 꾸미기</button><button class="ghost" id="logoutBtn2">로그아웃</button></div><p class="muted small" id="avSaveNote">바꾸면 바로 저장되고, 게임 안 캐릭터에 그대로 적용돼요.</p></div>
+        <div class="avopts"><div class="avwallet" id="avWallet"></div><div class="avtabs" id="avTabs"></div><div id="avPanel"></div><div class="avbuy" id="avBuy" hidden></div><div class="avtools"><button class="ghost" id="avRand">🎲 랜덤으로 꾸미기</button><button class="ghost" id="logoutBtn2">로그아웃</button></div><p class="muted small" id="avSaveNote">바꾸면 바로 저장되고, 게임 안 캐릭터에 그대로 적용돼요.</p></div>
       </div>
     </section>
     <section data-view="friends" hidden>
@@ -684,7 +696,7 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
       
     </div>
     <p class="amsg" id="aMsg" role="alert"></p>
-    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 30</p>
+    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 31</p>
     <button class="alink" id="offlineBtn">로그인 없이 봇이랑 해보기</button>
   </div>
 </div>
@@ -1521,7 +1533,7 @@ function hud(){hpI.style.width=Math.max(0,player.hp)+'%';
     s.cd.style.height=(cd>0?cd/max*100:0)+'%';s.t.textContent=(typeof s.id==='number'&&cd>0)?Math.ceil(cd):'';}
   cEl.textContent=player.dead?`부활까지 ${Math.ceil(player.dead)}초`:player.down>0&&player.rag<=0?'다운':gameT<4?`준비 ${Math.ceil(4-gameT)}`:gameT<5?'시작':'';}
 
-function loop(ts){const dt=Math.min(.033,(ts-last)/1000||0);last=ts;
+function loop(ts){const dt=Math.min(.033,(ts-last)/1000||0);last=ts;walletTick(ts);
   const mod=MODS[GAME];if(mod){if(running)mod.update(dt);if(!document.body.classList.contains('inhub'))mod.render(dt);requestAnimationFrame(loop);return;}
   if(running){update(dt);hud();}else cam.yaw+=dt*.15;
   if(!document.body.classList.contains('inhub')){animate(dt);renderer.render(scene,camera);}requestAnimationFrame(loop);}
@@ -3973,7 +3985,7 @@ function accGrid(el,list,key){el.replaceChildren();for(const [id,label,icon] of 
 let avR=null,avScene=null,avCam=null,avRig=null,avDir=null,avHemi=null,avBg='studio';
 try{avBg=localStorage.getItem('bricks.avbg')||'studio';}catch(err){}
 const HAIRC=['#2b1d14','#5a3a1a','#8a5a2b','#c9a227','#e8d89a','#d23b3b','#e84fa0','#3d7dd8','#3a9a5b','#8b4fd1','#f4f4f6','#1b1b1b'];
-const AV_TABS=[['hat','모자',HAT_LIST],['hair','머리',HAIR_LIST],['face','얼굴',FACE_LIST],['neck','목',NECK_LIST],['hand','손',HAND_LIST],['back','등',BACK_LIST],['pet','펫',PET_LIST],['fx','효과',FX_LIST],['top','옷',TOP_LIST],['color','색상',null]];
+const AV_TABS=[['sale','🔥 할인',null],['hat','모자',HAT_LIST],['hair','머리',HAIR_LIST],['face','얼굴',FACE_LIST],['neck','목',NECK_LIST],['hand','손',HAND_LIST],['back','등',BACK_LIST],['pet','펫',PET_LIST],['fx','효과',FX_LIST],['top','옷',TOP_LIST],['color','색상',null]];
 const AV_BGS=[['studio','스튜디오','🎬'],['space','우주','🪐'],['meadow','초원','🌳'],['city','야경','🌃'],['beach','해변','🏖️']];
 let avTab='hat';const AVT={};
 function wrapRender(r){const o=r.render.bind(r);r.render=(s,c)=>{try{animExtras(performance.now()/1000);}catch(err){}o(s,c);};}
@@ -4017,12 +4029,12 @@ const avLook=new THREE.Vector3(0,1.8,0),avTP=new THREE.Vector3(0,2.3,11.5),avTL=
 function avFocus(){const head=['hat','hair','face','neck'].includes(avTab);avTP.set(0,head?3.1:2.3,head?7:11.5);avTL.set(0,head?2.85:1.8,0);}
 function avRender(){const tabs=$('avTabs');tabs.replaceChildren();for(const [k,n] of AV_TABS){const b=document.createElement('button');b.textContent=n;if(k===avTab)b.className='on';b.onclick=()=>{avTab=k;avRender();};tabs.appendChild(b);}
   const p=$('avPanel');p.replaceChildren();const cur=AV_TABS.find(t=>t[0]===avTab);const lbl=t=>{const l=document.createElement('p');l.className='lbl';l.textContent=t;return l;};
-  if(cur[2]){const g=document.createElement('div');g.className='acc';p.appendChild(g);accGrid(g,cur[2],avTab);if(avTab==='hair'){p.appendChild(lbl('머리 색'));const s=document.createElement('div');s.className='sw';p.appendChild(s);swatches(s,HAIRC,'hc');}}
+  if(avTab==='sale'){salePanel(p);}else if(cur[2]){const g=document.createElement('div');g.className='acc';p.appendChild(g);shopGrid(g,cur[2],avTab);if(avTab==='hair'){p.appendChild(lbl('머리 색'));const s=document.createElement('div');s.className='sw';p.appendChild(s);swatches(s,HAIRC,'hc');}}
   else{p.appendChild(lbl('상의 색'));let s=document.createElement('div');s.className='sw';p.appendChild(s);swatches(s,SHIRTS,'col');p.appendChild(lbl('피부 색'));s=document.createElement('div');s.className='sw';p.appendChild(s);swatches(s,SKINC,'sk');p.appendChild(lbl('하의 색'));s=document.createElement('div');s.className='sw';p.appendChild(s);swatches(s,PANTS,'pc');p.appendChild(lbl('머리 색'));s=document.createElement('div');s.className='sw';p.appendChild(s);swatches(s,HAIRC,'hc');}
   const eb=$('avEmotes');if(!eb.childElementCount){for(const [id,n,ic] of EMOTES){const b=document.createElement('button');b.textContent=ic+' '+n;b.onclick=()=>{if(!avRig)return;if(avRig.emote&&avRig.emote.n===id)endEmote(avRig);else playEmote(avRig,id);};eb.appendChild(b);}}
   const bb=$('avBg');bb.replaceChildren();for(const [id,n,ic] of AV_BGS){const b=document.createElement('button');b.textContent=ic+' '+n;if(id===avBg)b.className='on';b.onclick=()=>{setAvBg(id);avRender();};bb.appendChild(b);}
-  avFocus();}
-function avRandom(){const pickR=a=>a[Math.floor(Math.random()*a.length)];for(const [k,n,l] of AV_TABS)if(l)avatar[k]=pickR(l)[0];avatar.col=pickR(SHIRTS);avatar.sk=pickR(SKINC);avatar.pc=pickR(PANTS);avatar.hc=pickR(HAIRC);saveAvatar();applyAvatar();avRender();}
+  avFocus();updBuyBar();renderWalletMini();}
+function avRandom(){const pickR=a=>a[Math.floor(Math.random()*a.length)];avPrev=null;for(const [k,n,l] of AV_TABS)if(l)avatar[k]=pickR(l.filter(x=>ownsItem(k,x[0])))[0];avatar.col=pickR(SHIRTS);avatar.sk=pickR(SKINC);avatar.pc=pickR(PANTS);avatar.hc=pickR(HAIRC);saveAvatar();applyAvatar();avRender();}
 let avDrag=null;
 $('avaCanvas').addEventListener('pointerdown',ev=>{avDrag=ev.clientX;$('avaCanvas').setPointerCapture(ev.pointerId);});
 $('avaCanvas').addEventListener('pointermove',ev=>{if(avDrag===null||!avRig)return;avRig.g.rotation.y+=(ev.clientX-avDrag)*.012;avDrag=ev.clientX;});
@@ -4036,16 +4048,117 @@ if(!avR){const n=document.createElement('p');n.className='empty';n.style.padding
 requestAnimationFrame(avLoop);
 
 /* ★★ 대규모 업데이트가 있을 때마다 아래 설정만 바꾸면 홈 화면 배경과 배너가 그 업데이트 테마로 바뀝니다 ★★ */
-const HUB_UPDATE={id:'avatar-2026-10',tag:'대규모 업데이트',title:'아바타 업데이트',sub:'장신구 110개 · 이모트 10개 · 펫 · 효과 · 새 배경',cta:'아바타 꾸미러 가기',go:'avatar',emojis:['🎩','👑','🧢','🐱','✨','🎧','🦄','🔥','🌈','🐧','🎸','🪄','👼','🤖','🧙','🌸'],c1:'#6a35e8',c2:'#e8453c',c3:'#ffb02e'};
+const HUB_UPDATE={id:'brox-2026-10',tag:'대규모 업데이트',title:'브록스 상점 오픈',sub:'게임 5분마다 20 브록스 · 아바타 상점 · 특가와 번개세일',cta:'아바타 상점 가기',go:'avatar',emojis:['🧱','💰','🎩','🔥','⚡','🛍️','👑','✨','🦄','🪄','🐲','🌈','🎁','💎'],c1:'#0f9d58',c2:'#f2b705',c3:'#ff6a3d'};
 function applyHubUpdate(){const U=HUB_UPDATE,hub=$('hub'),bn=$('updBanner');if(!bn)return;hub.style.setProperty('--u1',U.c1);hub.style.setProperty('--u2',U.c2);hub.style.setProperty('--u3',U.c3);hub.classList.add('upd-home');bn.replaceChildren();
   const tag=document.createElement('span');tag.className='utag';tag.textContent='🎉 '+U.tag;const h=document.createElement('h2');h.textContent=U.title;const p=document.createElement('p');p.textContent=U.sub;const b=document.createElement('button');b.textContent=U.cta+' →';bn.append(tag,h,p,b);
   U.emojis.forEach((e,i)=>{const f=document.createElement('span');f.className='uf';f.textContent=e;f.style.left=((innerWidth<760?68:42)+Math.random()*(innerWidth<760?26:54))+'%';f.style.top=(4+Math.random()*68)+'%';f.style.fontSize=(22+Math.random()*22)+'px';f.style.animationDelay=(-Math.random()*7)+'s';f.style.animationDuration=(5+Math.random()*5)+'s';bn.appendChild(f);});
   bn.onclick=()=>go(U.go);const nb=document.querySelector('.hside button[data-go="'+U.go+'"]');if(nb)nb.classList.add('isnew');}
 applyHubUpdate();
 
+/* ===================== 브록스 (아바타 재화) ===================== */
+const BROX_CFG={perPlay:20,playSecs:300,gift:100,testMode:false,admins:['admin'],
+  packs:[{id:'p1',b:500,krw:1100,tag:''},{id:'p2',b:1200,krw:2500,tag:'+10%'},{id:'p3',b:2800,krw:5500,tag:'+20% 인기'},{id:'p4',b:6500,krw:11000,tag:'+40%'},{id:'p5',b:15000,krw:22000,tag:'+90% 최고 가성비'}],
+  /* ★ 결제 링크: 토스, 스트라이프 같은 곳에서 만든 '결제 링크'를 팩마다 여기에 붙여넣으면 충전 버튼이 그 결제창을 열어요. 비어 있으면 충전 코드로만 충전돼요. */
+  payLinks:{p1:'',p2:'',p3:'',p4:'',p5:''}};
+const PRICE=(()=>{const P={};const set=(s,o)=>{for(const k in o)P[s+':'+k]=o[k];};
+  set('hat',{cap:40,crown:300,tophat:120,horns:80,halo:150,phones:80,beanie:40,cowboy:80,wizard:150,santa:80,party:40,pirate:120,chef:80,bunny:150,catears:120,bear:120,flowers:80,grad:200,viking:200,knight:200,astro:300,bucket:40,fedora:120,prop:150,ninja:150,unicorn:300,straw:40,antenna:150,sport:40});
+  set('hair',{short:40,spiky:60,long:80,bob:60,pony:80,bun:60,mohawk:100,afro:120,twin:80});
+  set('face',{wink:20,shades:100,grin:40,surprise:40,angry:40,sleepy:40,blush:60,smirk:60,tongue:60,cry:60,hearts:120,stars:120,cat:100,nerd:80,glass3d:120,dizzy:60});
+  set('neck',{scarf:60,bowtie:60,tie:60,pendant:120,medal:200,bandana:60,lei:100,bell:80});
+  set('hand',{sword:150,wand:200,balloon:60,flag:80,lantern:120,bouquet:100,icecream:60,book:200,umbrella:100,lollipop:60,torch:150,pencil:60});
+  set('back',{cape:100,wings:150,pack:60,jetpack:400,angel:400,bat:250,butterfly:250,dragon:500,fox:200,cattail:150,swordb:150,guitar:200,quiver:100,rainbow:300});
+  set('pet',{slime:200,cat:300,ghost:300,robot:400,bird:250,dragon:600,star:350,bunny:300,penguin:300});
+  set('fx',{sparkle:300,hearts:300,flames:500,snow:300,rainbow:600,lightning:500,leaves:250,bubbles:250});
+  set('top',{stripes:60,dots:60,stars:80,hoodie:120,jersey:100,lab:120,overalls:100,uniform:100,hawaii:100,checker:80});return P;})();
+const SLOT_DEF={hat:'none',hair:'none',face:'basic',neck:'none',hand:'none',back:'none',pet:'none',fx:'none',top:'plain'};
+const SLOT_KO={hat:'모자',hair:'머리',face:'얼굴',neck:'목',hand:'손',back:'등',pet:'펫',fx:'효과',top:'옷'};
+let WL={b:0,own:{},ps:0,i:0,loaded:false},psLocal=0,avPrev=null;
+const priceOf=(s,id)=>PRICE[s+':'+id]||0;
+const ownsItem=(s,id)=>priceOf(s,id)===0||!!(WL.own&&WL.own[s+'_'+id]);
+function mulS(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const nowMs=()=>Date.now()+serverOffset;
+let saleMemo={k:'',v:null};
+function saleState(){const t=nowMs(),day=Math.floor(t/864e5),slot=Math.floor(t/1.08e7),k=day+':'+slot;if(saleMemo.k===k)return saleMemo.v;
+  const keys=Object.keys(PRICE).filter(x=>PRICE[x]>=60).sort();const r=mulS(day*9973+17);const arr=keys.slice();for(let i=arr.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}
+  const pcts=[20,30,40,50],daily={};arr.slice(0,8).forEach((x,i)=>{daily[x]=pcts[i%4];});
+  let flash=null;const r2=mulS(slot*7919+3);if(r2()<.3){const big=keys.filter(x=>PRICE[x]>=150);flash={key:big[Math.floor(r2()*big.length)],pct:70,until:(slot+1)*1.08e7};}
+  const v={daily,flash,dayEnd:(day+1)*864e5};saleMemo={k,v};return v;}
+function saleOf(slot,id){const key=slot+':'+id,base=PRICE[key];if(!base)return null;const S=saleState();let pct=S.daily[key]||0;if(S.flash&&S.flash.key===key)pct=Math.max(pct,S.flash.pct);if(!pct)return null;return{pct,p:Math.max(1,Math.round(base*(100-pct)/100)),flash:!!(S.flash&&S.flash.key===key)};}
+const finalPrice=(s,id)=>{const o=saleOf(s,id);return o?o.p:priceOf(s,id);};
+const itemName=(s,id)=>{const L={hat:HAT_LIST,hair:HAIR_LIST,face:FACE_LIST,neck:NECK_LIST,hand:HAND_LIST,back:BACK_LIST,pet:PET_LIST,fx:FX_LIST,top:TOP_LIST}[s];const x=L&&L.find(q=>q[0]===id);return x?x[2]+' '+x[1]:id;};
+const fmt2=n=>String(Math.floor(n)).padStart(2,'0');const mmss=s=>{s=Math.max(0,Math.ceil(s));if(s>=3600)return Math.floor(s/3600)+'시간 '+fmt2((s%3600)/60)+'분';return fmt2(s/60)+':'+fmt2(s%60);};
+/* ----- 지갑 저장·불러오기 ----- */
+function grandfather(w){w.own=w.own||{};for(const s in SLOT_DEF){const id=avatar[s];if(id&&priceOf(s,id)>0)w.own[s+'_'+id]=1;}}
+async function loadWallet(){WL={b:0,own:{},ps:0,i:0,loaded:false};
+  if(me&&rtdb){let v;try{v=(await withTimeout(bref('wallet/'+me.uid).get(),6000)).val();}catch(err){setTimeout(loadWallet,8000);return;}
+    v=v||{};WL=Object.assign({b:0,own:{},ps:0,i:0},v);WL.own=WL.own||{};if(!WL.i){await walletTx(c=>{if(c.i)return true;grandfather(c);c.b=(c.b||0)+BROX_CFG.gift;c.i=1;c.ps=c.ps||0;});}}
+  else{try{const v=JSON.parse(localStorage.getItem('bricks.wallet')||'null');if(v)WL=Object.assign({b:0,own:{},ps:0,i:0},v);}catch(err){}WL.own=WL.own||{};if(!WL.i){grandfather(WL);WL.b+=BROX_CFG.gift;WL.i=1;saveLocalWallet();}}
+  WL.loaded=true;psLocal=+WL.ps||0;enforceOwned();renderWallet();}
+function saveLocalWallet(){if(!me){try{localStorage.setItem('bricks.wallet',JSON.stringify(WL));}catch(err){}}}
+async function walletTx(fn){
+  if(me&&rtdb){try{const res=await withTimeout(bref('wallet/'+me.uid).transaction(cur=>{cur=cur||{b:0,own:{},ps:0};cur.own=cur.own||{};const ok=fn(cur);return ok===false?undefined:cur;}),8000);if(res&&res.committed){WL=Object.assign({b:0,own:{},ps:0,i:0},res.snapshot.val(),{loaded:true});WL.own=WL.own||{};renderWallet();return true;}return false;}catch(err){return false;}}
+  const cur=Object.assign({},WL);cur.own=Object.assign({},WL.own);const ok=fn(cur);if(ok===false)return false;WL=Object.assign(cur,{loaded:true});saveLocalWallet();renderWallet();return true;}
+function enforceOwned(){let ch=false;for(const s in SLOT_DEF){if(!ownsItem(s,avatar[s])){avatar[s]=SLOT_DEF[s];ch=true;}}if(ch){try{localStorage.setItem('bricks.avatar',JSON.stringify(avatar));}catch(err){}applyAvatar();}}
+/* ----- 플레이 시간 보상 ----- */
+let wtLast=0,wtSave=0,lastInput=Date.now();
+['keydown','pointerdown','pointermove','touchstart','wheel'].forEach(ev=>addEventListener(ev,()=>{lastInput=Date.now();},{passive:true}));
+function walletTick(ts){const d=Math.max(0,Math.min(1,(ts-wtLast)/1000||0));wtLast=ts;if(!WL.loaded||document.hidden||!running||document.body.classList.contains('inhub'))return;if(Date.now()-lastInput>120000)return;
+  psLocal+=d;if(psLocal>=BROX_CFG.playSecs){const n=Math.floor(psLocal/BROX_CFG.playSecs);psLocal-=n*BROX_CFG.playSecs;const add=n*BROX_CFG.perPlay;walletTx(c=>{c.b=(c.b||0)+add;c.ps=Math.floor(psLocal);}).then(ok=>{if(ok)brxPop(`🧱 +${add} 브록스! 플레이 보상`);});}
+  wtSave+=d;if(wtSave>=30){wtSave=0;if(me&&rtdb&&WL.loaded)bref('wallet/'+me.uid+'/ps').set(Math.floor(psLocal)).catch(()=>{});else{WL.ps=Math.floor(psLocal);saveLocalWallet();}}}
+function addPlayProgressToUI(){return BROX_CFG.playSecs-psLocal;}
+function brxPop(t){let el=$('brxPop');if(!el){el=document.createElement('div');el.id='brxPop';document.body.appendChild(el);}el.textContent=t;el.classList.remove('show');void el.offsetWidth;el.classList.add('show');clearTimeout(brxPop.t);brxPop.t=setTimeout(()=>el.classList.remove('show'),3200);}
+/* ----- 표시 ----- */
+function renderWallet(){const b=$('walletBal');if(b)b.textContent=(WL.b||0).toLocaleString();renderWalletMini();}
+function renderWalletMini(){const S=saleState();const fl=S.flash&&S.flash.until>nowMs();const wb=$('walletBtn');if(wb)wb.classList.toggle('flash',!!fl);
+  const el=$('avWallet');if(!el)return;el.replaceChildren();const a=document.createElement('span');a.className='wb';a.textContent='🧱 '+(WL.b||0).toLocaleString()+' 브록스';const p=document.createElement('span');p.className='wp';p.textContent=`다음 보상(+${BROX_CFG.perPlay})까지 게임 ${mmss(BROX_CFG.playSecs-psLocal)}`;const c=document.createElement('button');c.textContent='충전';c.onclick=()=>openBrox();el.append(a,p,c);
+  if(fl){const f=document.createElement('span');f.className='wf';f.textContent=`⚡ 번개세일 ${itemName(...S.flash.key.split(':'))} -${S.flash.pct}% · ${mmss((S.flash.until-nowMs())/1000)}`;el.appendChild(f);}}
+setInterval(()=>{if(!$('hub').hidden)renderWalletMini();},1000);
+/* ----- 상점 (아바타 화면) ----- */
+function shopGrid(el,list,slot){el.replaceChildren();for(const [id,label,icon] of list){const own=ownsItem(slot,id),pr=priceOf(slot,id),sp=saleOf(slot,id);const b=document.createElement('button');if(avatar[slot]===id&&!avPrev)b.className='on';if(avPrev&&avPrev.slot===slot&&avPrev.id===id)b.className='prev';
+    const ic=document.createElement('span');ic.textContent=icon;b.append(ic,document.createTextNode(label));
+    if(pr>0){const t=document.createElement('em');t.className='ptag'+(own?' own':'');if(own)t.textContent='보유';else t.innerHTML=(sp?`<s>${pr}</s> `:'')+`🧱${sp?sp.p:pr}`;b.appendChild(t);if(sp&&!own){const d=document.createElement('i');d.className='sbadge';d.textContent=(sp.flash?'⚡':'')+'-'+sp.pct+'%';b.appendChild(d);}if(!own){const l=document.createElement('u');l.textContent='🔒';b.appendChild(l);}}
+    b.onclick=()=>{if(own){avPrev=null;avatar[slot]=id;saveAvatar();applyAvatar();avRender();}else{avPrev={slot,id};previewItem();avRender();}};el.appendChild(b);}}
+function previewItem(){if(avRig&&avPrev)setAcc(avRig,Object.assign({},avatar,{[avPrev.slot]:avPrev.id}),avatar.pc);}
+function clearPreview(){if(avPrev){avPrev=null;applyAvatar();}}
+function salePanel(p){const S=saleState();const lbl=t=>{const l=document.createElement('p');l.className='lbl';l.textContent=t;return l;};
+  if(S.flash&&S.flash.until>nowMs()){p.appendChild(lbl('⚡ 번개세일 (잠깐만!)'));const g=document.createElement('div');g.className='acc';p.appendChild(g);saleBtn(g,...S.flash.key.split(':'));}
+  p.appendChild(lbl(`🔥 오늘의 특가 · ${mmss((S.dayEnd-nowMs())/1000)} 남음`));const g=document.createElement('div');g.className='acc';p.appendChild(g);Object.keys(S.daily).sort((a,b)=>S.daily[b]-S.daily[a]).forEach(k=>saleBtn(g,...k.split(':')));
+  const n=document.createElement('p');n.className='muted small';n.textContent='특가는 매일 오전 9시(한국 시간)에 바뀌고, 번개세일은 가끔 몇 시간 동안만 열려요.';p.appendChild(n);}
+function saleBtn(g,slot,id){const own=ownsItem(slot,id),pr=priceOf(slot,id),sp=saleOf(slot,id);const b=document.createElement('button');const ic=document.createElement('span');ic.textContent=itemName(slot,id).split(' ')[0];b.append(ic,document.createTextNode(itemName(slot,id).split(' ').slice(1).join(' ')));
+  const t=document.createElement('em');t.className='ptag'+(own?' own':'');if(own)t.textContent='보유';else t.innerHTML=(sp?`<s>${pr}</s> `:'')+`🧱${sp?sp.p:pr}`;b.appendChild(t);if(sp&&!own){const d=document.createElement('i');d.className='sbadge';d.textContent=(sp.flash?'⚡':'')+'-'+sp.pct+'%';b.appendChild(d);}
+  const sm=document.createElement('small');sm.className='sk';sm.textContent=SLOT_KO[slot];b.appendChild(sm);b.onclick=()=>{if(own){avPrev=null;avTab=slot;avatar[slot]=id;saveAvatar();applyAvatar();avRender();}else{avPrev={slot,id};avTab=slot;previewItem();avRender();}};g.appendChild(b);}
+function updBuyBar(){const bar=$('avBuy');if(!bar)return;bar.replaceChildren();if(!avPrev){bar.hidden=true;return;}bar.hidden=false;const {slot,id}=avPrev,pr=priceOf(slot,id),sp=saleOf(slot,id),fin=sp?sp.p:pr;
+  const t=document.createElement('div');t.className='bn';t.textContent=itemName(slot,id)+' 입어보는 중';const pz=document.createElement('div');pz.className='bp';pz.innerHTML=(sp?`<s>🧱${pr}</s> `:'')+`<b>🧱 ${fin}</b>`+(sp?` <i>-${sp.pct}%</i>`:'');
+  const can=(WL.b||0)>=fin;const buy=document.createElement('button');buy.className='buy';buy.textContent=can?'구매하고 입기':'브록스가 부족해요';buy.disabled=!can;buy.onclick=()=>buyItem(slot,id);
+  const cancel=document.createElement('button');cancel.className='cn';cancel.textContent='취소';cancel.onclick=()=>{clearPreview();avRender();};bar.append(t,pz,buy,cancel);
+  if(!can){const h=document.createElement('p');h.className='small';h.textContent=`${fin-(WL.b||0)} 브록스 더 필요해요. 게임을 ${Math.ceil((fin-(WL.b||0))/BROX_CFG.perPlay)*5}분쯤 하면 모여요. 또는 충전할 수 있어요.`;const ch=document.createElement('button');ch.className='cn';ch.textContent='충전하기';ch.onclick=()=>openBrox();bar.append(h,ch);}}
+async function buyItem(slot,id){const fin=finalPrice(slot,id);let done=false;const ok=await walletTx(c=>{if(c.own&&c.own[slot+'_'+id])return false;if((c.b||0)<fin)return false;c.b-=fin;c.own=c.own||{};c.own[slot+'_'+id]=1;});
+  if(!ok){brxPop('구매하지 못했어요. 브록스를 확인해 주세요');avRender();return;}avPrev=null;avatar[slot]=id;saveAvatar();applyAvatar();avRender();brxPop(`구매 완료! ${itemName(slot,id)} · -${fin} 브록스`);}
+/* ----- 충전소 ----- */
+const isAdmin=()=>!!me&&BROX_CFG.admins.includes(String(me.uid).toLowerCase());
+function openBrox(){let m=$('brxModal');if(!m){m=document.createElement('div');m.id='brxModal';document.body.appendChild(m);}m.hidden=false;renderBrox();}
+function renderBrox(){const m=$('brxModal');m.replaceChildren();const card=document.createElement('div');card.className='bcard';m.appendChild(card);m.onclick=ev=>{if(ev.target===m)m.hidden=true;};
+  const mk=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
+  const h=mk('div','bh');h.append(mk('b','','🧱 브록스 충전소'),mk('span','bbal',`내 브록스 ${(WL.b||0).toLocaleString()}`));const x=mk('button','bx','×');x.onclick=()=>{m.hidden=true;};h.appendChild(x);card.appendChild(h);
+  card.appendChild(mk('p','small',`게임을 5분 하면 ${BROX_CFG.perPlay} 브록스가 저절로 쌓여요. 더 빨리 꾸미고 싶다면 충전할 수 있어요.`));
+  const grid=mk('div','packs');for(const pk of BROX_CFG.packs){const d=mk('div','pack');d.append(mk('b','','🧱 '+pk.b.toLocaleString()));if(pk.tag)d.appendChild(mk('i','',pk.tag));const btn=mk('button','','₩'+pk.krw.toLocaleString());const link=BROX_CFG.payLinks[pk.id];
+    btn.onclick=async()=>{if(BROX_CFG.testMode){const ok=await walletTx(c=>{c.b=(c.b||0)+pk.b;});if(ok){brxPop(`🧱 +${pk.b} 브록스 (테스트 충전)`);renderBrox();}return;}
+      if(link){window.open(link,'_blank','noopener');note.textContent='결제를 끝내면 받은 충전 코드를 아래에 입력하세요.';}else note.textContent='아직 결제창이 연결되지 않았어요. 관리자에게서 충전 코드를 받아 아래에 입력해 주세요.';};d.appendChild(btn);grid.appendChild(d);}card.appendChild(grid);
+  const note=mk('p','small bnote','');card.appendChild(note);
+  const cr=mk('div','bcode');const inp=mk('input');inp.placeholder='충전 코드 (예: ABCD-EFGH-JKMN)';inp.maxLength=20;const rb=mk('button','','코드 입력');rb.onclick=async()=>{const r=await redeemCode(inp.value);note.textContent=r;if(r.startsWith('충전'))renderBrox();};cr.append(inp,rb);card.appendChild(cr);
+  card.appendChild(mk('p','small muted','미성년자는 보호자의 동의를 받고 충전해 주세요. 충전한 브록스는 환불되지 않아요.'));
+  if(isAdmin()){const ad=mk('div','badmin');ad.appendChild(mk('b','','🛠 관리자'));const r1=mk('div','brow');const am=mk('input');am.type='number';am.placeholder='브록스 수';am.value='500';const gb=mk('button','','충전 코드 만들기');const out=mk('div','bout');gb.onclick=async()=>{const n=Math.max(1,Math.min(1000000,+am.value|0));const code=genCode();try{await withTimeout(bref('codes/'+code).set({b:n,by:me.uid,at:TS(),used:null}),5000);const d=mk('div','',`${code}  (${n.toLocaleString()} 브록스)`);const cp=mk('button','','복사');cp.onclick=()=>{try{navigator.clipboard.writeText(code);}catch(e){}cp.textContent='복사됨';};d.appendChild(cp);out.prepend(d);}catch(e){out.prepend(mk('div','','코드를 만들지 못했어요'));}};r1.append(am,gb);ad.append(r1,out);
+    const r2=mk('div','brow');const ui=mk('input');ui.placeholder='받을 아이디';const ua=mk('input');ua.type='number';ua.placeholder='브록스 수';const ub=mk('button','','바로 지급');ub.onclick=async()=>{const uid=ui.value.trim().toLowerCase();const n=+ua.value|0;if(!/^[a-z0-9_가-힣]{1,20}$/i.test(uid)||!n){out.prepend(mk('div','','아이디와 수를 확인하세요'));return;}try{await withTimeout(bref('wallet/'+uid).transaction(c=>{c=c||{b:0,own:{},ps:0};c.b=(c.b||0)+n;return c;}),6000);out.prepend(mk('div','',`${uid}님에게 ${n} 브록스 지급`));}catch(e){out.prepend(mk('div','','지급하지 못했어요'));}};r2.append(ui,ua,ub);ad.appendChild(r2);card.appendChild(ad);}}
+function genCode(){const c='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<12;i++){s+=c[Math.floor(Math.random()*c.length)];if(i%4===3&&i<11)s+='-';}return s;}
+async function redeemCode(raw){if(!me||!rtdb)return '충전 코드는 로그인하면 쓸 수 있어요.';const code=String(raw||'').toUpperCase().replace(/[^A-Z0-9]/g,'').replace(/(.{4})(.{4})(.{4})/,'$1-$2-$3');if(code.length<14)return '코드를 다시 확인해 주세요.';
+  let amt=0;try{const res=await withTimeout(bref('codes/'+code).transaction(c=>{if(!c||c.used||!(c.b>0))return;c.used=me.uid;c.ua=Date.now();return c;}),8000);if(!res.committed)return '없는 코드이거나 이미 사용된 코드예요.';amt=+res.snapshot.val().b||0;}catch(e){return '코드를 확인하지 못했어요. 잠시 뒤에 다시 해보세요.';}
+  const ok=await walletTx(c=>{c.b=(c.b||0)+amt;});return ok?`충전 완료! +${amt.toLocaleString()} 브록스`:'충전에 실패했어요. 관리자에게 코드를 알려주세요: '+code;}
+
+$('walletBtn').addEventListener('click',()=>openBrox());
+
 /* views */
 let view='home';
-function go(v){view=v;$('hub').classList.toggle('upd-home',v==='home');document.querySelectorAll('#hub [data-view]').forEach(sec=>sec.hidden=sec.dataset.view!==v);
+function go(v){if(v!=='avatar')clearPreview();view=v;$('hub').classList.toggle('upd-home',v==='home');document.querySelectorAll('#hub [data-view]').forEach(sec=>sec.hidden=sec.dataset.view!==v);
   document.querySelectorAll('.hside button').forEach(b=>b.classList.toggle('on',b.dataset.go===v||(v==='detail'&&b.dataset.go==='games')));
   if(v==='avatar'){avRender();}
   if(v==='rank'||v==='home')renderRank();if(v==='forest'){refreshForestPage();placeParty('forest');}if(v!=='gpage'&&v!=='forest')curG=v==='gpage'?curG:null;
@@ -4427,9 +4540,9 @@ $('authForm').addEventListener('submit',async ev=>{ev.preventDefault();aMsg('');
 async function onLogin(id){me={uid:id};myName=id;try{localStorage.setItem('bricks.login',id);}catch(err){}
   try{const a=(await withTimeout(bref('profiles/'+id+'/avatar').get(),4000)).val();mergeAvatar(a);}catch(err){}
   try{localStorage.setItem('bricks.avatar',JSON.stringify(avatar));}catch(err){}
-  await loadStats();enterHub();startSocial();listenInvites();startGChat();}
+  await loadStats();await loadWallet();enterHub();startSocial();listenInvites();startGChat();}
 function enterHub(){$('auth').hidden=true;$('hub').hidden=false;$('offNote').hidden=!!me;$('logoutBtn').hidden=!me;applyAvatar();if(!thumbURL)makeThumb();makeGThumbs();if(!fThumbURL&&GL_OK){fThumbURL=Forest.thumb();document.querySelectorAll('img.gthumb2').forEach(im=>{if(fThumbURL)im.src=fThumbURL;});}renderGrids();}
-$('offlineBtn').addEventListener('click',()=>{me=null;loadStats();enterHub();});
+$('offlineBtn').addEventListener('click',()=>{me=null;loadStats();loadWallet();enterHub();});
 if(!rtdb)aMsg('bricks.html 맨 위에 Firebase 주소를 넣으면 로그인이 켜져요.');
 $('logoutBtn').addEventListener('click',async()=>{try{localStorage.removeItem('bricks.login');if(rtdb&&me)await withTimeout(bref('status/'+me.uid).set({on:false,at:TS()}),3000);}catch(err){}location.reload();});
 (async()=>{let saved=null;try{saved=localStorage.getItem('bricks.login');}catch(err){}
