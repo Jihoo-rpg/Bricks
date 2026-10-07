@@ -231,7 +231,7 @@ body.touch #dLog{bottom:200px;max-width:calc(100vw - 32px)}
 
 body.g-horror #g3hud{display:block}body.g-horror #c{filter:grayscale(1) contrast(1.2) brightness(1.05)}body.g-horror #chat{opacity:.5}body.g-horror #exitBtn{left:14px;right:auto;top:auto;bottom:14px;transform:none;opacity:.6}
 #hGrain{position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:screen}#hGrain canvas{width:100%;height:100%}
-#hVig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 45%,rgba(0,0,0,.85) 100%)}
+#hGrain{display:none}#hVig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.5) 100%)}
 .hhud{position:absolute;left:18px;top:16px;color:#ddd;font-weight:700;font-size:13px;text-shadow:0 1px 3px #000;width:260px}.hhud b{white-space:nowrap}.hhud b{display:block;font-family:'Black Han Sans',sans-serif;font-weight:400;font-size:22px;letter-spacing:1px;margin-bottom:6px}
 .hb{display:flex;align-items:center;gap:8px;margin-top:4px}.hb span{width:40px;opacity:.8}.hb i{flex:1;height:4px;background:rgba(255,255,255,.15)}.hb s{display:block;height:100%;background:#ddd;text-decoration:none}
 body.h-lobby .hhud,body.h-lobby #hDot,body.h-lobby .hbtns,body.h-lobby #hPrompt{display:none!important}body.h-lobby #c{filter:grayscale(1) contrast(1.15)}
@@ -244,7 +244,7 @@ body.h-lobby .hhud,body.h-lobby #hDot,body.h-lobby .hbtns,body.h-lobby #hPrompt{
 #hPrompt{position:absolute;left:50%;bottom:22%;transform:translateX(-50%);color:#eee;font-weight:700;font-size:15px;letter-spacing:1px;text-shadow:0 1px 4px #000;white-space:nowrap}
 #hMsg{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);text-align:center;color:#eee;white-space:nowrap;text-shadow:0 2px 10px #000}#hMsg b{display:block;font-family:'Black Han Sans',sans-serif;font-weight:400;font-size:clamp(22px,4.5vw,40px);letter-spacing:2px}#hMsg span{font-size:15px;opacity:.85}
 #hMsg.show{animation:hfade 3.2s ease forwards}@keyframes hfade{0%{opacity:0;filter:blur(6px)}15%{opacity:1;filter:blur(0)}80%{opacity:1}100%{opacity:0}}
-#hSlit{--gap:16%;position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000 0,#120d09 calc(50% - var(--gap)/2 - 3%),#2a1f16 calc(50% - var(--gap)/2 - .6%),rgba(0,0,0,.15) calc(50% - var(--gap)/2),rgba(0,0,0,.08) 50%,rgba(0,0,0,.15) calc(50% + var(--gap)/2),#2a1f16 calc(50% + var(--gap)/2 + .6%),#120d09 calc(50% + var(--gap)/2 + 3%),#000 100%);transition:--gap .2s}
+#hSlit{--gap:28%;position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#000 0,#120d09 calc(50% - var(--gap)/2 - 3%),#2a1f16 calc(50% - var(--gap)/2 - .6%),rgba(0,0,0,0) calc(50% - var(--gap)/2),rgba(0,0,0,0) 50%,rgba(0,0,0,0) calc(50% + var(--gap)/2),#2a1f16 calc(50% + var(--gap)/2 + .6%),#120d09 calc(50% + var(--gap)/2 + 3%),#000 100%);transition:--gap .2s}
 #hSlit::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.015) 0 3px,rgba(0,0,0,.05) 3px 7px);mask:linear-gradient(90deg,#000 calc(50% - var(--gap)/2),transparent calc(50% - var(--gap)/2),transparent calc(50% + var(--gap)/2),#000 calc(50% + var(--gap)/2))}
 #hScare{position:fixed;inset:0;z-index:40;background:#000;display:grid;place-items:center}#hScareC{width:100%;height:100%;filter:contrast(1.6)}#hScare.go{animation:scare 3.6s steps(40) forwards}#hScare.fade{animation:none;opacity:.3;transition:opacity 1.2s;pointer-events:none;z-index:1}
 @keyframes scare{0%{transform:scale(.5);opacity:0}3%{transform:scale(1.2) translate(10px,-8px);opacity:1}6%{transform:scale(1.25) translate(-12px,10px)}9%{transform:scale(1.22) translate(8px,6px)}14%{filter:invert(1)}16%{filter:invert(0)}25%{transform:scale(1.3) translate(-6px,-6px)}35%{transform:scale(1.32) translate(5px,4px)}45%{filter:invert(0) contrast(1.6)}47%{filter:invert(1)}49%{filter:invert(0)}60%{transform:scale(1.36) translate(-4px,3px)}80%{transform:scale(1.42) translate(3px,-2px)}100%{transform:scale(1.5);opacity:1}}
@@ -696,7 +696,7 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
       
     </div>
     <p class="amsg" id="aMsg" role="alert"></p>
-    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 31</p>
+    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 32</p>
     <button class="alink" id="offlineBtn">로그인 없이 봇이랑 해보기</button>
   </div>
 </div>
@@ -2517,8 +2517,8 @@ const Murder=(()=>{
 
 /* ===================== 모노크롬 (미로 공포) ===================== */
 const Horror=(()=>{
-  const MS=new THREE.Scene();MS.background=new THREE.Color('#000000');MS.fog=new THREE.FogExp2('#000000',.11);
-  const hemi=new THREE.HemisphereLight('#b8bcc4','#0a0a0a',.1);MS.add(hemi);
+  const MS=new THREE.Scene();MS.background=new THREE.Color('#000000');MS.fog=new THREE.FogExp2('#000000',.05);
+  const hemi=new THREE.HemisphereLight('#c8ccd4','#14161a',.42);MS.add(hemi);
   const $h=id=>document.getElementById(id);const R_=a=>a[Math.floor(Math.random()*a.length)];const rr=(a,b)=>a+Math.random()*(b-a);
   function mul(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
   const W=(c,e)=>new THREE.MeshLambertMaterial(e?{color:c,emissive:e}:{color:c});const PH_=(c,e)=>new THREE.MeshPhongMaterial(e?{color:c,emissive:e,shininess:8}:{color:c,shininess:8});
@@ -2533,7 +2533,7 @@ const Horror=(()=>{
   const ceilTex=cvs(256,(g,n)=>{g.fillStyle='#5a5852';g.fillRect(0,0,n,n);const s=n/4;for(let y=0;y<4;y++)for(let x=0;x<4;x++){const v=70+Math.random()*30|0;g.fillStyle=`rgb(${v},${v},${v-4})`;g.fillRect(x*s+2,y*s+2,s-4,s-4);if(Math.random()<.3){g.fillStyle='rgba(30,25,20,.5)';g.beginPath();g.arc(x*s+rr(10,50),y*s+rr(10,50),rr(6,18),0,7);g.fill();}}});
   const woodTex=cvs(256,(g,n)=>{g.fillStyle='#4a3f35';g.fillRect(0,0,n,n);for(let i=0;i<60;i++){g.strokeStyle=`rgba(20,15,10,${rr(.2,.5)})`;g.lineWidth=rr(1,3);g.beginPath();const y=Math.random()*n;g.moveTo(0,y);g.bezierCurveTo(n/3,y+rr(-8,8),2*n/3,y+rr(-8,8),n,y+rr(-6,6));g.stroke();}});
   /* ---------- maze ---------- */
-  const N=19,CS=3.4,WH=3.6;let E_=[],S_=[],safe=new Set(),rooms=[],bucket=[],wallBoxes=[],hides=[],chests=[],EXIT=null,START=null,lampsM=[],floorBats=[];
+  const N=19,CS=3.4,WH=3.6;let E_=[],S_=[],safe=new Set(),rooms=[],bucket=[],wallBoxes=[],hides=[],chests=[],EXIT=null,START=null,lampsM=[],floorBats=[],ceilL=[];
   const mazeG=new THREE.Group();MS.add(mazeG);
   const cx=i=>(i-(N-1)/2)*CS,cz=j=>(j-(N-1)/2)*CS;const ci=x=>Math.max(0,Math.min(N-1,Math.round(x/CS+(N-1)/2))),cj=ci;
   const isSafe=(i,j)=>safe.has(i*N+j);
@@ -2597,6 +2597,8 @@ const Horror=(()=>{
     const dead=[];for(let i=0;i<N;i++)for(let j=0;j<N;j++){if(isSafe(i,j)||occ.has(i*N+j)||rooms.some(r=>r.cells.some(c=>c[0]===i&&c[1]===j)))continue;if(deg(i,j)===1)dead.push([i,j]);}dead.sort(()=>rng()-.5);
     for(const [i,j] of dead.slice(0,16)){const sides=DIRS.filter(([a,b])=>wallBetween(i,j,i+a,j+b));const [a,b]=sides[Math.floor(rng()*sides.length)];if(rng()<.65)wardrobe(i,j,a,b);else container(i,j,a,b);}
     for(let k=0;k<3;k++){for(let t=0;t<50;t++){const i=Math.floor(rng()*N),j=Math.floor(rng()*N);if(isSafe(i,j)||occ.has(i*N+j))continue;floorBats.push({x:cx(i)+rv(-.8,.8),z:cz(j)+rv(-.8,.8)});occ.add(i*N+j);break;}}
+    ceilL=[];for(let i=0;i<N;i++)for(let j=0;j<N;j++){if(isSafe(i,j))continue;if(((i*7+j*3)%4)!==0)continue;if(rooms.some(r=>r.cells.some(c=>c[0]===i&&c[1]===j)))continue;const fx=new THREE.Mesh(new THREE.BoxGeometry(1.3,.08,.32),W('#cfcabd','#000000'));fx.position.set(cx(i),WH-.06,cz(j));mazeG.add(fx);ceilL.push({m:fx,x:cx(i),z:cz(j),on:null});}
+    initPower(seed);
     // assign items into containers
     const order=[...chests.keys()].sort(()=>rng()-.5);const items=['key','key','key','key','note0','note1','bat','bat'];items.forEach((it,k)=>{if(order[k]!==undefined)chests[order[k]].item=it;});}
   function gridPath(x0,z0,x1,z1,ghost){const si=ci(x0),sj=cj(z0),ti=ci(x1),tj=cj(z1);const prev=new Map([[si*N+sj,-1]]);const q=[[si,sj]];
@@ -2737,7 +2739,20 @@ const Horror=(()=>{
       PV.set(o.x,3.8,o.z).project(camera);if(PV.z>1){o.tag.style.display='none';}else{o.tag.style.display='';o.tag.style.transform=`translate(${(PV.x+1)/2*innerWidth}px,${(1-PV.y)/2*innerHeight}px) translate(-50%,-100%)`;}}
     const fx=Math.cos(cam.yaw),fz=Math.sin(cam.yaw);const hd=cam.dist*Math.cos(cam.pitch);camera.position.set(LP.x-fx*hd,2.6+cam.dist*Math.sin(cam.pitch),LP.z-fz*hd);camera.lookAt(LP.x,2.6,LP.z);renderer.render(LS,camera);}
   const gc=document.createElement('canvas');gc.width=360;gc.height=220;const gx=gc.getContext('2d');let gT=0;
-  function grain(dt){gT-=dt;if(gT>0)return;gT=.06;const el=$h('hGrain');if(!el)return;if(gc.parentNode!==el)el.appendChild(gc);const im=gx.createImageData(360,220);for(let i=0;i<im.data.length;i+=4){const v=Math.random()*255;im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255;}gx.putImageData(im,0,0);}
+  function grain(dt){return;gT-=dt;if(gT>0)return;gT=.06;const el=$h('hGrain');if(!el)return;if(gc.parentNode!==el)el.appendChild(gc);const im=gx.createImageData(360,220);for(let i=0;i<im.data.length;i+=4){const v=Math.random()*255;im.data[i]=im.data[i+1]=im.data[i+2]=v;im.data[i+3]=255;}gx.putImageData(im,0,0);}
+  /* ---------- 천장 전등 · 정전 ---------- */
+  const lampPool=[];for(let k=0;k<6;k++){const L=new THREE.PointLight('#efe8dc',0,10,2);MS.add(L);lampPool.push(L);}
+  const power={on:true,sched:[],t:0,flick:false};const HEMI_ON=.42,HEMI_OFF=.04;
+  function initPower(seed){const r=mul((seed|0)+4242);power.sched=[];power.t=0;power.on=true;power.flick=false;let t=75+r()*45;for(let k=0;k<14;k++){const d=9+r()*7;power.sched.push([t,t+d]);t+=d+65+r()*70;}}
+  function powerTick(dt){power.t+=dt;let off=false,warn=false;for(const [a,b] of power.sched){if(power.t>=a-2.2&&power.t<a)warn=true;if(power.t>=a&&power.t<b)off=true;}power.flick=warn;
+    if(off&&power.on){power.on=false;msg('정전!','불이 모두 나갔어요. 손전등을 믿으세요',4200);tone(90,1,.1,'sawtooth',40);burst(.5,180,1,.3);}
+    else if(!off&&!power.on){power.on=true;msg('전기가 돌아왔어요','',2200);tone(300,.4,.06,'square',600);}}
+  function lampUpdate(){const on=power.on;const px=camera.position.x,pz=camera.position.z;
+    for(const f of ceilL){if(f.on!==on){f.on=on;f.m.material=W('#cfcabd',on?'#fff4d8':'#000000');}}
+    for(const l of lampsM){const pl=l.userData.L;if(l.userData.vis!==on){l.userData.vis=on;l.material=W('#444',on?'#ffffff':'#000000');}if(pl&&!l.userData.fk)pl.intensity=on?.85:0;}
+    const cand=on?ceilL.map(f=>({f,d:(f.x-px)*(f.x-px)+(f.z-pz)*(f.z-pz)})).sort((a,b)=>a.d-b.d).slice(0,lampPool.length):[];
+    lampPool.forEach((L,k)=>{const c=cand[k];if(c){L.position.set(c.f.x,WH-.5,c.f.z);L.intensity=power.flick&&Math.random()<.5?.1:.9;}else L.intensity=0;});
+    hemi.intensity=on?HEMI_ON:(P&&P.hidden?.1:HEMI_OFF);MS.fog.density=on?.05:.1;}
   /* ---------- lights ---------- */
   const torch=new THREE.SpotLight('#f4f1ea',1.75,24,.6,.55,1.3);torch.castShadow=true;torch.shadow.mapSize.set(TOUCH?512:1024,TOUCH?512:1024);torch.shadow.bias=-.002;torch.shadow.camera.near=.2;torch.shadow.camera.far=30;MS.add(torch);MS.add(torch.target);
   const aura=new THREE.PointLight('#c8c8d0',.45,6,2);MS.add(aura);
@@ -2780,7 +2795,7 @@ const Horror=(()=>{
   /* ---------- 업데이트 ---------- */
   let tRun=false,hbT=0,presT=0,snapT=0;
   function update(dt){if(!active)return;playT+=dt;if(playT>=60){playT-=60;gainXP(10,'게임 1분 플레이');}
-    if(mode==='lobby'){lobbyUpdate(dt);return;}if(!P)return;netTick(dt);if(state!=='play')return;
+    if(mode==='lobby'){lobbyUpdate(dt);return;}if(!P)return;netTick(dt);powerTick(dt);if(state!=='play')return;
     if(!P.hidden&&!P.dead){let fwd=(keys.w||keys.arrowup?1:0)-(keys.s||keys.arrowdown?1:0),rt=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0);fwd-=jv.y;rt+=jv.x;if(padOpen||noteOpen)fwd=rt=0;
       const fx=Math.cos(cam.yaw),fz=Math.sin(cam.yaw);let mx=fx*fwd-fz*rt,mz=fz*fwd+fx*rt;const m=Math.hypot(mx,mz);if(m>1){mx/=m;mz/=m;}
       const wantRun=(keys.shift||tRun)&&m>.2&&!P.crouch&&!P.winded;const sp=P.crouch?1.6:wantRun?6:3.1;
@@ -2836,7 +2851,7 @@ const Horror=(()=>{
   function scareEvent(){const r=Math.random();if(ghosts.some(g=>g.mode==='chase'))return;
     if(r<.35){let n=0;const iv=setInterval(()=>{burst(.07,500,1,.06+n*.012);if(++n>6)clearInterval(iv);},420);return;}
     if(r<.6){whisper();return;}if(r<.8){burst(.9,300,2,.35);burst(.4,120,1,.4);return;}
-    const L=lampsM.filter(l=>Math.hypot(l.position.x-P.x,l.position.z-P.z)<16);if(L.length){const l=R_(L);let n=0;const iv=setInterval(()=>{const on=n%2;l.material=W('#444',on?'#ffffff':'#000000');if(l.userData.L)l.userData.L.intensity=on?1.1:0;if(++n>11){clearInterval(iv);l.material=W('#444','#000000');if(l.userData.L)l.userData.L.intensity=0;}},80);tone(60,1.2,.08,'square');}}
+    const L=lampsM.filter(l=>Math.hypot(l.position.x-P.x,l.position.z-P.z)<16);if(L.length){const l=R_(L);let n=0;l.userData.fk=1;const iv=setInterval(()=>{const on=n%2;l.material=W('#444',on?'#ffffff':'#000000');if(l.userData.L)l.userData.L.intensity=on?1.1:0;if(++n>11){clearInterval(iv);l.userData.fk=0;l.userData.vis=null;}},80);tone(60,1.2,.08,'square');}}
   /* ---------- 네트워크 ---------- */
   let lastHid=-1;
   function netTick(dt){const hid=P&&P.hidden?hides.indexOf(P.hidden):-1;if(hid!==lastHid){if(isHost&&hid>=0)noteHide(myId,hid);lastHid=hid;}
@@ -2900,8 +2915,8 @@ const Horror=(()=>{
     let near=1e9;for(const g of ghosts)near=Math.min(near,Math.hypot(g.x-ex,g.z-ez));fl_t=(fl_t||0)-dt;if(near<9&&fl_t<=0&&Math.random()<dt*.6){fl_t=.35;}const flick=fl_t>0&&Math.sin(clock*60)>0;const myFlash=P.dead?(spec&&spec.fl):P.flash&&!P.hidden;
     torch.intensity=myFlash?(flick?.9:1.75)*(!P.dead&&P.bat<15?(.4+.6*Math.random()):1):0;torch.position.set(ex+Math.cos(yaw)*.1,ey-.15,ez+Math.sin(yaw)*.1);torch.target.position.set(ex+Math.cos(yaw)*cp*5,ey+Math.sin(pitch)*5,ez+Math.sin(yaw)*cp*5);
     aura.position.set(ex,ey,ez);aura.intensity=P.hidden?.04:.4;
-    if(P.hidden){const h=P.hidden;const gap=16+(h.cur||0)*60;$h('hSlit').style.setProperty('--gap',gap+'%');}
-    renderer.render(MS,camera);grain(dt);}
+    if(P.hidden){const h=P.hidden;const gap=28+(h.cur||0)*50;$h('hSlit').style.setProperty('--gap',gap+'%');}
+    lampUpdate();renderer.render(MS,camera);grain(dt);}
   /* ---------- lifecycle ---------- */
   function start(opt){opt=opt||{};active=true;$h('g3hud').innerHTML=`<div id="hGrain"></div><div id="hVig"></div><div id="hTags"></div><div class="hhud"><b id="hDolls"></b><div class="hb"><span>숨</span><i><s id="hStam"></s></i></div><div class="hb"><span>손전등</span><i><s id="hBat"></s></i></div></div>
       <div id="hDot"></div><div id="hPrompt" hidden></div><div id="hMsg" hidden></div><div id="hSlit" hidden></div><div id="hLobby" hidden><b>로비</b><span id="hLobInfo"></span></div>
@@ -2938,7 +2953,7 @@ const WordCafe=(()=>{
   const starts=last=>{const a=[last];const d=dueum(last);if(d!==last)a.push(d);return a;};
   function loadDict(){if(dictP)return dictP;const urls=['kwords.txt','https://raw.githubusercontent.com/Jihoo-rpg/Bricks/main/kwords.txt'];
     dictP=(async()=>{for(const u of urls){try{const r=await fetch(u);if(!r.ok)continue;const t=await r.text();if(t.length<1000)continue;let arr=t.split('\n');const ci_=arr.indexOf('#C'),ai_=arr.indexOf('#A');if(ci_>=0&&ai_>ci_){COMMON=arr.slice(ci_+1,ai_);arr=arr.slice(ai_+1);}COMSET=new Set(COMMON);DICT=new Set(arr);for(const w of COMMON)if(!DICT.has(w)){DICT.add(w);arr.push(w);}IDX=new Map();for(const w of arr){const k=w[0];let l=IDX.get(k);if(!l){l=[];IDX.set(k,l);}l.push(w);}
-          try{const ex=(await withTimeout(bref('wdict').get(),4000)).val()||{};for(const w of Object.keys(ex))addWord(w);}catch(err){}return true;}catch(err){}}return false;})();return dictP;}
+          return true;}catch(err){}}return false;})();return dictP;}
   function addWord(w){if(!DICT||DICT.has(w)||!/^[가-힣]{2,15}$/.test(w))return;DICT.add(w);let l=IDX.get(w[0]);if(!l){l=[];IDX.set(w[0],l);}l.push(w);}
   const conts=last=>starts(last).reduce((n,s)=>n+((IDX&&IDX.get(s))||[]).length,0);
   /* ---------- 카페 ---------- */
@@ -3026,7 +3041,6 @@ const WordCafe=(()=>{
     else if(a.a==='agree'){if(si>=0)S.agree[a.u]=1;}else if(a.a==='start'){if(S.st==='wait'){const e=startGame(ti);if(e)S.msg=e;}}
     else if(a.a==='word'){if(S.st!=='play'||si<0||S.turn!==si)return;const w=String(a.w||'').trim();const e=submit(S,ti,si,w);if(e){S.tries=(S.tries||0)+1;S.err={u:a.u,e,w,at:Date.now()};if(S.tries>=5){failTurn(S,ti,'5번 틀림');}}}
     else if(a.a==='giveup'){if(S.st==='play'&&S.turn===si)failTurn(S,ti,'포기');}
-    else if(a.a==='addword'){const w=String(a.w||'');if(/^[가-힣]{2,15}$/.test(w)){addWord(w);if(NET)bref('wdict/'+w).set(1).catch(()=>{});}}
     pushTable(ti);}
   function pushTable(ti){if(NET)NET.ref.child('tables/'+tableKey(ti)).set(JSON.parse(JSON.stringify(TS_[ti]))).catch(()=>{});}
   function act(ti,a){a.u=myId;a.at=Date.now();if(hostOf[ti]===myId)hostAct(ti,a);else if(NET)NET.ref.child('acts/'+tableKey(ti)).push(a).catch(()=>{});}
@@ -3072,7 +3086,7 @@ const WordCafe=(()=>{
     const tn=playing?((arr[S.turn]&&arr[S.turn].n)||AINAMES[S.turn%AINAMES.length]):'';$w('wTurn').textContent=playing?(myTurn?`내 차례  ${Math.ceil(left)}`:`${tn} 차례  ${Math.ceil(left)}`):'';
     const X=$w('wX');const tries=playing?(S.tries||0):0;if(X.childElementCount!==5){X.replaceChildren();for(let k=0;k<5;k++){const c=document.createElement('i');X.appendChild(c);}}[...X.children].forEach((c,k)=>c.className=k<tries?'on':'');X.style.visibility=playing?'visible':'hidden';
     const lk=JSON.stringify(S.log);if(lk!==lastLogKey){lastLogKey=lk;const L=$w('wLog');L.replaceChildren();for(const e of (S.log||[]).slice(-4)){const d=document.createElement('div');if(e.s<0){d.className='sys';d.textContent=e.why+(e.w?` → ${e.w}`:'');}else{const nm=(arr[e.s]&&arr[e.s].n)||AINAMES[e.s%AINAMES.length];d.className=ffa?FC[e.s]:TEAMS[t.n][e.s]?'tB':'tA';d.textContent=e.w?`${nm}: ${e.w}`:`${nm}: ${e.why}`;if(e.w){lastSaid[ti+':'+e.s]={w:e.w,at:Date.now()};}}L.appendChild(d);}}
-    if(S.err&&S.err.u===myId&&S.err.at!==lastErr){lastErr=S.err.at;msg(S.err.e);flashX();if(S.err.e==='사전에 없는 단어')$w('wAdd').hidden=false;}
+    if(S.err&&S.err.u===myId&&S.err.at!==lastErr){lastErr=S.err.at;msg(S.err.e);flashX();}
     const wait=S.st==='wait';$w('wStart').hidden=true;$w('wAI').hidden=true;$w('wAgree').hidden=!(wait&&t.n===4&&!ffa&&arr.filter(Boolean).length===3);$w('wGive').hidden=!myTurn;
     if(S.st==='end'&&S.win>=0&&endSeen[ti]!==S.until){endSeen[ti]=S.until;const mine=ffa?seat.s:TEAMS[t.n][seat.s];msg(S.win===mine?'승리!':'패배…');if(S.win===mine){gainXP(20,'끝말잇기 승리');wins++;onRecord('word',wins);}}
     // speech bubbles over heads
@@ -3112,12 +3126,12 @@ const WordCafe=(()=>{
   function start(opt){opt=opt||{};active=true;wins=myRec('word');const h=document.getElementById('g3hud');h.innerHTML=`<div id="wTags"></div><div id="wToast" hidden></div><div id="wPrompt" hidden></div><button id="wSit" hidden>앉기</button>
       <div id="wPanel" hidden><div id="wTop"><b id="wTitle"></b><div id="wSeats"></div></div><div id="wLog"></div>
       <div id="wBottom"><div id="wAsk"></div><div class="wtm"><i id="wTimer"></i></div><div id="wX"></div><form id="wForm"><input id="wIn" maxlength="15" autocomplete="off" placeholder=""><button>내기</button></form><div id="wTurn"></div>
-      <div class="wbtns"><button id="wStart">시작</button><button id="wAI">빈 자리 AI로 채우기</button><button id="wAgree" hidden>2:1 동의</button><button id="wGive" hidden>포기</button><button id="wAdd" hidden>방금 단어 사전에 추가</button><button id="wUp">일어나기</button></div></div></div>`;
+      <div class="wbtns"><button id="wStart">시작</button><button id="wAI">빈 자리 AI로 채우기</button><button id="wAgree" hidden>2:1 동의</button><button id="wGive" hidden>포기</button><button id="wUp">일어나기</button></div></div></div>`;
     let lastTry='';
-    $w('wForm').addEventListener('submit',ev=>{ev.preventDefault();if(!seat)return;const w=$w('wIn').value.trim();if(!w)return;lastTry=w;$w('wIn').value='';$w('wAdd').hidden=true;act(seat.t,{a:'word',w});});
+    $w('wForm').addEventListener('submit',ev=>{ev.preventDefault();if(!seat)return;const w=$w('wIn').value.trim();if(!w)return;lastTry=w;$w('wIn').value='';act(seat.t,{a:'word',w});});
     $w('wStart').onclick=()=>{if(!DICT){msg('사전을 불러오는 중이에요');return;}act(seat.t,{a:'start'});};$w('wAI').onclick=()=>act(seat.t,{a:'ai'});$w('wAgree').onclick=()=>{act(seat.t,{a:'agree'});msg('2:1에 동의했어요');};
     $w('wGive').onclick=()=>act(seat.t,{a:'giveup'});$w('wUp').onclick=()=>{if(seat)clearIfEmpty(seat.t);seat=null;closePanel();};$w('wSit').addEventListener('pointerdown',ev=>{ev.preventDefault();sitToggle();});
-    $w('wAdd').onclick=()=>{if(!lastTry)return;act(seat.t,{a:'addword',w:lastTry});$w('wAdd').hidden=true;msg(`'${lastTry}'를 사전에 추가했어요. 다시 내보세요`);};
+    
     if(!P){const rig=makeRig({skin:avatar.sk,color:avatar.col,pc:avatar.pc,acc:okAcc(avatar)},WS);P={rig,x:0,z:14,face:-Math.PI/2,mv:0,walk:0};}P.x=rr(-3,3);P.z=11;seat=null;cam.yaw=-Math.PI/2;cam.pitch=.4;cam.dist=9;cam.tx=P.x;cam.tz=P.z;
     if(opt.srv&&me&&rtdb)connect(opt.srv);else{NET=null;myId='me';joinJ=0;}loadDict().then(ok=>{if(!ok)msg('사전을 불러오지 못했어요');});msg('빈 의자에 가서 E를 눌러 앉으세요');}
   function thumb(){if(!GL_OK)return'';try{const t=TABLES[4];const r1=makeRig({skin:'#ffdbac',color:'#e8453c',pc:'#38414f',acc:{hat:'cap'}},WS),r2=makeRig({skin:'#f1c27d',color:'#3d7dd8',pc:'#38414f',acc:{hat:'phones'}},WS);
@@ -4056,7 +4070,7 @@ function applyHubUpdate(){const U=HUB_UPDATE,hub=$('hub'),bn=$('updBanner');if(!
 applyHubUpdate();
 
 /* ===================== 브록스 (아바타 재화) ===================== */
-const BROX_CFG={perPlay:20,playSecs:300,gift:100,testMode:false,admins:['admin'],
+const BROX_CFG={perPlay:20,playSecs:300,gift:100,testMode:false,admins:['Admin'],
   packs:[{id:'p1',b:500,krw:1100,tag:''},{id:'p2',b:1200,krw:2500,tag:'+10%'},{id:'p3',b:2800,krw:5500,tag:'+20% 인기'},{id:'p4',b:6500,krw:11000,tag:'+40%'},{id:'p5',b:15000,krw:22000,tag:'+90% 최고 가성비'}],
   /* ★ 결제 링크: 토스, 스트라이프 같은 곳에서 만든 '결제 링크'를 팩마다 여기에 붙여넣으면 충전 버튼이 그 결제창을 열어요. 비어 있으면 충전 코드로만 충전돼요. */
   payLinks:{p1:'',p2:'',p3:'',p4:'',p5:''}};
@@ -4135,7 +4149,8 @@ function updBuyBar(){const bar=$('avBuy');if(!bar)return;bar.replaceChildren();i
 async function buyItem(slot,id){const fin=finalPrice(slot,id);let done=false;const ok=await walletTx(c=>{if(c.own&&c.own[slot+'_'+id])return false;if((c.b||0)<fin)return false;c.b-=fin;c.own=c.own||{};c.own[slot+'_'+id]=1;});
   if(!ok){brxPop('구매하지 못했어요. 브록스를 확인해 주세요');avRender();return;}avPrev=null;avatar[slot]=id;saveAvatar();applyAvatar();avRender();brxPop(`구매 완료! ${itemName(slot,id)} · -${fin} 브록스`);}
 /* ----- 충전소 ----- */
-const isAdmin=()=>!!me&&BROX_CFG.admins.includes(String(me.uid).toLowerCase());
+const isAdmin=()=>!!me&&BROX_CFG.admins.includes(String(me.uid));let adminOK=false;
+async function hashCode(c){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('bricks-brox:'+c));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('').slice(0,40);}catch(e){let h=5381;for(const ch of 'bricks-brox:'+c)h=((h<<5)+h+ch.charCodeAt(0))|0;return 'f'+(h>>>0).toString(16)+c.length;}}
 function openBrox(){let m=$('brxModal');if(!m){m=document.createElement('div');m.id='brxModal';document.body.appendChild(m);}m.hidden=false;renderBrox();}
 function renderBrox(){const m=$('brxModal');m.replaceChildren();const card=document.createElement('div');card.className='bcard';m.appendChild(card);m.onclick=ev=>{if(ev.target===m)m.hidden=true;};
   const mk=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
@@ -4147,11 +4162,12 @@ function renderBrox(){const m=$('brxModal');m.replaceChildren();const card=docum
   const note=mk('p','small bnote','');card.appendChild(note);
   const cr=mk('div','bcode');const inp=mk('input');inp.placeholder='충전 코드 (예: ABCD-EFGH-JKMN)';inp.maxLength=20;const rb=mk('button','','코드 입력');rb.onclick=async()=>{const r=await redeemCode(inp.value);note.textContent=r;if(r.startsWith('충전'))renderBrox();};cr.append(inp,rb);card.appendChild(cr);
   card.appendChild(mk('p','small muted','미성년자는 보호자의 동의를 받고 충전해 주세요. 충전한 브록스는 환불되지 않아요.'));
-  if(isAdmin()){const ad=mk('div','badmin');ad.appendChild(mk('b','','🛠 관리자'));const r1=mk('div','brow');const am=mk('input');am.type='number';am.placeholder='브록스 수';am.value='500';const gb=mk('button','','충전 코드 만들기');const out=mk('div','bout');gb.onclick=async()=>{const n=Math.max(1,Math.min(1000000,+am.value|0));const code=genCode();try{await withTimeout(bref('codes/'+code).set({b:n,by:me.uid,at:TS(),used:null}),5000);const d=mk('div','',`${code}  (${n.toLocaleString()} 브록스)`);const cp=mk('button','','복사');cp.onclick=()=>{try{navigator.clipboard.writeText(code);}catch(e){}cp.textContent='복사됨';};d.appendChild(cp);out.prepend(d);}catch(e){out.prepend(mk('div','','코드를 만들지 못했어요'));}};r1.append(am,gb);ad.append(r1,out);
-    const r2=mk('div','brow');const ui=mk('input');ui.placeholder='받을 아이디';const ua=mk('input');ua.type='number';ua.placeholder='브록스 수';const ub=mk('button','','바로 지급');ub.onclick=async()=>{const uid=ui.value.trim().toLowerCase();const n=+ua.value|0;if(!/^[a-z0-9_가-힣]{1,20}$/i.test(uid)||!n){out.prepend(mk('div','','아이디와 수를 확인하세요'));return;}try{await withTimeout(bref('wallet/'+uid).transaction(c=>{c=c||{b:0,own:{},ps:0};c.b=(c.b||0)+n;return c;}),6000);out.prepend(mk('div','',`${uid}님에게 ${n} 브록스 지급`));}catch(e){out.prepend(mk('div','','지급하지 못했어요'));}};r2.append(ui,ua,ub);ad.appendChild(r2);card.appendChild(ad);}}
+  if(isAdmin()&&!adminOK){const ad=mk('div','badmin');ad.appendChild(mk('b','','🛠 관리자 (비밀번호 확인)'));const r=mk('div','brow');const pw=mk('input');pw.type='password';pw.placeholder='관리자 비밀번호';pw.autocomplete='off';const ob=mk('button','','확인');ob.onclick=async()=>{try{const acc=await readAccount(me.uid);if(acc&&acc.password&&acc.password===pw.value){adminOK=true;renderBrox();}else note.textContent='비밀번호가 맞지 않아요.';}catch(e){note.textContent='확인하지 못했어요. 잠시 뒤에 다시 해보세요.';}};r.append(pw,ob);ad.appendChild(r);card.appendChild(ad);}
+  if(isAdmin()&&adminOK){const ad=mk('div','badmin');ad.appendChild(mk('b','','🛠 관리자'));const r1=mk('div','brow');const am=mk('input');am.type='number';am.placeholder='브록스 수';am.value='500';const gb=mk('button','','충전 코드 만들기');const out=mk('div','bout');gb.onclick=async()=>{if(!(isAdmin()&&adminOK))return;const n=Math.max(1,Math.min(1000000,+am.value|0));const code=genCode();try{await withTimeout(bref('codes/'+await hashCode(code)).set({b:n,by:me.uid,at:TS(),used:null}),5000);const d=mk('div','',`${code}  (${n.toLocaleString()} 브록스)`);const cp=mk('button','','복사');cp.onclick=()=>{try{navigator.clipboard.writeText(code);}catch(e){}cp.textContent='복사됨';};d.appendChild(cp);out.prepend(d);}catch(e){out.prepend(mk('div','','코드를 만들지 못했어요'));}};r1.append(am,gb);ad.append(r1,out);
+    const r2=mk('div','brow');const ui=mk('input');ui.placeholder='받을 아이디';const ua=mk('input');ua.type='number';ua.placeholder='브록스 수';const ub=mk('button','','바로 지급');ub.onclick=async()=>{if(!(isAdmin()&&adminOK))return;const uid=ui.value.trim();const n=+ua.value|0;if(!/^[0-9A-Za-z가-힣_]{2,12}$/.test(uid)||!n){out.prepend(mk('div','','아이디와 수를 확인하세요'));return;}try{await withTimeout(bref('wallet/'+uid).transaction(c=>{c=c||{b:0,own:{},ps:0};c.b=(c.b||0)+n;return c;}),6000);out.prepend(mk('div','',`${uid}님에게 ${n} 브록스 지급`));}catch(e){out.prepend(mk('div','','지급하지 못했어요'));}};r2.append(ui,ua,ub);ad.appendChild(r2);card.appendChild(ad);}}
 function genCode(){const c='ABCDEFGHJKMNPQRSTUVWXYZ23456789';let s='';for(let i=0;i<12;i++){s+=c[Math.floor(Math.random()*c.length)];if(i%4===3&&i<11)s+='-';}return s;}
 async function redeemCode(raw){if(!me||!rtdb)return '충전 코드는 로그인하면 쓸 수 있어요.';const code=String(raw||'').toUpperCase().replace(/[^A-Z0-9]/g,'').replace(/(.{4})(.{4})(.{4})/,'$1-$2-$3');if(code.length<14)return '코드를 다시 확인해 주세요.';
-  let amt=0;try{const res=await withTimeout(bref('codes/'+code).transaction(c=>{if(!c||c.used||!(c.b>0))return;c.used=me.uid;c.ua=Date.now();return c;}),8000);if(!res.committed)return '없는 코드이거나 이미 사용된 코드예요.';amt=+res.snapshot.val().b||0;}catch(e){return '코드를 확인하지 못했어요. 잠시 뒤에 다시 해보세요.';}
+  let amt=0;try{const res=await withTimeout(bref('codes/'+await hashCode(code)).transaction(c=>{if(!c||c.used||!(c.b>0))return;c.used=me.uid;c.ua=Date.now();return c;}),8000);if(!res.committed)return '없는 코드이거나 이미 사용된 코드예요.';amt=+res.snapshot.val().b||0;}catch(e){return '코드를 확인하지 못했어요. 잠시 뒤에 다시 해보세요.';}
   const ok=await walletTx(c=>{c.b=(c.b||0)+amt;});return ok?`충전 완료! +${amt.toLocaleString()} 브록스`:'충전에 실패했어요. 관리자에게 코드를 알려주세요: '+code;}
 
 $('walletBtn').addEventListener('click',()=>openBrox());
