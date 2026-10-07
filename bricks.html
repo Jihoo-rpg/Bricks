@@ -380,6 +380,19 @@ body.touch #fpHint{display:none}body.touch #fpTop{left:136px;transform:none;padd
 body.touch #ktTut{top:64px;padding:7px 10px}body.touch #ktTut b{font-size:13px}
 /* 인증 체크 */
 .vchk{display:inline-block;width:1.05em;height:1.05em;margin-left:.3em;vertical-align:-.16em;border-radius:50%;background:#1d9bf0;position:relative;flex:none}.vchk::after{content:'';position:absolute;left:33%;top:17%;width:22%;height:44%;border:solid #fff;border-width:0 .16em .16em 0;transform:rotate(45deg)}
+
+.stgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:12px}.stgrid[hidden]{display:none}.sttabs{display:flex;gap:6px;margin-top:10px}.sttabs button,.sted-tabs button,.sted-top button,.stcard button,.sted-tools button,.strow button,.strow select{border:1px solid var(--hl);background:var(--hp_);color:var(--ht);border-radius:999px;padding:7px 14px;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+.sttabs button.on,.sted-tabs button.on,.pri{background:var(--acc)!important;border-color:var(--acc)!important;color:#fff!important}.del{color:#e8453c!important}
+.stcard{background:var(--hp_);border:1px solid var(--hl);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px}.stcard small{color:var(--hm);font-weight:700}.stcard p{margin:0;font-size:13px;color:var(--hm)}.strow{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}.stcard input{padding:8px;border-radius:8px;border:1px solid var(--hl);background:transparent;color:inherit;font:inherit}
+.stcode{background:#12141a;color:#cde;border-radius:10px;padding:10px;font-size:12px;max-height:260px;overflow:auto;white-space:pre-wrap;margin:8px 0 0}
+#stEd{display:flex;flex-direction:column;gap:8px;height:calc(100vh - 110px)}.sted-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.sted-top input{flex:1;min-width:120px;max-width:300px;padding:8px 12px;border-radius:999px;border:1px solid var(--hl);background:var(--hp_);color:inherit;font:inherit;font-weight:800}.sted-top .sp{flex:1}
+.sted-main{display:grid;grid-template-columns:1fr 340px;gap:10px;flex:1;min-height:0}.sted-view{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--hl);min-height:300px}.sted-view canvas{width:100%;height:100%;display:block;touch-action:none}.sted-tools{position:absolute;left:8px;top:8px;right:8px;display:flex;flex-wrap:wrap;gap:5px}.sted-tools button{padding:4px 10px;font-size:12px;background:rgba(255,255,255,.88);color:#111}
+.sted-side{background:var(--hp_);border:1px solid var(--hl);border-radius:14px;padding:10px;overflow:auto;display:flex;flex-direction:column;gap:8px}.sted-tabs{display:flex;gap:6px}
+.pf{display:flex;flex-direction:column;gap:3px;font-size:12px;font-weight:800;flex:1}.pf input,.pf select,.pf textarea{padding:6px 8px;border-radius:8px;border:1px solid var(--hl);background:transparent;color:inherit;font:inherit;width:100%;box-sizing:border-box}.prow3{display:flex;gap:6px}.ptype{font-weight:900;font-size:15px}
+#stCode{width:100%;flex:1;min-height:320px;background:#12141a;color:#d8e8ff;border:1px solid #333;border-radius:10px;padding:10px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;line-height:1.5;resize:vertical;box-sizing:border-box;tab-size:2}.sterr{color:#e8453c;font-weight:700;font-size:12px;min-height:16px}
+#stPlay{position:fixed;inset:0;z-index:85;background:#000;display:flex;flex-direction:column}#stPlay[hidden]{display:none}#stPlay iframe{flex:1;border:0;width:100%}.stplaybar{display:flex;align-items:center;gap:12px;padding:8px 12px;background:#14161c;color:#fff}.stplaybar b{font-size:15px}#stPlayErr{color:#ff8a7a;font-size:12px;flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.stplaybar button{border:0;background:#e8453c;color:#fff;border-radius:999px;padding:6px 14px;font-weight:900;cursor:pointer}
+.ugtile{display:flex;flex-direction:column;gap:4px;text-align:left;background:var(--hp_);border:1px solid var(--hl);border-radius:14px;padding:12px;cursor:pointer}.ugart{height:90px;border-radius:10px;background:linear-gradient(135deg,#2563eb,#7c3aed);display:grid;place-items:center;font-size:42px}.ugtile small,.ugtile em{color:var(--hm);font-style:normal;font-size:12px;font-weight:700}
+@media (max-width:860px){.sted-main{grid-template-columns:1fr;grid-template-rows:42vh auto}#stEd{height:auto}.sted-side{min-height:260px}#stCode{min-height:220px}}
 /* ===== 모바일 정리 ===== */
 #chatTg{display:none}
 body.touch:not(.inhub) #exitBtn{left:10px!important;top:max(10px,env(safe-area-inset-top,0px))!important;bottom:auto!important;right:auto!important;transform:none!important;width:36px;height:36px;padding:0;border-radius:50%;font-size:0;opacity:.85;z-index:6}
@@ -560,6 +573,7 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
     <button data-go="home" class="on"><svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></svg>홈</button>
     <button data-go="games"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>게임</button>
     <button data-go="avatar"><svg viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="7" rx="1.5"/><rect x="5" y="10" width="14" height="7" rx="1.5"/><rect x="7" y="17" width="4" height="5"/><rect x="13" y="17" width="4" height="5"/></svg>아바타</button>
+    <button data-go="studio"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>스튜디오<span class="nbadge" id="stNavBadge" hidden></span></button>
     <button data-go="rank"><svg viewBox="0 0 24 24"><path d="M7 3h10v3h4v3a5 5 0 0 1-5 5h-.3A5 5 0 0 1 13 16.9V19h3v2H8v-2h3v-2.1A5 5 0 0 1 8.3 14H8a5 5 0 0 1-5-5V6h4zm0 5H5v1a3 3 0 0 0 2 2.8zm10 0v3.8A3 3 0 0 0 19 9V8z"/></svg>랭킹</button>
     <button data-go="friends"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="4"/><circle cx="17" cy="9" r="3"/><path d="M1 21c0-4 3-7 7-7s7 3 7 7zM14 21c0-2.5-.6-4.5-1.8-6 4.6-1 9.8 1 9.8 6z"/></svg>친구<span class="nbadge" id="navBadge" hidden></span></button>
   </nav>
@@ -575,6 +589,23 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
       <div class="rowhead"><h3>레벨 랭킹</h3><button class="morelink" data-go="rank">전체 보기</button></div>
       <div id="homeRank"></div>
     </section>
+    <section data-view="studio" hidden>
+      <div id="stList">
+        <div class="rowhead"><h3>🛠 브릭스 스튜디오</h3></div>
+        <p class="note">내가 직접 게임을 만들어서 올려 보세요. 블록으로 맵을 만들 수도 있고, 코드로 슈팅·퍼즐·달리기처럼 어떤 장르든 자유롭게 만들 수 있어요. 게시를 신청하면 관리자가 확인한 뒤에 모두가 할 수 있게 올라가요.</p>
+        <div class="sttabs" id="stTabs"><button data-st="mine" class="on">내 게임</button><button data-st="new">새 게임 만들기</button><button data-st="review" id="stRevTab" hidden>심사함 <span id="stBadge"></span></button></div>
+        <div id="stMine" class="stgrid"></div><div id="stNew" class="stgrid" hidden></div><div id="stReview" hidden></div>
+      </div>
+      <div id="stEd" hidden>
+        <div class="sted-top"><button id="stBack">← 목록</button><input id="stName" maxlength="30" placeholder="게임 이름"><span id="stSaved" class="muted small"></span><span class="sp"></span><button id="stTest" class="pri">▶ 테스트</button><button id="stSubmitBtn">📨 게시 신청</button></div>
+        <div class="sted-main"><div class="sted-view"><canvas id="stCanvas"></canvas><div class="sted-tools" id="stTools"></div></div>
+          <div class="sted-side"><div class="sted-tabs"><button data-edtab="blocks" class="on">블록</button><button data-edtab="code">코드</button><button data-edtab="set">설정</button></div>
+            <div id="stPaneBlocks"><div id="stProps"></div></div>
+            <div id="stPaneCode" hidden><div class="strow"><select id="stTplSel"><option value="">예제 불러오기…</option></select><button id="stHelpBtn">도움말</button></div><pre id="stHelp" hidden class="stcode"></pre><textarea id="stCode" spellcheck="false"></textarea><div id="stErr" class="sterr"></div></div>
+            <div id="stPaneSet" hidden><label class="pf"><span>설명</span><textarea id="stDesc" maxlength="300" rows="4"></textarea></label><p class="muted small">게시 신청 전에 꼭 테스트해 보세요. 심사에서 코드와 실행 화면을 확인해요.</p></div>
+          </div></div>
+      </div>
+    </section>
     <section data-view="rank" hidden>
       <div class="rowhead"><h3>계정 레벨 랭킹</h3><span class="muted" id="myRank"></span></div>
       <p class="note" id="rankOff" hidden>랭킹은 로그인하면 볼 수 있어요.</p>
@@ -584,6 +615,8 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
     <section data-view="games" hidden>
       <div class="rowhead"><h3>모든 게임</h3></div>
       <div class="grid" id="allGrid"></div>
+      <div class="rowhead"><h3>🛠 유저가 만든 게임</h3><button class="morelink" data-go="studio">나도 만들기</button></div>
+      <div class="grid" id="ugGrid"></div>
     </section>
     <section data-view="detail" hidden>
       <button class="back" data-go="home">← 돌아가기</button>
@@ -717,10 +750,11 @@ body.g-forest #exitBtn{left:16px;top:auto;bottom:16px;transform:none}body.touch.
       
     </div>
     <p class="amsg" id="aMsg" role="alert"></p>
-    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 33</p>
+    <p class="alink" style="text-decoration:none;cursor:default;font-size:11px">bricks 버전 34</p>
     <button class="alink" id="offlineBtn">로그인 없이 봇이랑 해보기</button>
   </div>
 </div>
+<div id="stPlay" hidden><div class="stplaybar"><b id="stPlayTitle"></b><span id="stPlayErr"></span><button id="stPlayClose">✕ 나가기</button></div></div>
 <button id="exitBtn" hidden>← bricks로 나가기</button>
 <button id="chatTg" hidden aria-label="채팅">💬<i id="chatDot" hidden></i></button>
 <button id="fsGame" hidden aria-label="전체 화면">⛶</button>
@@ -4111,7 +4145,7 @@ if(!avR){const n=document.createElement('p');n.className='empty';n.style.padding
 requestAnimationFrame(avLoop);
 
 /* ★★ 대규모 업데이트가 있을 때마다 아래 설정만 바꾸면 홈 화면 배경과 배너가 그 업데이트 테마로 바뀝니다 ★★ */
-const HUB_UPDATE={id:'brox-2026-10',tag:'대규모 업데이트',title:'브록스 상점 오픈',sub:'게임 5분마다 20 브록스 · 아바타 상점 · 특가와 번개세일',cta:'아바타 상점 가기',go:'avatar',emojis:['🧱','💰','🎩','🔥','⚡','🛍️','👑','✨','🦄','🪄','🐲','🌈','🎁','💎'],c1:'#0f9d58',c2:'#f2b705',c3:'#ff6a3d'};
+const HUB_UPDATE={id:'studio-2026-10',tag:'대규모 업데이트',title:'브릭스 스튜디오 오픈',sub:'내가 만든 게임을 올려요 · 블록과 코드로 어떤 장르든 · 관리자 심사 후 게시',cta:'스튜디오 가기',go:'studio',emojis:['🛠️','🎮','🧱','🚀','🏎️','🔫','🧩','🌟','💻','🎨','🏁','🪙'],c1:'#2563eb',c2:'#7c3aed',c3:'#06b6d4'};
 function applyHubUpdate(){const U=HUB_UPDATE,hub=$('hub'),bn=$('updBanner');if(!bn)return;hub.style.setProperty('--u1',U.c1);hub.style.setProperty('--u2',U.c2);hub.style.setProperty('--u3',U.c3);hub.classList.add('upd-home');bn.replaceChildren();
   const tag=document.createElement('span');tag.className='utag';tag.textContent='🎉 '+U.tag;const h=document.createElement('h2');h.textContent=U.title;const p=document.createElement('p');p.textContent=U.sub;const b=document.createElement('button');b.textContent=U.cta+' →';bn.append(tag,h,p,b);
   U.emojis.forEach((e,i)=>{const f=document.createElement('span');f.className='uf';f.textContent=e;f.style.left=((innerWidth<760?68:42)+Math.random()*(innerWidth<760?26:54))+'%';f.style.top=(4+Math.random()*68)+'%';f.style.fontSize=(22+Math.random()*22)+'px';f.style.animationDelay=(-Math.random()*7)+'s';f.style.animationDuration=(5+Math.random()*5)+'s';bn.appendChild(f);});
@@ -4165,7 +4199,7 @@ function enforceOwned(){let ch=false;for(const s in SLOT_DEF){if(!ownsItem(s,ava
 /* ----- 플레이 시간 보상 ----- */
 let wtLast=0,wtSave=0,lastInput=Date.now();
 ['keydown','pointerdown','pointermove','touchstart','wheel'].forEach(ev=>addEventListener(ev,()=>{lastInput=Date.now();},{passive:true}));
-function walletTick(ts){const d=Math.max(0,Math.min(1,(ts-wtLast)/1000||0));wtLast=ts;if(!WL.loaded||document.hidden||!running||document.body.classList.contains('inhub'))return;if(Date.now()-lastInput>120000)return;
+function walletTick(ts){const d=Math.max(0,Math.min(1,(ts-wtLast)/1000||0));wtLast=ts;if(!WL.loaded||document.hidden||!(stPlaying||(running&&!document.body.classList.contains('inhub'))))return;if(Date.now()-lastInput>120000)return;
   psLocal+=d;if(psLocal>=BROX_CFG.playSecs){const n=Math.floor(psLocal/BROX_CFG.playSecs);psLocal-=n*BROX_CFG.playSecs;const add=n*BROX_CFG.perPlay;walletTx(c=>{c.b=(c.b||0)+add;c.ps=Math.floor(psLocal);}).then(ok=>{if(ok)brxPop(`🧱 +${add} 브록스! 플레이 보상`);});}
   wtSave+=d;if(wtSave>=30){wtSave=0;if(me&&rtdb&&WL.loaded)bref('wallet/'+me.uid+'/ps').set(Math.floor(psLocal)).catch(()=>{});else{WL.ps=Math.floor(psLocal);saveLocalWallet();}}}
 function addPlayProgressToUI(){return BROX_CFG.playSecs-psLocal;}
@@ -4231,11 +4265,272 @@ function decorateVerified(root){if(!root)return;const list=root.nodeType===1?[ro
 new MutationObserver(ms=>{for(const m of ms){if(m.type==='characterData')decorateVerified(m.target);else for(const n of m.addedNodes)if(n.nodeType===1||n.nodeType===3)decorateVerified(n);}}).observe(document.body,{childList:true,subtree:true,characterData:true});
 decorateVerified(document.body);
 
+/* ===================== 브릭스 스튜디오: 게임 실행 엔진 (샌드박스 안에서 돌아가요) ===================== */
+function stRuntimeMain(){
+  const B=window.__BR;const post=(t,d)=>{try{parent.postMessage(Object.assign({bricks:1,t},d||{}),'*');}catch(e){}};
+  window.onerror=(m,u,l)=>{post('err',{msg:String(m)+(l?' (줄 '+l+')':'')});return true;};
+  window.addEventListener('unhandledrejection',e=>post('err',{msg:String(e.reason)}));
+  const cv=document.getElementById('c'),ui=document.getElementById('ui');
+  const renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true});renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));
+  const scene=new THREE.Scene();scene.background=new THREE.Color('#9ad4ff');const camera=new THREE.PerspectiveCamera(70,1,.1,600);camera.position.set(0,8,14);camera.lookAt(0,0,0);
+  const hemi=new THREE.HemisphereLight('#ffffff','#667788',1);scene.add(hemi);const sun=new THREE.DirectionalLight('#ffffff',.6);sun.position.set(20,40,10);scene.add(sun);
+  const resize=()=>{renderer.setSize(innerWidth,innerHeight,false);camera.aspect=innerWidth/Math.max(1,innerHeight);camera.updateProjectionMatrix();};addEventListener('resize',resize);resize();
+  const keys={};const mouse={x:0,y:0,dx:0,dy:0,down:false,locked:false};let jumpP=false,fireP=false;const TOUCH='ontouchstart' in window;
+  addEventListener('keydown',e=>{const k=e.key.toLowerCase();keys[k]=1;if(k===' ')jumpP=true;if([' ','arrowup','arrowdown','arrowleft','arrowright'].includes(k))e.preventDefault();});addEventListener('keyup',e=>{keys[e.key.toLowerCase()]=0;});
+  cv.addEventListener('mousedown',e=>{mouse.down=true;fireP=true;});addEventListener('mouseup',()=>{mouse.down=false;});
+  addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;if(mouse.locked||mouse.down){mouse.dx+=e.movementX||0;mouse.dy+=e.movementY||0;}});
+  document.addEventListener('pointerlockchange',()=>{mouse.locked=document.pointerLockElement===cv;});
+  const stick={x:0,y:0};
+  if(TOUCH){const mk=(cls,txt)=>{const d=document.createElement('div');d.className='tb '+cls;d.textContent=txt;ui.appendChild(d);return d;};
+    const js=mk('js','');const kn=document.createElement('i');js.appendChild(kn);let sid=null,c0=null;
+    js.addEventListener('touchstart',e=>{const t=e.changedTouches[0];sid=t.identifier;const r=js.getBoundingClientRect();c0={x:r.left+r.width/2,y:r.top+r.height/2};e.preventDefault();},{passive:false});
+    js.addEventListener('touchmove',e=>{for(const t of e.changedTouches)if(t.identifier===sid){let dx=(t.clientX-c0.x)/40,dy=(t.clientY-c0.y)/40;const m=Math.hypot(dx,dy);if(m>1){dx/=m;dy/=m;}stick.x=dx;stick.y=-dy;kn.style.transform=`translate(${dx*30}px,${dy*30}px)`;}e.preventDefault();},{passive:false});
+    const end=()=>{sid=null;stick.x=stick.y=0;kn.style.transform='';};js.addEventListener('touchend',end);js.addEventListener('touchcancel',end);
+    const jb=mk('jb','점프');jb.addEventListener('touchstart',e=>{jumpP=true;keys[' ']=1;e.preventDefault();},{passive:false});jb.addEventListener('touchend',()=>{keys[' ']=0;});
+    const fb=mk('fb','행동');fb.addEventListener('touchstart',e=>{fireP=true;mouse.down=true;e.preventDefault();},{passive:false});fb.addEventListener('touchend',()=>{mouse.down=false;});
+    let lt=null;cv.addEventListener('touchstart',e=>{const t=e.changedTouches[0];lt={x:t.clientX,y:t.clientY};});cv.addEventListener('touchmove',e=>{const t=e.changedTouches[0];if(lt){mouse.dx+=(t.clientX-lt.x)*1.2;mouse.dy+=(t.clientY-lt.y)*1.2;lt={x:t.clientX,y:t.clientY};}e.preventDefault();},{passive:false});}
+  const updaters=[];let last=performance.now(),stopped=false;
+  function loop(t){if(stopped)return;const dt=Math.min(.05,(t-last)/1000||0);last=t;for(const f of updaters){try{f(dt,t/1000);}catch(e){post('err',{msg:'onUpdate: '+e.message});updaters.splice(updaters.indexOf(f),1);}}mouse.dx=mouse.dy=0;jumpP=false;fireP=false;renderer.render(scene,camera);requestAnimationFrame(loop);}
+  /* ----- UI ----- */
+  const uiEls={};
+  const uiApi={text(id,str,o){o=o||{};let e=uiEls[id];if(!e){e=document.createElement('div');e.className='ut';ui.appendChild(e);uiEls[id]=e;}e.textContent=str;e.style.fontSize=(o.size||18)+'px';e.style.color=o.color||'#fff';const px=v=>typeof v==='number'?v+'px':v;if(o.x!==undefined)e.style.left=px(o.x);if(o.y!==undefined)e.style.top=px(o.y);if(o.align==='center')e.style.transform='translateX(-50%)';return e;},
+    html(id,h,o){o=o||{};let e=uiEls[id];if(!e){e=document.createElement('div');e.className='ut';e.style.pointerEvents='auto';ui.appendChild(e);uiEls[id]=e;}e.innerHTML=h;const px=v=>typeof v==='number'?v+'px':v;if(o.x!==undefined)e.style.left=px(o.x);if(o.y!==undefined)e.style.top=px(o.y);return e;},
+    bar(id,f,o){o=o||{};let e=uiEls[id];if(!e){e=document.createElement('div');e.className='ub';const i=document.createElement('i');e.appendChild(i);ui.appendChild(e);uiEls[id]=e;}e.firstChild.style.width=Math.max(0,Math.min(1,f))*100+'%';e.firstChild.style.background=o.color||'#4ad06a';const px=v=>typeof v==='number'?v+'px':v;if(o.x!==undefined)e.style.left=px(o.x);if(o.y!==undefined)e.style.top=px(o.y);if(o.w)e.style.width=o.w+'px';return e;},
+    button(id,label,fn,o){o=o||{};let e=uiEls[id];if(!e){e=document.createElement('button');e.className='ubtn';ui.appendChild(e);uiEls[id]=e;}e.textContent=label;e.onclick=fn;const px=v=>typeof v==='number'?v+'px':v;if(o.x!==undefined)e.style.left=px(o.x);if(o.y!==undefined)e.style.top=px(o.y);return e;},
+    remove(id){if(uiEls[id]){uiEls[id].remove();delete uiEls[id];}},clear(){for(const k in uiEls){uiEls[k].remove();delete uiEls[k];}},
+    toast(msg,ms){const t=document.createElement('div');t.className='utoast';t.textContent=msg;ui.appendChild(t);setTimeout(()=>t.remove(),ms||2200);}};
+  let ac=null;const sound={beep(f,d,v,ty){try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();const t=ac.currentTime,o=ac.createOscillator(),g=ac.createGain();o.type=ty||'sine';o.frequency.value=f||440;g.gain.setValueAtTime(v||.08,t);g.gain.exponentialRampToValueAtTime(.0001,t+(d||.15));o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+(d||.15)+.02);}catch(e){}}};
+  /* ----- 멀티플레이 (부모가 서버와 연결해 줘요) ----- */
+  let netP={},bcFns=[],lastSt=0,pend=null;
+  addEventListener('message',e=>{const d=e.data;if(!d||!d.bricks)return;if(d.t==='net.players')netP=d.p||{};else if(d.t==='net.bc'){for(const f of bcFns){try{f(d.m,d.from);}catch(er){}}}else if(d.t==='stop'){stopped=true;}});
+  const net={join(){post('net.join');},setState(o){const s=JSON.stringify(o);if(s.length>1500)return;const n=performance.now();if(n-lastSt<120){pend=o;return;}lastSt=n;post('net.state',{s:o});},players(){return netP;},broadcast(m){const s=JSON.stringify(m);if(s.length>500)return;post('net.bc',{m});},onBroadcast(f){bcFns.push(f);}};
+  setInterval(()=>{if(pend){const o=pend;pend=null;lastSt=performance.now();post('net.state',{s:o});}},130);
+  let over=false;
+  const Bricks={THREE,scene,camera,renderer,hemi,sun,level:B.level||[],me:B.me||{name:'나',color:'#e8453c'},meta:{name:B.name},key:k=>!!keys[String(k).toLowerCase()],touch:TOUCH,
+    input:{mouse,axis(){const x=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0)+stick.x,y=(keys.w||keys.arrowup?1:0)-(keys.s||keys.arrowdown?1:0)+stick.y;const m=Math.hypot(x,y);return m>1?{x:x/m,y:y/m}:{x,y};},jump(){return jumpP;},jumpHeld(){return !!keys[' '];},fire(){return fireP;},fireHeld(){return mouse.down;},look(){return{dx:mouse.dx,dy:mouse.dy};},lock(){try{cv.requestPointerLock();}catch(e){}}},
+    onUpdate(f){updaters.push(f);},ui:uiApi,sound,net,
+    save(o){const s=JSON.stringify(o);if(s.length<=8000)post('save',{s});},load(){return B.save||null;},
+    end(txt){if(over)return;over=true;post('end',{txt:txt||''});uiApi.html('endbox','<div class="endcard"><b>'+String(txt||'게임 끝!').replace(/</g,'&lt;')+'</b></div>',{x:'50%',y:'35%'});},
+    random:(a,b)=>a+Math.random()*(b-a)};
+  /* ----- 오비/플랫포머 엔진 (블록 에디터로 만든 맵을 실행해요) ----- */
+  Bricks.platformer=function(level,opt){opt=opt||{};level=level||Bricks.level||[];const T=THREE;const solids=[],coins=[],kills=[],cps=[],goals=[],bounces=[],movers=[],trig=[];let spawn={x:0,y:3,z:0};
+    const mat=c=>new T.MeshLambertMaterial({color:c});
+    for(const p of level){const sx=p.sx||4,sy=p.sy||1,sz=p.sz||4;const t=p.t||'block';
+      if(t==='spawn'){spawn={x:p.x||0,y:(p.y||0)+sy/2+1,z:p.z||0};const m=new T.Mesh(new T.CylinderGeometry(1.2,1.2,.2,24),new T.MeshLambertMaterial({color:p.c||'#4adb6a',emissive:'#114411'}));m.position.set(p.x,p.y,p.z);scene.add(m);continue;}
+      if(t==='sign'){const cvs=document.createElement('canvas');cvs.width=512;cvs.height=128;const g=cvs.getContext('2d');g.fillStyle='rgba(0,0,0,.6)';g.fillRect(0,0,512,128);g.fillStyle='#fff';g.font='bold 48px sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText(String(p.tx||'안내').slice(0,18),256,64);const sp=new T.Sprite(new T.SpriteMaterial({map:new T.CanvasTexture(cvs),transparent:true}));sp.scale.set(8,2,1);sp.position.set(p.x,p.y,p.z);scene.add(sp);continue;}
+      if(t==='coin'){const m=new T.Mesh(new T.CylinderGeometry(.6,.6,.15,20),new T.MeshLambertMaterial({color:'#ffd34d',emissive:'#775500'}));m.rotation.x=Math.PI/2;m.position.set(p.x,p.y,p.z);scene.add(m);coins.push({m,x:p.x,y:p.y,z:p.z,got:false});continue;}
+      const col=p.c||({kill:'#e8453c',cp:'#3d7dd8',goal:'#ffd34d',bounce:'#e84fa0',move:'#8a93b8'}[t])||'#8a8f9a';
+      const m=new T.Mesh(new T.BoxGeometry(sx,sy,sz),t==='kill'?new T.MeshLambertMaterial({color:col,emissive:'#550000'}):t==='goal'?new T.MeshLambertMaterial({color:col,emissive:'#665500'}):mat(col));m.position.set(p.x,p.y,p.z);scene.add(m);
+      const box={m,x:p.x,y:p.y,z:p.z,hx:sx/2,hy:sy/2,hz:sz/2,t};
+      if(t==='cp'){cps.push(box);trig.push(box);}else if(t==='goal'){goals.push(box);trig.push(box);}else{solids.push(box);if(t==='kill')kills.push(box);if(t==='bounce')bounces.push(box);
+        if(t==='move'){box.ox=p.x;box.oy=p.y;box.oz=p.z;box.ax=p.a||'x';box.rg=p.r||6;box.sp=p.s||1.5;box.vx=box.vy=box.vz=0;movers.push(box);}}}
+    // player
+    const body=new T.Group();const bm=new T.MeshLambertMaterial({color:Bricks.me.color||'#e8453c'});const torso=new T.Mesh(new T.BoxGeometry(.9,1,.5),bm);torso.position.y=.5;const head=new T.Mesh(new T.BoxGeometry(.6,.6,.6),new T.MeshLambertMaterial({color:'#f5cd57'}));head.position.y=1.3;body.add(torso,head);scene.add(body);
+    const P={x:spawn.x,y:spawn.y,z:spawn.z,vx:0,vy:0,vz:0,on:false},HW=.4,HH=.95;let cp={x:spawn.x,y:spawn.y,z:spawn.z},coinN=0,t0=performance.now(),won=false,yaw=0,pitch=.35,dist=11,deaths=0;
+    const respawn=()=>{P.x=cp.x;P.y=cp.y;P.z=cp.z;P.vx=P.vy=P.vz=0;deaths++;sound.beep(180,.25,.1,'sawtooth');};
+    const overlap=(b,x,y,z)=>Math.abs(x-b.x)<b.hx+HW&&Math.abs(y-b.y)<b.hy+HH&&Math.abs(z-b.z)<b.hz+HW;
+    addEventListener('wheel',e=>{dist=Math.max(4,Math.min(30,dist+e.deltaY*.01));},{passive:true});
+    uiApi.text('coins','🪙 0',{x:14,y:12,size:22});uiApi.text('time','0.0',{x:'50%',y:12,size:26,align:'center'});uiApi.text('dth','💀 0',{x:14,y:44,size:18});
+    updaters.push(dt=>{if(won)return;yaw-=mouse.dx*.006;pitch=Math.max(-.2,Math.min(1.2,pitch+mouse.dy*.005));
+      for(const m of movers){const ph=Math.sin(performance.now()/1000*m.sp);const nx=m.ox+(m.ax==='x'?ph*m.rg:0),ny=m.oy+(m.ax==='y'?ph*m.rg:0),nz=m.oz+(m.ax==='z'?ph*m.rg:0);m.vx=(nx-m.x)/Math.max(dt,.001);m.vy=(ny-m.y)/Math.max(dt,.001);m.vz=(nz-m.z)/Math.max(dt,.001);m.x=nx;m.y=ny;m.z=nz;m.m.position.set(nx,ny,nz);}
+      const a=Bricks.input.axis();const sp=(keys.shift?12:8);const fx=-Math.sin(yaw),fz=-Math.cos(yaw),rx=Math.cos(yaw),rz=-Math.sin(yaw);let mx=fx*a.y+rx*a.x,mz=fz*a.y+rz*a.x;
+      P.vx=mx*sp;P.vz=mz*sp;if(P.on&&(jumpP||keys[' '])){P.vy=13;P.on=false;sound.beep(520,.08,.05);}P.vy-=34*dt;if(P.vy<-45)P.vy=-45;
+      let rideX=0,rideY=0,rideZ=0;
+      const step=(ax,d)=>{if(!d)return;P[ax]+=d;for(const b of solids){if(overlap(b,P.x,P.y,P.z)){if(ax==='y'){if(d<0){P.y=b.y+b.hy+HH;P.vy=0;P.on=true;if(b.t==='move'){rideX=b.vx;rideY=b.vy;rideZ=b.vz;}if(b.t==='bounce'){P.vy=24;P.on=false;sound.beep(700,.15,.08);}}else{P.y=b.y-b.hy-HH;P.vy=Math.min(0,P.vy);}}else if(ax==='x'){P.x=d>0?b.x-b.hx-HW:b.x+b.hx+HW;}else{P.z=d>0?b.z-b.hz-HW:b.z+b.hz+HW;}}}};
+      P.on=false;step('y',P.vy*dt);step('x',P.vx*dt);step('z',P.vz*dt);
+      if(P.on){P.x+=rideX*dt;P.z+=rideZ*dt;}
+      for(const b of kills)if(Math.abs(P.x-b.x)<b.hx+HW+.05&&Math.abs(P.y-b.y)<b.hy+HH+.08&&Math.abs(P.z-b.z)<b.hz+HW+.05){respawn();break;}
+      if(P.y<-40)respawn();
+      for(const c of cps)if(overlap(c,P.x,P.y,P.z)&&(cp.x!==c.x||cp.z!==c.z)){cp={x:c.x,y:c.y+c.hy+1,z:c.z};uiApi.toast('체크포인트!');sound.beep(900,.15,.07);c.m.material=new T.MeshLambertMaterial({color:'#4adb6a',emissive:'#114411'});}
+      for(const c of coins){if(c.got)continue;c.m.rotation.z+=dt*3;if(Math.hypot(P.x-c.x,P.y-c.y,P.z-c.z)<1.4){c.got=true;scene.remove(c.m);coinN++;sound.beep(1000,.1,.07);}}
+      for(const g of goals)if(overlap(g,P.x,P.y,P.z)){won=true;const tm=((performance.now()-t0)/1000).toFixed(1);sound.beep(880,.4,.1);post('win',{time:+tm,coins:coinN});Bricks.end('🏁 클리어!  '+tm+'초 · 코인 '+coinN+' · 💀 '+deaths);}
+      body.position.set(P.x,P.y-HH,P.z);body.rotation.y=Math.atan2(mx,mz)||body.rotation.y;
+      const cx=P.x+Math.sin(yaw)*Math.cos(pitch)*dist,cy=P.y+1+Math.sin(pitch)*dist,cz=P.z+Math.cos(yaw)*Math.cos(pitch)*dist;camera.position.set(cx,cy,cz);camera.lookAt(P.x,P.y+1,P.z);
+      uiApi.text('coins','🪙 '+coinN,{x:14,y:12,size:22});uiApi.text('time',((performance.now()-t0)/1000).toFixed(1),{x:'50%',y:12,size:26,align:'center'});uiApi.text('dth','💀 '+deaths,{x:14,y:44,size:18});});
+    return P;};
+  requestAnimationFrame(loop);window.Bricks=Bricks;
+  try{new Function('Bricks','THREE',B.code)(Bricks,THREE);post('ready');}catch(e){post('err',{msg:'코드 오류: '+e.message});}
+}
+
+/* ===================== 브릭스 스튜디오: 만들기 · 게시 · 심사 ===================== */
+const ST_ADMINS=['Admin'];
+const stIsAdmin=()=>!!me&&ST_ADMINS.includes(String(me.uid));
+const ST_TYPES=[['block','블록','🟫'],['kill','용암·가시','🔥'],['cp','체크포인트','🚩'],['goal','골인','🏁'],['bounce','점프대','🟣'],['move','움직이는 발판','↔️'],['coin','코인','🪙'],['spawn','시작점','🟢'],['sign','안내판','💬']];
+const ST_COL={block:'#8a8f9a',kill:'#e8453c',cp:'#3d7dd8',goal:'#ffd34d',bounce:'#e84fa0',move:'#8a93b8',spawn:'#4adb6a',coin:'#ffd34d',sign:'#ffffff'};
+const ST_DEF={block:{sx:6,sy:1,sz:6},kill:{sx:6,sy:.6,sz:6},cp:{sx:4,sy:.4,sz:4},goal:{sx:5,sy:.6,sz:5},bounce:{sx:4,sy:.6,sz:4},move:{sx:5,sy:1,sz:5,a:'x',r:6,s:1.2},coin:{sx:1,sy:1,sz:1},spawn:{sx:3,sy:.4,sz:3},sign:{sx:1,sy:1,sz:1,tx:'안내'}};
+const stObbyLevel=()=>[{t:'spawn',x:0,y:.2,z:0},{t:'block',x:0,y:-.5,z:0,sx:10,sy:1,sz:10,c:'#7a9a6a'},{t:'sign',x:0,y:4,z:-4,tx:'앞으로 가요!'},
+  {t:'block',x:0,y:-.5,z:-12,sx:4,sy:1,sz:4},{t:'kill',x:0,y:-.8,z:-17,sx:6,sy:.6,sz:6},{t:'block',x:0,y:-.5,z:-22,sx:4,sy:1,sz:4},{t:'coin',x:0,y:1.6,z:-22},
+  {t:'cp',x:0,y:-.3,z:-27,sx:5,sy:.4,sz:5},{t:'bounce',x:0,y:-.5,z:-33,sx:4,sy:.6,sz:4},{t:'block',x:0,y:8,z:-42,sx:6,sy:1,sz:6,c:'#6aa0d8'},{t:'coin',x:0,y:9.6,z:-42},
+  {t:'move',x:0,y:8,z:-52,sx:5,sy:1,sz:5,a:'x',r:7,s:1.1},{t:'block',x:0,y:8,z:-62,sx:6,sy:1,sz:6,c:'#6aa0d8'},{t:'coin',x:0,y:9.6,z:-62},{t:'goal',x:0,y:8.4,z:-68,sx:5,sy:.6,sz:5}];
+const ST_TPL=[
+ {id:'obby',name:'오비 (블록으로 만들기)',desc:'블록 에디터로 맵을 만들면 끝! 코드는 몰라도 돼요.',lv:stObbyLevel,code:['// 블록 에디터로 만든 맵을 그대로 실행해요.','// 이 한 줄을 지우고 직접 코드를 써서 완전히 다른 게임도 만들 수 있어요!','Bricks.platformer(Bricks.level);'].join('\n')},
+ {id:'coin',name:'코인 모으기 (코드 예시)',desc:'45초 안에 코인을 최대한 많이 모으는 게임이에요.',lv:()=>[],code:[
+ "// 🪙 코인 모으기 (코드로 만든 게임 예시)","const {scene,camera}=Bricks;","scene.background=new THREE.Color('#1b2a4a');",
+ "const floor=new THREE.Mesh(new THREE.CircleGeometry(30,48),new THREE.MeshLambertMaterial({color:'#2e5a3a'}));","floor.rotation.x=-Math.PI/2;scene.add(floor);",
+ "const me=new THREE.Mesh(new THREE.BoxGeometry(1,1.6,1),new THREE.MeshLambertMaterial({color:Bricks.me.color}));","me.position.y=.8;scene.add(me);","const coins=[];",
+ "for(let i=0;i<25;i++){","  const c=new THREE.Mesh(new THREE.CylinderGeometry(.5,.5,.12,16),new THREE.MeshLambertMaterial({color:'#ffd34d',emissive:'#664400'}));",
+ "  c.rotation.x=Math.PI/2;c.position.set(Bricks.random(-26,26),.8,Bricks.random(-26,26));scene.add(c);coins.push(c);","}","let score=0,time=45;",
+ "Bricks.onUpdate((dt)=>{","  if(time<=0)return;","  time-=dt;","  const a=Bricks.input.axis();","  me.position.x+=a.x*11*dt;me.position.z-=a.y*11*dt;",
+ "  camera.position.set(me.position.x,15,me.position.z+14);camera.lookAt(me.position);",
+ "  for(const c of coins){c.rotation.z+=dt*3;if(c.visible&&c.position.distanceTo(me.position)<1.3){c.visible=false;score++;Bricks.sound.beep(900,.1);}}",
+ "  Bricks.ui.text('score','🪙 '+score,{x:14,y:12,size:24});","  Bricks.ui.text('time',Math.ceil(time)+'초',{x:'50%',y:12,size:28,align:'center'});",
+ "  if(time<=0)Bricks.end('시간 끝! 코인 '+score+'개');","});"].join('\n')},
+ {id:'shoot',name:'과녁 맞히기 (슈팅 예시)',desc:'1인칭으로 40초 동안 과녁을 쏴요. 화면을 클릭하면 마우스가 고정돼요.',lv:()=>[],code:[
+ "// 🎯 과녁 맞히기 (1인칭 슈팅 예시)","const {scene,camera}=Bricks;","scene.background=new THREE.Color('#10162a');",
+ "const floor=new THREE.Mesh(new THREE.CircleGeometry(40,48),new THREE.MeshLambertMaterial({color:'#3a4060'}));floor.rotation.x=-Math.PI/2;scene.add(floor);",
+ "camera.position.set(0,1.7,0);","let yaw=0,pitch=0,score=0,time=40;","const targets=[];",
+ "function spawn(){const m=new THREE.Mesh(new THREE.SphereGeometry(.8,16,12),new THREE.MeshLambertMaterial({color:'#e8453c',emissive:'#440000'}));","  const a=Math.random()*Math.PI*2,r=Bricks.random(10,22);m.position.set(Math.cos(a)*r,Bricks.random(1,6),Math.sin(a)*r);scene.add(m);targets.push(m);}",
+ "for(let i=0;i<5;i++)spawn();","const ray=new THREE.Raycaster();","Bricks.ui.text('cross','+',{x:'50%',y:'48%',size:34,align:'center'});",
+ "Bricks.onUpdate((dt)=>{","  if(time<=0)return;","  time-=dt;","  const l=Bricks.input.look();yaw-=l.dx*.003;pitch=Math.max(-1.2,Math.min(1.2,pitch-l.dy*.003));","  camera.rotation.set(pitch,yaw,0,'YXZ');",
+ "  if(Bricks.input.fire()){","    Bricks.input.lock();ray.setFromCamera({x:0,y:0},camera);const h=ray.intersectObjects(targets)[0];",
+ "    if(h){scene.remove(h.object);targets.splice(targets.indexOf(h.object),1);score++;Bricks.sound.beep(700,.1);spawn();}else Bricks.sound.beep(200,.05);","  }",
+ "  Bricks.ui.text('score','🎯 '+score,{x:14,y:12,size:24});","  Bricks.ui.text('time',Math.ceil(time)+'초',{x:'50%',y:12,size:28,align:'center'});","  if(time<=0)Bricks.end('끝! 과녁 '+score+'개');","});"].join('\n')},
+ {id:'empty',name:'빈 프로젝트 (처음부터)',desc:'아무것도 없는 상태에서 코드로 시작해요.',lv:()=>[],code:["// 여기에 마음대로 코드를 써서 어떤 게임이든 만들 수 있어요!","// Bricks.scene = 3D 장면, Bricks.camera = 카메라, THREE = 3D 도구","// Bricks.onUpdate((dt)=>{ ... }) = 매 프레임 실행","const box=new THREE.Mesh(new THREE.BoxGeometry(2,2,2),new THREE.MeshLambertMaterial({color:'#3d7dd8'}));","Bricks.scene.add(box);","Bricks.camera.position.set(0,3,8);Bricks.camera.lookAt(0,0,0);","Bricks.onUpdate((dt)=>{box.rotation.y+=dt;box.rotation.x+=dt*.5;});","Bricks.ui.text('t','내 첫 게임!',{x:'50%',y:20,size:28,align:'center'});"].join('\n')}];
+const ST_HELP=`[ 쓸 수 있는 도구 ]
+Bricks.scene / Bricks.camera / Bricks.renderer … 3D 장면, 카메라 (THREE는 three.js)
+Bricks.onUpdate((dt,t)=>{…}) … 매 프레임 실행
+Bricks.input.axis() … 이동 입력 {x,y} (WASD, 방향키, 폰은 조이스틱)
+Bricks.input.jump() / fire() / look() / lock() … 점프, 클릭, 마우스 움직임, 마우스 고정
+Bricks.key('w') … 키를 누르고 있는지
+Bricks.ui.text(id,글,{x,y,size,color}) / bar / button / html / toast … 화면 글씨와 버튼
+Bricks.sound.beep(높이,길이) … 소리
+Bricks.me … {name,color} 내 정보
+Bricks.net.join() / setState(obj) / players() / broadcast(msg) / onBroadcast(fn) … 친구와 같이 하는 멀티플레이
+Bricks.save(obj) / Bricks.load() … 내 기록 저장
+Bricks.end('글') … 게임 끝내기
+Bricks.platformer(Bricks.level) … 블록 에디터로 만든 맵 실행
+※ 인터넷 접속과 계정 접근은 막혀 있어요. 심사에서 코드를 확인해요.`;
+let STS={projects:{},cur:null,tab:'mine',tool:null};
+/* ----- 저장 ----- */
+const stLocalKey='bricks.studio';
+function stLocalLoad(){try{return JSON.parse(localStorage.getItem(stLocalKey)||'{}')||{};}catch(e){return{};}}
+async function stLoad(){if(me&&rtdb){try{const v=(await withTimeout(bref('studio/projects/'+me.uid).get(),6000)).val()||{};STS.projects=v;}catch(e){STS.projects=stLocalLoad();}}else STS.projects=stLocalLoad();for(const k in STS.projects){STS.projects[k].id=k;}}
+let stSaveT=0;
+function stSaveSoon(){const el=$('stSaved');if(el)el.textContent='저장 중…';clearTimeout(stSaveT);stSaveT=setTimeout(stSaveNow,700);}
+async function stSaveNow(){const p=STS.cur;if(!p)return;p.u=Date.now();const o=stPlain(p);try{if(me&&rtdb){const ref=bref('studio/projects/'+me.uid+'/'+p.id);if(p._fresh){await withTimeout(ref.set(o),6000);p._fresh=false;}else{const c={n:o.n,d:o.d,c:o.c,lv:o.lv,u:o.u};await withTimeout(ref.update(c),6000);}}else{const all=stLocalLoad();all[p.id]=o;localStorage.setItem(stLocalKey,JSON.stringify(all));}const el=$('stSaved');if(el)el.textContent='저장됨 ✓';}catch(e){const el=$('stSaved');if(el)el.textContent='저장 실패';}}
+const stPlain=p=>({n:String(p.n||'내 게임').slice(0,30),d:String(p.d||'').slice(0,300),c:String(p.c||'').slice(0,100000),lv:String(p.lv||'[]').slice(0,200000),st:p.st||'',rj:p.rj||'',u:p.u||Date.now()});
+const stLevel=p=>{try{const a=JSON.parse(p.lv||'[]');return Array.isArray(a)?a:[];}catch(e){return[];}};
+function stNewProject(tplId){const t=ST_TPL.find(x=>x.id===tplId)||ST_TPL[0];const id=Date.now().toString(36)+Math.floor(Math.random()*1296).toString(36);const lv=t.lv().map((p,i)=>Object.assign({i:'p'+i},ST_DEF[p.t]||{},p));const p={id,n:t.name.replace(/\s*\(.*\)/,''),d:t.desc,c:t.code,lv:JSON.stringify(lv),st:'',u:Date.now(),_fresh:true};STS.projects[id]=p;STS.cur=p;return p;}
+/* ----- 목록 화면 ----- */
+function stStatusText(p){return p.st==='pending'?'⏳ 심사 대기 중':p.st==='pub'?'✅ 게시됨':p.st==='no'?'❌ 거절됨'+(p.rj?': '+p.rj:''):'✏️ 작성 중';}
+function stRender(){const mine=$('stMine'),nw=$('stNew'),rv=$('stReview');if(!mine)return;document.querySelectorAll('#stTabs button').forEach(b=>b.classList.toggle('on',b.dataset.st===STS.tab));mine.hidden=STS.tab!=='mine';nw.hidden=STS.tab!=='new';rv.hidden=STS.tab!=='review';$('stRevTab').hidden=!stIsAdmin();
+  if(STS.tab==='mine'){mine.replaceChildren();const ids=Object.keys(STS.projects).sort((a,b)=>(STS.projects[b].u||0)-(STS.projects[a].u||0));if(!ids.length){const e=document.createElement('p');e.className='empty';e.textContent='아직 만든 게임이 없어요. "새 게임 만들기"에서 시작해 보세요!';mine.appendChild(e);}
+    for(const id of ids){const p=STS.projects[id];const c=document.createElement('div');c.className='stcard';const h=document.createElement('b');h.textContent=p.n;const s=document.createElement('small');s.textContent=stStatusText(p);const d=document.createElement('p');d.textContent=p.d||'';const row=document.createElement('div');row.className='strow';
+      const mkb=(t,fn,cls)=>{const b=document.createElement('button');b.textContent=t;if(cls)b.className=cls;b.onclick=fn;row.appendChild(b);};
+      mkb('✏️ 편집',()=>stOpen(id));mkb('▶ 테스트',()=>stPlayProject(p));mkb('🗑',async()=>{if(!confirm('이 게임을 지울까요?'))return;delete STS.projects[id];try{if(me&&rtdb)await bref('studio/projects/'+me.uid+'/'+id).remove();else{const all=stLocalLoad();delete all[id];localStorage.setItem(stLocalKey,JSON.stringify(all));}}catch(e){}stRender();},'del');c.append(h,s,d,row);mine.appendChild(c);}}
+  else if(STS.tab==='new'){nw.replaceChildren();for(const t of ST_TPL){const c=document.createElement('div');c.className='stcard';const h=document.createElement('b');h.textContent=t.name;const d=document.createElement('p');d.textContent=t.desc;const b=document.createElement('button');b.className='pri';b.textContent='이걸로 시작';b.onclick=()=>{stNewProject(t.id);stSaveNow();stOpen(STS.cur.id);};c.append(h,d,b);nw.appendChild(c);}}
+  else stReviewRender();}
+async function stOpenView(){await stLoad();STS.tab=STS.tab==='review'&&!stIsAdmin()?'mine':STS.tab;$('stList').hidden=false;$('stEd').hidden=true;stRender();}
+/* ----- 편집기 ----- */
+const ED={r:null,sc:null,cam:null,meshes:new Map(),sel:null,yaw:.8,pitch:.6,dist:28,t:{x:0,y:0,z:0},hist:[],drag:null,run:false,ray:new THREE.Raycaster(),ground:null};
+function edLevel(){return stLevel(STS.cur);}
+function edSetLevel(a){STS.cur.lv=JSON.stringify(a);}
+function edPush(){const p=STS.cur;ED.hist.push(p.lv);if(ED.hist.length>40)ED.hist.shift();}
+function edUndo(){if(!ED.hist.length)return;STS.cur.lv=ED.hist.pop();ED.sel=null;edBuild();edProps();stSaveSoon();}
+function stOpen(id){STS.cur=STS.projects[id];if(!STS.cur)return;ED.hist=[];ED.sel=null;$('stList').hidden=true;$('stEd').hidden=false;$('stName').value=STS.cur.n;$('stDesc').value=STS.cur.d||'';$('stCode').value=STS.cur.c||'';$('stErr').textContent='';$('stSaved').textContent='저장됨 ✓';edTab('blocks');edInit();edBuild();edProps();ED.run=true;requestAnimationFrame(edLoop);}
+function edInit(){if(ED.r)return;try{ED.r=new THREE.WebGLRenderer({canvas:$('stCanvas'),antialias:true});}catch(e){return;}ED.r.setPixelRatio(Math.min(devicePixelRatio||1,2));ED.sc=new THREE.Scene();ED.sc.background=new THREE.Color('#bfe3ff');ED.sc.add(new THREE.HemisphereLight('#ffffff','#778899',1));const dl=new THREE.DirectionalLight('#fff',.6);dl.position.set(20,40,10);ED.sc.add(dl);
+  ED.cam=new THREE.PerspectiveCamera(55,1,.1,500);const grid=new THREE.GridHelper(120,120,'#7a8aa0','#a8b8c8');ED.sc.add(grid);ED.ground=new THREE.Mesh(new THREE.PlaneGeometry(400,400),new THREE.MeshBasicMaterial({visible:false}));ED.ground.rotation.x=-Math.PI/2;ED.sc.add(ED.ground);
+  const cvs=$('stCanvas');
+  cvs.addEventListener('pointerdown',ev=>{cvs.setPointerCapture(ev.pointerId);const hit=edPick(ev);const pan=ev.button===2||ev.button===1||ev.shiftKey;ED.moved=false;
+    if(hit&&!pan){edSelect(hit);const pt=edGround(ev,hit.y);ED.drag={k:'part',p:hit,ox:pt?hit.x-pt.x:0,oz:pt?hit.z-pt.z:0,push:false};}
+    else{if(!pan&&!hit){ED.sel=null;edColor();edProps();}ED.drag={k:pan?'pan':'orbit',x:ev.clientX,y:ev.clientY};}});
+  cvs.addEventListener('pointermove',ev=>{const d=ED.drag;if(!d)return;ED.moved=true;if(d.k==='orbit'){ED.yaw-=(ev.clientX-d.x)*.008;ED.pitch=Math.max(.05,Math.min(1.5,ED.pitch+(ev.clientY-d.y)*.006));d.x=ev.clientX;d.y=ev.clientY;}
+    else if(d.k==='pan'){const s=ED.dist*.0016;ED.t.x-=((ev.clientX-d.x)*Math.cos(ED.yaw)+(ev.clientY-d.y)*Math.sin(ED.yaw)*-1)*s;ED.t.z-=((ev.clientX-d.x)*-Math.sin(ED.yaw)+(ev.clientY-d.y)*Math.cos(ED.yaw)*-1)*s*-1;d.x=ev.clientX;d.y=ev.clientY;}
+    else if(d.k==='part'){const pt=edGround(ev,d.p.y);if(pt){if(!d.push){edPush();d.push=true;}d.p.x=Math.round((pt.x+d.ox)*2)/2;d.p.z=Math.round((pt.z+d.oz)*2)/2;if(d.p.t==='move'){d.p.ox=d.p.x;}edSync(d.p);edProps(true);}}});
+  const up=()=>{if(ED.drag&&ED.drag.k==='part'&&ED.drag.push){edCommit();}ED.drag=null;};cvs.addEventListener('pointerup',up);cvs.addEventListener('pointercancel',up);cvs.addEventListener('contextmenu',e=>e.preventDefault());
+  cvs.addEventListener('wheel',e=>{ED.dist=Math.max(5,Math.min(120,ED.dist+e.deltaY*.04));e.preventDefault();},{passive:false});
+  let pinch=0;cvs.addEventListener('touchmove',e=>{if(e.touches.length===2){const d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);if(pinch)ED.dist=Math.max(5,Math.min(120,ED.dist-(d-pinch)*.08));pinch=d;e.preventDefault();}},{passive:false});cvs.addEventListener('touchend',()=>{pinch=0;});
+  addEventListener('keydown',ev=>{if($('stEd').hidden||document.activeElement&&/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))return;const p=ED.sel;if(ev.key==='z'&&(ev.ctrlKey||ev.metaKey)){edUndo();ev.preventDefault();return;}if(!p)return;
+    if(ev.key==='Delete'||ev.key==='Backspace'){edDelete();ev.preventDefault();}else if(ev.key==='d'||ev.key==='D'){edDup();}else{const m={ArrowLeft:['x',-1],ArrowRight:['x',1],ArrowUp:['z',-1],ArrowDown:['z',1],PageUp:['y',1],PageDown:['y',-1]}[ev.key];if(m){edPush();p[m[0]]+=m[1]*(ev.shiftKey?.5:1);edSync(p);edProps(true);edCommit();ev.preventDefault();}}});}
+function edGround(ev,y){const r=$('stCanvas').getBoundingClientRect();const v=new THREE.Vector2(((ev.clientX-r.left)/r.width)*2-1,-((ev.clientY-r.top)/r.height)*2+1);ED.ray.setFromCamera(v,ED.cam);const pl=new THREE.Plane(new THREE.Vector3(0,1,0),-y);const o=new THREE.Vector3();return ED.ray.ray.intersectPlane(pl,o)?o:null;}
+function edPick(ev){const r=$('stCanvas').getBoundingClientRect();const v=new THREE.Vector2(((ev.clientX-r.left)/r.width)*2-1,-((ev.clientY-r.top)/r.height)*2+1);ED.cam.updateMatrixWorld();ED.ray.setFromCamera(v,ED.cam);const hits=ED.ray.intersectObjects([...ED.meshes.values()],false);if(!hits.length)return null;const id=hits[0].object.userData.pid;return edLevel_().find(p=>p.i===id)||null;}
+let edLv=[];const edLevel_=()=>edLv;
+function edBuild(){for(const m of ED.meshes.values())ED.sc.remove(m);ED.meshes.clear();edLv=edLevel();for(const p of edLv){if(!p.i)p.i='p'+Math.random().toString(36).slice(2,7);edMakeMesh(p);}}
+function edMakeMesh(p){let g;if(p.t==='coin')g=new THREE.CylinderGeometry(.6,.6,.15,16);else if(p.t==='spawn')g=new THREE.CylinderGeometry(1.2,1.2,.3,20);else if(p.t==='sign')g=new THREE.BoxGeometry(4,1,.3);else g=new THREE.BoxGeometry(p.sx||4,p.sy||1,p.sz||4);
+  const m=new THREE.Mesh(g,new THREE.MeshLambertMaterial({color:p.c||ST_COL[p.t]||'#8a8f9a'}));if(p.t==='coin')m.rotation.x=Math.PI/2;m.userData.pid=p.i;m.position.set(p.x||0,p.y||0,p.z||0);ED.sc.add(m);ED.meshes.set(p.i,m);return m;}
+function edSync(p){const old=ED.meshes.get(p.i);if(old)ED.sc.remove(old);edMakeMesh(p);edColor();}
+function edColor(){for(const [id,m] of ED.meshes){const on=ED.sel&&ED.sel.i===id;m.material.emissive.set(on?'#2255ff':'#000000');}}
+function edSelect(p){ED.sel=p;edColor();edProps();}
+function edCommit(){edSetLevel(edLv);stSaveSoon();}
+function edAdd(t){edPush();const d=ST_DEF[t]||{};const p=Object.assign({i:'p'+Math.random().toString(36).slice(2,7),t,x:Math.round(ED.t.x),y:t==='coin'?1.6:t==='sign'?3:0,z:Math.round(ED.t.z)},d);edLv.push(p);edMakeMesh(p);edSelect(p);edCommit();}
+function edDelete(){const p=ED.sel;if(!p)return;edPush();edLv.splice(edLv.indexOf(p),1);const m=ED.meshes.get(p.i);if(m)ED.sc.remove(m);ED.meshes.delete(p.i);ED.sel=null;edProps();edCommit();}
+function edDup(){const p=ED.sel;if(!p)return;edPush();const q=Object.assign({},p,{i:'p'+Math.random().toString(36).slice(2,7),x:(p.x||0)+2,z:(p.z||0)+2});edLv.push(q);edMakeMesh(q);edSelect(q);edCommit();}
+function edProps(light){const box=$('stProps');if(!ED.sel){box.innerHTML='<p class="muted small">블록을 눌러서 선택하면 여기서 고칠 수 있어요.<br>끌어서 옮기고, 빈 곳을 끌면 돌려 봐요. 휠은 확대·축소, 우클릭(또는 Shift)을 끌면 이동이에요.<br>Delete 삭제 · D 복제 · 방향키로 1칸씩 · Ctrl+Z 되돌리기</p>';return;}
+  if(light){const p=ED.sel;for(const k of ['x','y','z']){const el=box.querySelector('[data-k='+k+']');if(el)el.value=p[k];}return;}
+  const p=ED.sel;box.replaceChildren();const mk=(lab,k,type,step)=>{const w=document.createElement('label');w.className='pf';const s=document.createElement('span');s.textContent=lab;const i=document.createElement('input');i.type=type||'number';i.step=step||.5;i.dataset.k=k;i.value=p[k]===undefined?'':p[k];i.oninput=()=>{edPush();p[k]=(type==='text'||type==='color')?i.value:(parseFloat(i.value)||0);if(k==='c')p.c=i.value;edSync(p);edCommit();};w.append(s,i);return w;};
+  const t=document.createElement('div');t.className='ptype';t.textContent=(ST_TYPES.find(x=>x[0]===p.t)||['','블록','🟫']).slice(1).reverse().join(' ');box.appendChild(t);
+  const row=document.createElement('div');row.className='prow3';row.append(mk('X','x'),mk('Y','y'),mk('Z','z'));box.appendChild(row);
+  if(!['coin','spawn','sign'].includes(p.t)){const r2=document.createElement('div');r2.className='prow3';r2.append(mk('가로','sx'),mk('높이','sy'),mk('세로','sz'));box.appendChild(r2);}
+  if(p.t==='move'){const r3=document.createElement('div');r3.className='prow3';const sel=document.createElement('label');sel.className='pf';const ss=document.createElement('span');ss.textContent='방향';const se=document.createElement('select');for(const a of ['x','y','z']){const o=document.createElement('option');o.value=a;o.textContent=a.toUpperCase();if((p.a||'x')===a)o.selected=true;se.appendChild(o);}se.onchange=()=>{edPush();p.a=se.value;edCommit();};sel.append(ss,se);r3.append(sel,mk('거리','r'),mk('속도','s'));box.appendChild(r3);}
+  if(p.t==='sign')box.appendChild(mk('글','tx','text'));
+  const cw=mk('색','c','color');cw.querySelector('input').value=p.c||ST_COL[p.t]||'#8a8f9a';box.appendChild(cw);
+  const bt=document.createElement('div');bt.className='strow';const b1=document.createElement('button');b1.textContent='복제 (D)';b1.onclick=edDup;const b2=document.createElement('button');b2.className='del';b2.textContent='삭제 (Del)';b2.onclick=edDelete;const b3=document.createElement('button');b3.textContent='되돌리기';b3.onclick=edUndo;bt.append(b1,b2,b3);box.appendChild(bt);}
+function edLoop(t){if(!ED.run||$('stEd').hidden||view!=='studio'){ED.run=false;return;}const c=$('stCanvas'),w=c.clientWidth,h=c.clientHeight;if(w&&h){if(c.width!==Math.round(w*ED.r.getPixelRatio()))ED.r.setSize(w,h,false);ED.cam.aspect=w/h;ED.cam.updateProjectionMatrix();}
+  ED.cam.position.set(ED.t.x+Math.sin(ED.yaw)*Math.cos(ED.pitch)*ED.dist,ED.t.y+Math.sin(ED.pitch)*ED.dist,ED.t.z+Math.cos(ED.yaw)*Math.cos(ED.pitch)*ED.dist);ED.cam.lookAt(ED.t.x,ED.t.y,ED.t.z);
+  for(const [id,m] of ED.meshes){if(m.geometry.type==='CylinderGeometry'&&id){}}ED.r.render(ED.sc,ED.cam);requestAnimationFrame(edLoop);}
+function edTab(k){document.querySelectorAll('#stEd [data-edtab]').forEach(b=>b.classList.toggle('on',b.dataset.edtab===k));for(const id of ['stPaneBlocks','stPaneCode','stPaneSet'])$(id).hidden=true;$({blocks:'stPaneBlocks',code:'stPaneCode',set:'stPaneSet'}[k]).hidden=false;}
+/* ----- 실행(샌드박스) ----- */
+function stDoc(p,saved){const BR={code:String(p.c||''),level:stLevel(p),name:p.n,me:{name:myName,color:avatar.col},save:saved||null};
+  return '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'unsafe-inline\' \'unsafe-eval\' https://cdnjs.cloudflare.com; style-src \'unsafe-inline\'; img-src data: blob:; media-src data: blob:; connect-src \'none\'; font-src data:">'
+   +'<style>html,body{margin:0;height:100%;overflow:hidden;background:#000;font-family:system-ui,sans-serif;user-select:none;-webkit-user-select:none;touch-action:none}canvas{display:block;width:100%;height:100%}#ui{position:fixed;inset:0;pointer-events:none;overflow:hidden}.ut{position:absolute;color:#fff;font-weight:800;text-shadow:0 2px 4px #000;white-space:nowrap}.ub{position:absolute;width:200px;height:14px;border:2px solid #111;border-radius:7px;background:rgba(0,0,0,.5);overflow:hidden}.ub i{display:block;height:100%}.ubtn{position:absolute;pointer-events:auto;padding:8px 16px;border-radius:10px;border:2px solid #fff;background:rgba(20,20,30,.8);color:#fff;font:inherit;font-weight:800}.utoast{position:absolute;left:50%;top:70px;transform:translateX(-50%);background:rgba(0,0,0,.75);color:#fff;padding:8px 16px;border-radius:10px;font-weight:800}.endcard{background:rgba(0,0,0,.8);color:#fff;border:3px solid #ffd34d;border-radius:16px;padding:18px 28px;font-size:24px;transform:translateX(-50%);text-align:center}.tb{position:absolute;pointer-events:auto;color:#fff;font-weight:800;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,.18);border:2px solid #fff}.js{left:22px;bottom:30px;width:110px;height:110px}.js i{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.55)}.jb{right:22px;bottom:110px;width:70px;height:70px}.fb{right:100px;bottom:36px;width:70px;height:70px}</style></head><body><canvas id="c"></canvas><div id="ui"></div>'
+   +'<script>window.__BR='+JSON.stringify(BR).replace(/</g,'\\u003c')+';<\/script><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script><script>('+stRuntimeMain.toString()+')();<\/script></body></html>';}
+let stFrame=null,stPlaying=null,stNet=null;
+function stPlayProject(p,opts){opts=opts||{};stPlaying={p,pub:!!opts.pub,at:Date.now()};const ov=$('stPlay');ov.hidden=false;$('stPlayTitle').textContent=p.n+(opts.pub?'':' (테스트)');$('stPlayErr').textContent='';ov.querySelector('iframe')&&ov.querySelector('iframe').remove();
+  const f=document.createElement('iframe');f.setAttribute('sandbox','allow-scripts');f.setAttribute('allow','');let saved=null;try{saved=JSON.parse(localStorage.getItem('bricks.ug.'+(p.id||'x'))||'null');}catch(e){}f.srcdoc=stDoc(p,saved);ov.appendChild(f);stFrame=f;if(opts.pub&&me&&rtdb)bref('studio/pub/'+p.id+'/pl').transaction(n=>(n||0)+1).catch(()=>{});}
+function stClosePlay(){const ov=$('stPlay');try{stFrame&&stFrame.contentWindow.postMessage({bricks:1,t:'stop'},'*');}catch(e){}ov.hidden=true;const f=ov.querySelector('iframe');if(f)f.remove();stFrame=null;stPlaying=null;stNetLeave();}
+addEventListener('message',ev=>{if(!stFrame||ev.source!==stFrame.contentWindow)return;const d=ev.data;if(!d||!d.bricks)return;
+  if(d.t==='err'){const m=String(d.msg||'').slice(0,300);$('stPlayErr').textContent='⚠ '+m;if(!$('stEd').hidden)$('stErr').textContent='⚠ '+m;}
+  else if(d.t==='save'&&stPlaying){try{localStorage.setItem('bricks.ug.'+(stPlaying.p.id||'x'),String(d.s).slice(0,8000));}catch(e){}}
+  else if(d.t==='win'||d.t==='end'){if(stPlaying&&stPlaying.pub&&!stPlaying.rew){stPlaying.rew=1;gainXP(10,'유저 게임 클리어');}}
+  else if(d.t==='net.join')stNetJoin();else if(d.t==='net.state')stNetState(d.s);else if(d.t==='net.bc')stNetBc(d.m);});
+function stToFrame(o){try{stFrame&&stFrame.contentWindow.postMessage(Object.assign({bricks:1},o),'*');}catch(e){}}
+function stNetJoin(){if(stNet||!stPlaying)return;if(!me||!rtdb){stToFrame({t:'net.players',p:{}});return;}const pid=stPlaying.p.id||'test';const ref=bref('studio/rooms/'+pid+(stPlaying.pub?'/main':'/test_'+me.uid));stNet={ref,joinAt:Date.now()+serverOffset,last:0};ref.child('p/'+me.uid).onDisconnect().remove();
+  ref.child('p').on('value',s=>{const v=s.val()||{},out={},now=Date.now()+serverOffset;for(const k in v){if(k===me.uid||!keyOk(k)||now-(v[k].at||0)>20000)continue;out[k]={n:String(v[k].n||k).slice(0,12),s:v[k].s};}stToFrame({t:'net.players',p:out});});
+  ref.child('ev').on('child_added',s=>{const v=s.val()||{};if(v.u===me.uid||(v.at||0)<stNet.joinAt-300)return;stToFrame({t:'net.bc',m:v.m,from:String(v.n||v.u).slice(0,12)});s.ref.remove().catch(()=>{});});}
+function stNetState(s){if(!stNet||!me)return;const n=Date.now();if(n-stNet.last<90)return;stNet.last=n;const j=JSON.stringify(s||{});if(j.length>1500)return;stNet.ref.child('p/'+me.uid).set({n:myName,s,at:Date.now()+serverOffset}).catch(()=>{});}
+function stNetBc(m){if(!stNet||!me)return;const j=JSON.stringify(m||{});if(j.length>500)return;stNet.ref.child('ev').push({u:me.uid,n:myName,m,at:Date.now()+serverOffset}).catch(()=>{});}
+function stNetLeave(){if(!stNet)return;try{stNet.ref.child('p').off();stNet.ref.child('ev').off();if(me)stNet.ref.child('p/'+me.uid).remove();}catch(e){}stNet=null;}
+/* ----- 게시 신청 · 심사 ----- */
+async function stSubmit(){const p=STS.cur;if(!p)return;if(!me||!rtdb){alert('게시 신청은 로그인해야 할 수 있어요.');return;}if(!String(p.c||'').trim()){alert('코드가 비어 있어요.');return;}
+  await stSaveNow();try{await withTimeout(bref('studio/pending/'+p.id).set({o:me.uid,n:p.n,d:p.d||'',c:String(p.c).slice(0,100000),lv:String(p.lv||'[]'),at:TS()}),6000);await bref('studio/feed').push({pid:p.id,o:me.uid,n:p.n,at:Date.now()+serverOffset});p.st='pending';p.rj='';await bref('studio/projects/'+me.uid+'/'+p.id+'/st').set('pending');await bref('studio/projects/'+me.uid+'/'+p.id+'/rj').set('');$('stSaved').textContent='심사를 신청했어요 ✓';brxPop('📨 게시 신청을 보냈어요! 관리자가 확인하면 알려줄게요');}catch(e){alert('신청하지 못했어요. 잠시 뒤에 다시 해보세요.');}}
+async function stReviewRender(){const box=$('stReview');box.replaceChildren();if(!stIsAdmin()){box.textContent='관리자만 볼 수 있어요.';return;}
+  if(!adminOK){const m=document.createElement('div');m.className='stcard';const t=document.createElement('b');t.textContent='🛠 관리자 비밀번호 확인';const i=document.createElement('input');i.type='password';i.placeholder='관리자 비밀번호';i.autocomplete='off';const b=document.createElement('button');b.className='pri';b.textContent='확인';const msg=document.createElement('small');b.onclick=async()=>{try{const acc=await readAccount(me.uid);if(acc&&acc.password&&acc.password===i.value){adminOK=true;stReviewRender();}else msg.textContent='비밀번호가 맞지 않아요.';}catch(e){msg.textContent='확인하지 못했어요.';}};m.append(t,i,b,msg);box.appendChild(m);return;}
+  let v={};try{v=(await withTimeout(bref('studio/pending').get(),6000)).val()||{};}catch(e){box.textContent='불러오지 못했어요.';return;}const ids=Object.keys(v).sort((a,b)=>(v[b].at||0)-(v[a].at||0));$('stBadge').textContent=ids.length?ids.length:'';
+  if(!ids.length){const e=document.createElement('p');e.className='empty';e.textContent='심사 대기 중인 게임이 없어요.';box.appendChild(e);return;}
+  for(const id of ids){const it=Object.assign({id},v[id]);const c=document.createElement('div');c.className='stcard';const h=document.createElement('b');h.textContent=it.n;const by=document.createElement('small');by.textContent='만든 사람 ';const nm=document.createElement('span');nm.textContent=it.o;by.appendChild(nm);const d=document.createElement('p');d.textContent=it.d||'';const row=document.createElement('div');row.className='strow';
+    const mkb=(t,fn,cls)=>{const b=document.createElement('button');b.textContent=t;if(cls)b.className=cls;b.onclick=fn;row.appendChild(b);};
+    mkb('▶ 미리보기',()=>stPlayProject({id:it.id,n:it.n,c:it.c,lv:it.lv}));mkb('📄 코드 보기',()=>{const w=document.createElement('pre');w.className='stcode';w.textContent=it.c;const old=c.querySelector('.stcode');if(old)old.remove();else c.appendChild(w);});
+    mkb('✅ 수락',async()=>{try{let pl=0;try{pl=(await bref('studio/pub/'+it.id+'/pl').get()).val()||0;}catch(e){}await bref('studio/pub/'+it.id).set({o:it.o,n:it.n,d:it.d||'',c:it.c,lv:it.lv,at:TS(),pl});await bref('studio/pending/'+it.id).remove();await bref('studio/projects/'+it.o+'/'+it.id+'/st').set('pub');await bref('studio/projects/'+it.o+'/'+it.id+'/rj').set('');await bref('studio/notice/'+it.o).push({t:'ok',p:it.id,n:it.n,at:Date.now()});brxPop('✅ 게시했어요: '+it.n);stReviewRender();}catch(e){alert('처리하지 못했어요.');}},'pri');
+    mkb('❌ 거절',async()=>{const r=prompt('거절 이유를 적어 주세요 (만든 사람에게 보여요)','');if(r===null)return;try{await bref('studio/pending/'+it.id).remove();await bref('studio/projects/'+it.o+'/'+it.id+'/st').set('no');await bref('studio/projects/'+it.o+'/'+it.id+'/rj').set(String(r).slice(0,100));await bref('studio/notice/'+it.o).push({t:'no',p:it.id,n:it.n,r:String(r).slice(0,100),at:Date.now()});stReviewRender();}catch(e){alert('처리하지 못했어요.');}},'del');
+    c.append(h,by,d,row);box.appendChild(c);}}
+/* ----- 알림 ----- */
+let stLogin=0;
+function stStartWatch(){if(!me||!rtdb)return;stLogin=Date.now()+serverOffset;bref('studio/notice/'+me.uid).on('child_added',s=>{const v=s.val()||{};const pp=STS.projects[v.p];if(pp){pp.st=v.t==='ok'?'pub':'no';pp.rj=v.t==='ok'?'':(v.r||'');if(view==='studio'&&$('stEd').hidden)stRender();}notify(v.t==='ok'?'🎉 내 게임이 게시됐어요!':'😢 게시 신청이 거절됐어요',v.t==='ok'?`"${v.n}" 이(가) 유저 게임 목록에 올라갔어요.`:`"${v.n}": ${v.r||'이유 없음'}`,()=>go('studio'));s.ref.remove().catch(()=>{});});
+  if(stIsAdmin()){bref('studio/feed').on('child_added',s=>{const v=s.val()||{};if((v.at||0)<stLogin-1000)return;notify('🛠 새 게임 게시 신청',`${v.o}님: "${v.n}" — 눌러서 심사하기`,()=>{STS.tab='review';go('studio');});stUpdBadge();});stUpdBadge();}}
+async function stUpdBadge(){if(!stIsAdmin()||!rtdb)return;try{const v=(await bref('studio/pending').get()).val()||{};const n=Object.keys(v).length;const b=$('stNavBadge');if(b){b.hidden=!n;b.textContent=n;}$('stBadge').textContent=n||'';}catch(e){}}
+/* ----- 유저 게임 목록 ----- */
+async function renderUG(){const g=$('ugGrid');if(!g)return;g.replaceChildren();let v={};try{v=rtdb?((await withTimeout(bref('studio/pub').get(),6000)).val()||{}):{};}catch(e){}const ids=Object.keys(v).sort((a,b)=>(v[b].at||0)-(v[a].at||0));
+  if(!ids.length){const e=document.createElement('p');e.className='empty';e.textContent=rtdb?'아직 올라온 게임이 없어요. 스튜디오에서 첫 번째 주인공이 되어 보세요!':'로그인하면 유저 게임을 볼 수 있어요.';g.appendChild(e);return;}
+  for(const id of ids){const it=v[id];const c=document.createElement('button');c.className='tile ugtile';const th=document.createElement('div');th.className='ugart';th.textContent=['🎮','🧩','🚀','🏁','🎯','🌟','🧱','🏎️'][id.charCodeAt(0)%8];const n=document.createElement('b');n.textContent=it.n;const by=document.createElement('small');by.textContent='by ';const nm=document.createElement('span');nm.textContent=it.o;by.appendChild(nm);const pl=document.createElement('em');pl.textContent=`▶ ${it.pl||0}번 플레이`;c.append(th,n,by,pl);c.onclick=()=>stPlayProject({id,n:it.n,c:it.c,lv:it.lv,d:it.d},{pub:true});g.appendChild(c);}}
+
+function stWire(){document.querySelectorAll('#stTabs button').forEach(b=>b.onclick=()=>{STS.tab=b.dataset.st;stRender();});
+  document.querySelectorAll('#stEd [data-edtab]').forEach(b=>b.onclick=()=>edTab(b.dataset.edtab));
+  const tools=$('stTools');for(const [t,l,ic] of ST_TYPES){const b=document.createElement('button');b.textContent=ic+' '+l;b.onclick=()=>edAdd(t);tools.appendChild(b);}
+  $('stBack').onclick=async()=>{STS.cur.c=$('stCode').value;await stSaveNow();ED.run=false;$('stEd').hidden=true;stOpenView();};
+  $('stName').oninput=e=>{STS.cur.n=e.target.value;stSaveSoon();};$('stDesc').oninput=e=>{STS.cur.d=e.target.value;stSaveSoon();};$('stCode').oninput=e=>{STS.cur.c=e.target.value;stSaveSoon();};
+  $('stTest').onclick=()=>{STS.cur.c=$('stCode').value;stPlayProject(STS.cur);};$('stSubmitBtn').onclick=stSubmit;$('stPlayClose').onclick=stClosePlay;
+  $('stHelpBtn').onclick=()=>{const h=$('stHelp');h.hidden=!h.hidden;h.textContent=ST_HELP;};
+  const sel=$('stTplSel');for(const t of ST_TPL){const o=document.createElement('option');o.value=t.id;o.textContent=t.name;sel.appendChild(o);}
+  sel.onchange=()=>{const t=ST_TPL.find(x=>x.id===sel.value);if(t&&confirm('지금 코드를 이 예제로 바꿀까요?')){$('stCode').value=t.code;STS.cur.c=t.code;stSaveSoon();}sel.value='';};
+  $('stCode').addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();const t=e.target,s=t.selectionStart;t.value=t.value.slice(0,s)+'  '+t.value.slice(t.selectionEnd);t.selectionStart=t.selectionEnd=s+2;t.dispatchEvent(new Event('input'));}});}
+stWire();
+
 /* views */
 let view='home';
 function go(v){if(v!=='avatar')clearPreview();view=v;$('hub').classList.toggle('upd-home',v==='home');document.querySelectorAll('#hub [data-view]').forEach(sec=>sec.hidden=sec.dataset.view!==v);
   document.querySelectorAll('.hside button').forEach(b=>b.classList.toggle('on',b.dataset.go===v||(v==='detail'&&b.dataset.go==='games')));
   if(v==='avatar'){avRender();}
+  if(v==='studio')stOpenView();if(v==='games')renderUG();
   if(v==='rank'||v==='home')renderRank();if(v==='forest'){refreshForestPage();placeParty('forest');}if(v!=='gpage'&&v!=='forest')curG=v==='gpage'?curG:null;
   document.querySelector('.hmain').scrollTop=0;}
 document.querySelectorAll('#hub [data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
@@ -4615,7 +4910,7 @@ $('authForm').addEventListener('submit',async ev=>{ev.preventDefault();aMsg('');
 async function onLogin(id){me={uid:id};myName=id;try{localStorage.setItem('bricks.login',id);}catch(err){}
   try{const a=(await withTimeout(bref('profiles/'+id+'/avatar').get(),4000)).val();mergeAvatar(a);}catch(err){}
   try{localStorage.setItem('bricks.avatar',JSON.stringify(avatar));}catch(err){}
-  await loadStats();await loadWallet();enterHub();startSocial();listenInvites();startGChat();}
+  await loadStats();await loadWallet();enterHub();stStartWatch();startSocial();listenInvites();startGChat();}
 function enterHub(){$('auth').hidden=true;$('hub').hidden=false;$('offNote').hidden=!!me;$('logoutBtn').hidden=!me;applyAvatar();if(!thumbURL)makeThumb();makeGThumbs();if(!fThumbURL&&GL_OK){fThumbURL=Forest.thumb();document.querySelectorAll('img.gthumb2').forEach(im=>{if(fThumbURL)im.src=fThumbURL;});}renderGrids();}
 $('offlineBtn').addEventListener('click',()=>{me=null;loadStats();loadWallet();enterHub();});
 if(!rtdb)aMsg('bricks.html 맨 위에 Firebase 주소를 넣으면 로그인이 켜져요.');
